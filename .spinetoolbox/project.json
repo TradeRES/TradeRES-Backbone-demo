@@ -1,6 +1,6 @@
 {
     "project": {
-        "version": 5,
+        "version": 6,
         "name": "TradeRES",
         "description": "",
         "specifications": {
@@ -16,11 +16,6 @@
                     "type": "path",
                     "relative": true,
                     "path": ".spinetoolbox/specifications/Tool/to_bb.json"
-                },
-                {
-                    "type": "path",
-                    "relative": false,
-                    "path": "C:/data/backbone/spineToolbox.json"
                 }
             ]
         },
@@ -82,7 +77,7 @@
             "type": "Data Store",
             "description": "",
             "x": -41.89399792719047,
-            "y": 61.90154676637923,
+            "y": 62.41115136177652,
             "url": {
                 "dialect": "sqlite",
                 "username": "",
@@ -95,13 +90,13 @@
                     "path": ".spinetoolbox/items/traderes/TradeRES.sqlite"
                 }
             },
-            "cancel_on_error": false
+            "cancel_on_error": true
         },
         "TradeRES_BB": {
             "type": "Data Store",
             "description": "",
             "x": 308.43201415215685,
-            "y": 3.7413035512642807,
+            "y": 4.250908146661573,
             "url": {
                 "dialect": "sqlite",
                 "username": "",
@@ -114,13 +109,13 @@
                     "path": ".spinetoolbox/items/traderes_bb/TradeRES_BB.sqlite"
                 }
             },
-            "cancel_on_error": false
+            "cancel_on_error": true
         },
         "DataExcel": {
             "type": "Data Connection",
             "description": "",
             "x": -323.93201415215685,
-            "y": 13.245267412129593,
+            "y": 13.754872007526885,
             "references": [
                 {
                     "type": "path",
@@ -133,31 +128,28 @@
             "type": "Data Connection",
             "description": "",
             "x": -37.21146071179491,
-            "y": -58.92075595717381,
+            "y": -58.41115136177652,
             "references": []
         },
         "to_BB": {
             "type": "Tool",
             "description": "",
             "x": 118.79175750337444,
-            "y": 46.203918976174904,
+            "y": 47.73273276236676,
             "specification": "to_BB",
             "execute_in_work": true,
             "cmd_line_args": [
                 {
-                    "type": "path",
-                    "relative": false,
-                    "path": "{db_url@TradeRES}"
+                    "type": "resource",
+                    "arg": "db_url@TradeRES"
                 },
                 {
-                    "type": "path",
-                    "relative": false,
-                    "path": "{db_url@TradeRES_BB}"
+                    "type": "resource",
+                    "arg": "db_url@TradeRES_BB"
                 },
                 {
-                    "type": "path",
-                    "relative": true,
-                    "path": ".spinetoolbox/items/bb_translation_file/bb_translation.csv"
+                    "type": "resource",
+                    "arg": "C:\\data\\Toolbox_projects\\TradeRES\\.spinetoolbox\\items\\bb_translation_file\\bb_translation.csv"
                 }
             ]
         },
@@ -165,16 +157,12 @@
             "type": "Importer",
             "description": "",
             "x": -185.42219656386882,
-            "y": 48.55107884472798,
+            "y": 49.060683440125274,
             "specification": "base",
             "cancel_on_error": false,
             "file_selection": [
                 [
-                    {
-                        "type": "path",
-                        "relative": true,
-                        "path": "Nomenclature comparison.xlsx"
-                    },
+                    "Nomenclature comparison.xlsx",
                     true
                 ]
             ]

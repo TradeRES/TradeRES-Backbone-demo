@@ -36,21 +36,23 @@ with open(translation_file) as csvfile:
 # def transform_pass_throughs(input_data: dict, pass_throughs: dict) -> dict:
 
 
-def transform_rename(input_data: dict, transforms: dict, self=None) -> dict:
+def transform_rename(transformed, transforms: dict, self=None) -> dict:
     """Translate Spine data renaming classes and parameters
     """
 
-    def rename(old_label):
-        return transforms.get(old_label, old_label)
-
     # Create new data by transforms
     for renam in transforms.items():
-        for obj_class in input_data['object_classes']:
-            print(obj_class)
-            print(renam[1])
+        for i, obj_class in enumerate(transformed['object_classes']):
             if obj_class[0] == renam[0]:
-                obj_class[0] = renam[1]
-                print(input_data['object_classes'])
+                transformed['object_classes'][i] = (renam[1][0],) + transformed['object_classes'][i][1:]
+        for i, rel_class in enumerate(transformed['relationship_classes']):
+            if rel_class[0] == renam[0]:
+                transformed['relationship_classes'][i] = (renam[1][0],) + transformed['relationship_classes'][i][1:]
+            for j, obj_class_in_rel_class in enumerate(rel_class[1]):
+                if obj_class_in_rel_class == renam[0]:
+                    transformed['relationship_classes'][i] = transformed['relationship_classes'][i][0] + (renam[1][j],) + transformed['relationship_classes'][i][1:]
+
+    return transformed
 
 """
         input_data = {
@@ -112,8 +114,8 @@ def transform_rename(input_data: dict, transforms: dict, self=None) -> dict:
     return input_data
 """
 
-input_data = transform_rename(input_data, renames)
+output_data = transform_rename(input_data, renames)
 
 # Store to output db
-output_db.import_data(input_data)
+output_db.import_data(output_data)
 output_db.commit("Translate from Master data")

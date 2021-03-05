@@ -9,6 +9,11 @@
                     "type": "path",
                     "relative": true,
                     "path": ".spinetoolbox/specifications/Importer/base.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Importer/to_bb_format.json"
                 }
             ],
             "Tool": [
@@ -16,6 +21,13 @@
                     "type": "path",
                     "relative": true,
                     "path": ".spinetoolbox/specifications/Tool/to_bb.json"
+                }
+            ],
+            "Exporter": [
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Exporter/foo.json"
                 }
             ]
         },
@@ -69,6 +81,56 @@
                     "to_BB",
                     "left"
                 ]
+            },
+            {
+                "from": [
+                    "TradeRES",
+                    "bottom"
+                ],
+                "to": [
+                    "Toward_BB",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "to_BB_format",
+                    "right"
+                ],
+                "to": [
+                    "TradeRES_BB",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "Toward_BB",
+                    "right"
+                ],
+                "to": [
+                    "CVS_for_BB",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "CVS_for_BB",
+                    "right"
+                ],
+                "to": [
+                    "to_BB_format",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "Toward_BB",
+                    "right"
+                ],
+                "to": [
+                    "to_BB_format",
+                    "left"
+                ]
             }
         ]
     },
@@ -76,8 +138,8 @@
         "TradeRES": {
             "type": "Data Store",
             "description": "",
-            "x": -41.89399792719047,
-            "y": 62.41115136177652,
+            "x": -43.80070032601205,
+            "y": 9.67309306936406,
             "url": {
                 "dialect": "sqlite",
                 "username": "",
@@ -95,8 +157,8 @@
         "TradeRES_BB": {
             "type": "Data Store",
             "description": "",
-            "x": 308.43201415215685,
-            "y": 4.250908146661573,
+            "x": 374.96597455489325,
+            "y": -14.09746962427078,
             "url": {
                 "dialect": "sqlite",
                 "username": "",
@@ -114,8 +176,8 @@
         "DataExcel": {
             "type": "Data Connection",
             "description": "",
-            "x": -323.93201415215685,
-            "y": 13.754872007526885,
+            "x": -311.7015038626221,
+            "y": -23.83617269021805,
             "references": [
                 {
                     "type": "path",
@@ -127,15 +189,15 @@
         "BB_translation_file": {
             "type": "Data Connection",
             "description": "",
-            "x": -37.21146071179491,
-            "y": -58.41115136177652,
+            "x": -24.980950422260136,
+            "y": -96.00219605952145,
             "references": []
         },
         "to_BB": {
             "type": "Tool",
             "description": "",
-            "x": 118.79175750337444,
-            "y": 47.73273276236676,
+            "x": 130.00305860211463,
+            "y": -62.222164481792376,
             "specification": "to_BB",
             "execute_in_work": true,
             "cmd_line_args": [
@@ -156,8 +218,8 @@
         "Import_base": {
             "type": "Importer",
             "description": "",
-            "x": -185.42219656386882,
-            "y": 49.060683440125274,
+            "x": -173.19168627433405,
+            "y": 11.46963874238034,
             "specification": "base",
             "cancel_on_error": false,
             "file_selection": [
@@ -166,6 +228,40 @@
                     true
                 ]
             ]
+        },
+        "to_BB_format": {
+            "type": "Importer",
+            "description": "",
+            "x": 205.99938488747824,
+            "y": 83.81347522382697,
+            "specification": "",
+            "cancel_on_error": false,
+            "file_selection": [
+                [
+                    "temporary_for_BB.xlsx",
+                    true
+                ]
+            ]
+        },
+        "Toward_BB": {
+            "type": "Exporter",
+            "description": "",
+            "x": 66.7754613327171,
+            "y": 84.85518246485395,
+            "databases": [
+                {
+                    "output_file_name": "temporary_for_BB.xlsx",
+                    "database_url": {
+                        "type": "file_url",
+                        "relative": true,
+                        "path": ".spinetoolbox/items/traderes/TradeRES.sqlite",
+                        "scheme": "sqlite"
+                    }
+                }
+            ],
+            "output_time_stamps": false,
+            "cancel_on_error": true,
+            "specification": "foo"
         }
     }
 }

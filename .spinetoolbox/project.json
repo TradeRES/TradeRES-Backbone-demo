@@ -34,26 +34,6 @@
         "connections": [
             {
                 "from": [
-                    "TradeRES",
-                    "right"
-                ],
-                "to": [
-                    "to_BB",
-                    "left"
-                ]
-            },
-            {
-                "from": [
-                    "Import_base",
-                    "right"
-                ],
-                "to": [
-                    "TradeRES",
-                    "left"
-                ]
-            },
-            {
-                "from": [
                     "DataExcel",
                     "right"
                 ],
@@ -64,11 +44,11 @@
             },
             {
                 "from": [
-                    "to_BB",
+                    "Import_base",
                     "right"
                 ],
                 "to": [
-                    "TradeRES_BB",
+                    "TradeRES",
                     "left"
                 ]
             },
@@ -85,7 +65,17 @@
             {
                 "from": [
                     "TradeRES",
-                    "bottom"
+                    "right"
+                ],
+                "to": [
+                    "to_BB",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "TradeRES",
+                    "right"
                 ],
                 "to": [
                     "Toward_BB",
@@ -94,41 +84,11 @@
             },
             {
                 "from": [
-                    "to_BB_format",
+                    "to_BB",
                     "right"
                 ],
                 "to": [
                     "TradeRES_BB",
-                    "left"
-                ]
-            },
-            {
-                "from": [
-                    "Toward_BB",
-                    "right"
-                ],
-                "to": [
-                    "CVS_for_BB",
-                    "left"
-                ]
-            },
-            {
-                "from": [
-                    "CVS_for_BB",
-                    "right"
-                ],
-                "to": [
-                    "to_BB_format",
-                    "left"
-                ]
-            },
-            {
-                "from": [
-                    "Toward_BB",
-                    "right"
-                ],
-                "to": [
-                    "to_BB_format",
                     "left"
                 ]
             }
@@ -138,8 +98,8 @@
         "TradeRES": {
             "type": "Data Store",
             "description": "",
-            "x": -43.80070032601205,
-            "y": 9.67309306936406,
+            "x": -83.18293567214764,
+            "y": 17.24659986669781,
             "url": {
                 "dialect": "sqlite",
                 "username": "",
@@ -157,8 +117,8 @@
         "TradeRES_BB": {
             "type": "Data Store",
             "description": "",
-            "x": 374.96597455489325,
-            "y": -14.09746962427078,
+            "x": 335.58373920875766,
+            "y": -6.52396282693703,
             "url": {
                 "dialect": "sqlite",
                 "username": "",
@@ -176,8 +136,8 @@
         "DataExcel": {
             "type": "Data Connection",
             "description": "",
-            "x": -311.7015038626221,
-            "y": -23.83617269021805,
+            "x": -384.45928514481375,
+            "y": -12.217145173362347,
             "references": [
                 {
                     "type": "path",
@@ -189,15 +149,15 @@
         "BB_translation_file": {
             "type": "Data Connection",
             "description": "",
-            "x": -24.980950422260136,
-            "y": -96.00219605952145,
+            "x": -5.703135335327389,
+            "y": -85.39454872254626,
             "references": []
         },
         "to_BB": {
             "type": "Tool",
             "description": "",
-            "x": 130.00305860211463,
-            "y": -62.222164481792376,
+            "x": 139.16707189024248,
+            "y": -59.70555858386106,
             "specification": "to_BB",
             "execute_in_work": true,
             "cmd_line_args": [
@@ -218,8 +178,8 @@
         "Import_base": {
             "type": "Importer",
             "description": "",
-            "x": -173.19168627433405,
-            "y": 11.46963874238034,
+            "x": -238.86980629736235,
+            "y": 11.96348428055067,
             "specification": "base",
             "cancel_on_error": false,
             "file_selection": [
@@ -229,28 +189,14 @@
                 ]
             ]
         },
-        "to_BB_format": {
-            "type": "Importer",
-            "description": "",
-            "x": 205.99938488747824,
-            "y": 83.81347522382697,
-            "specification": "",
-            "cancel_on_error": false,
-            "file_selection": [
-                [
-                    "temporary_for_BB.xlsx",
-                    true
-                ]
-            ]
-        },
         "Toward_BB": {
             "type": "Exporter",
             "description": "",
-            "x": 66.7754613327171,
-            "y": 84.85518246485395,
+            "x": 57.73463138299616,
+            "y": 78.26936674386087,
             "databases": [
                 {
-                    "output_file_name": "temporary_for_BB.xlsx",
+                    "output_file_name": "",
                     "database_url": {
                         "type": "file_url",
                         "relative": true,

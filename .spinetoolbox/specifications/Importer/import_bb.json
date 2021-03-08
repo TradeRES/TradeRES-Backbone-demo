@@ -182,14 +182,33 @@
                     "skip_columns": [],
                     "read_start_row": 0,
                     "name": {
-                        "map_type": "None"
+                        "map_type": "constant",
+                        "reference": "unit"
                     },
                     "parameters": {
-                        "map_type": "None"
+                        "map_type": "ParameterValue",
+                        "name": {
+                            "map_type": "row",
+                            "reference": 1
+                        },
+                        "value": {
+                            "main_value": {
+                                "map_type": "None"
+                            },
+                            "value_type": "single value"
+                        },
+                        "alternative_name": {
+                            "map_type": "row",
+                            "reference": 0
+                        },
+                        "parameter_value_metadata": {
+                            "map_type": "None"
+                        }
                     },
                     "import_objects": true,
                     "objects": {
-                        "map_type": "None"
+                        "map_type": "column",
+                        "reference": 0
                     },
                     "object_metadata": {
                         "map_type": "None"
@@ -223,12 +242,22 @@
             "demand": {
                 "0": "datetime",
                 "1": "float"
+            },
+            "p_unit": {
+                "0": "string",
+                "1": "float",
+                "2": "float",
+                "3": "float"
             }
         },
         "table_row_types": {
             "demand": {
                 "1": "string",
                 "0": "string"
+            },
+            "p_unit": {
+                "0": "string",
+                "1": "string"
             }
         },
         "selected_tables": [

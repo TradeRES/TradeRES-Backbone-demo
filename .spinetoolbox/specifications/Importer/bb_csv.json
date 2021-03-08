@@ -1,0 +1,183 @@
+{
+    "name": "BB_CSV",
+    "item_type": "Importer",
+    "mapping": {
+        "table_mappings": {
+            "capacity": [
+                {
+                    "map_type": "ObjectClass",
+                    "skip_columns": [],
+                    "read_start_row": 0,
+                    "name": {
+                        "map_type": "None"
+                    },
+                    "parameters": {
+                        "map_type": "None"
+                    },
+                    "import_objects": true,
+                    "objects": {
+                        "map_type": "None"
+                    },
+                    "object_metadata": {
+                        "map_type": "None"
+                    },
+                    "mapping_name": "Mapping 1"
+                }
+            ],
+            "commodity": [
+                {
+                    "map_type": "ObjectClass",
+                    "skip_columns": [],
+                    "read_start_row": 0,
+                    "name": {
+                        "map_type": "None"
+                    },
+                    "parameters": {
+                        "map_type": "None"
+                    },
+                    "import_objects": true,
+                    "objects": {
+                        "map_type": "None"
+                    },
+                    "object_metadata": {
+                        "map_type": "None"
+                    },
+                    "mapping_name": "Mapping 1"
+                }
+            ],
+            "demand": [
+                {
+                    "map_type": "ObjectClass",
+                    "skip_columns": [],
+                    "read_start_row": 0,
+                    "name": {
+                        "map_type": "None"
+                    },
+                    "parameters": {
+                        "map_type": "None"
+                    },
+                    "import_objects": true,
+                    "objects": {
+                        "map_type": "None"
+                    },
+                    "object_metadata": {
+                        "map_type": "None"
+                    },
+                    "mapping_name": "Mapping 1"
+                }
+            ],
+            "efficiency": [
+                {
+                    "map_type": "ObjectClass",
+                    "skip_columns": [],
+                    "read_start_row": 0,
+                    "name": {
+                        "map_type": "None"
+                    },
+                    "parameters": {
+                        "map_type": "None"
+                    },
+                    "import_objects": true,
+                    "objects": {
+                        "map_type": "None"
+                    },
+                    "object_metadata": {
+                        "map_type": "None"
+                    },
+                    "mapping_name": "Mapping 1"
+                }
+            ],
+            "node": [
+                {
+                    "map_type": "ObjectClass",
+                    "skip_columns": [],
+                    "read_start_row": 0,
+                    "name": {
+                        "map_type": "constant",
+                        "reference": "node"
+                    },
+                    "parameters": {
+                        "map_type": "None"
+                    },
+                    "import_objects": true,
+                    "objects": {
+                        "map_type": "column",
+                        "reference": 0
+                    },
+                    "object_metadata": {
+                        "map_type": "None"
+                    },
+                    "mapping_name": "Mapping 1"
+                }
+            ],
+            "node__commodity": [
+                {
+                    "map_type": "ObjectClass",
+                    "skip_columns": [],
+                    "read_start_row": 0,
+                    "name": {
+                        "map_type": "None"
+                    },
+                    "parameters": {
+                        "map_type": "None"
+                    },
+                    "import_objects": true,
+                    "objects": {
+                        "map_type": "None"
+                    },
+                    "object_metadata": {
+                        "map_type": "None"
+                    },
+                    "mapping_name": "Mapping 1"
+                }
+            ],
+            "price": [
+                {
+                    "map_type": "ObjectClass",
+                    "skip_columns": [],
+                    "read_start_row": 0,
+                    "name": {
+                        "map_type": "None"
+                    },
+                    "parameters": {
+                        "map_type": "None"
+                    },
+                    "import_objects": true,
+                    "objects": {
+                        "map_type": "None"
+                    },
+                    "object_metadata": {
+                        "map_type": "None"
+                    },
+                    "mapping_name": "Mapping 1"
+                }
+            ]
+        },
+        "table_options": {
+            "capacity": {},
+            "commodity": {},
+            "demand": {},
+            "efficiency": {},
+            "node": {},
+            "node__commodity": {},
+            "price": {}
+        },
+        "table_types": {
+            "node": {
+                "0": "string"
+            }
+        },
+        "table_row_types": {},
+        "selected_tables": [
+            "capacity",
+            "commodity",
+            "demand",
+            "efficiency",
+            "node",
+            "node__commodity",
+            "price"
+        ],
+        "source_type": "DataPackageConnector"
+    },
+    "description": ""
+}

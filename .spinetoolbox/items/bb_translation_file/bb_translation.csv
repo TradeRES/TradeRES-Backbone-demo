@@ -1,3 +1,0 @@
-rename,node,note
-new_entity,grid__node,2,,node,grid,
-pass_parameter,grid__node,node,demand

@@ -1,0 +1,50 @@
+{
+    "name": "BB_node",
+    "item_type": "Importer",
+    "mapping": {
+        "table_mappings": {
+            "data": [
+                {
+                    "map_type": "ObjectClass",
+                    "skip_columns": [],
+                    "read_start_row": 0,
+                    "name": {
+                        "map_type": "constant",
+                        "reference": "node"
+                    },
+                    "parameters": {
+                        "map_type": "None"
+                    },
+                    "import_objects": true,
+                    "objects": {
+                        "map_type": "column",
+                        "reference": 0
+                    },
+                    "object_metadata": {
+                        "map_type": "None"
+                    },
+                    "mapping_name": "Mapping 1"
+                }
+            ]
+        },
+        "table_options": {
+            "data": {
+                "encoding": "ascii",
+                "delimiter_custom": "",
+                "quotechar": "\"",
+                "skip": 0
+            }
+        },
+        "table_types": {
+            "data": {
+                "0": "string"
+            }
+        },
+        "table_row_types": {},
+        "selected_tables": [
+            "data"
+        ],
+        "source_type": "CSVConnector"
+    },
+    "description": ""
+}

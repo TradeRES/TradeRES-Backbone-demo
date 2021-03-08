@@ -268,7 +268,16 @@
                 }
             ]
         },
-        "table_options": {},
+        "table_options": {
+            "First_items": {},
+            "Minimal_set": {},
+            "node": {},
+            "demand": {},
+            "unit": {},
+            "commodity_price": {},
+            "node__commodity": {},
+            "Contacts": {}
+        },
         "table_types": {
             "First_items": {
                 "0": "string",
@@ -304,16 +313,16 @@
             },
             "demand": {
                 "0": "datetime",
-                "1": "string"
+                "1": "float"
             },
             "unit": {
                 "0": "string",
-                "1": "string",
-                "2": "string"
+                "1": "float",
+                "2": "float"
             },
             "commodity_price": {
                 "0": "datetime",
-                "1": "string"
+                "1": "float"
             },
             "Contacts": {
                 "0": "string",

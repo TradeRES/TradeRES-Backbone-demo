@@ -28,6 +28,11 @@
                     "type": "path",
                     "relative": true,
                     "path": ".spinetoolbox/specifications/Exporter/foo.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Exporter/foo.json"
                 }
             ]
         },
@@ -80,7 +85,15 @@
                 "to": [
                     "Toward_BB",
                     "left"
-                ]
+                ],
+                "resource_filters": {
+                    "db_url@TradeRES": {
+                        "scenario_filter": [
+                            1,
+                            2
+                        ]
+                    }
+                }
             },
             {
                 "from": [
@@ -91,6 +104,16 @@
                     "TradeRES_BB",
                     "left"
                 ]
+            },
+            {
+                "from": [
+                    "Toward_BB",
+                    "right"
+                ],
+                "to": [
+                    "Importer 1",
+                    "left"
+                ]
             }
         ]
     },
@@ -98,8 +121,8 @@
         "TradeRES": {
             "type": "Data Store",
             "description": "",
-            "x": -83.18293567214764,
-            "y": 17.24659986669781,
+            "x": -56.856796409063264,
+            "y": 24.83832060236816,
             "url": {
                 "dialect": "sqlite",
                 "username": "",
@@ -117,8 +140,8 @@
         "TradeRES_BB": {
             "type": "Data Store",
             "description": "",
-            "x": 335.58373920875766,
-            "y": -6.52396282693703,
+            "x": 341.6185810085656,
+            "y": -83.14112656386379,
             "url": {
                 "dialect": "sqlite",
                 "username": "",
@@ -136,8 +159,8 @@
         "DataExcel": {
             "type": "Data Connection",
             "description": "",
-            "x": -384.45928514481375,
-            "y": -12.217145173362347,
+            "x": -357.11858100856557,
+            "y": -10.71281367667492,
             "references": [
                 {
                     "type": "path",
@@ -149,15 +172,15 @@
         "BB_translation_file": {
             "type": "Data Connection",
             "description": "",
-            "x": -5.703135335327389,
-            "y": -85.39454872254626,
+            "x": 21.63756880092079,
+            "y": -83.89021722585883,
             "references": []
         },
         "to_BB": {
             "type": "Tool",
             "description": "",
-            "x": 139.16707189024248,
-            "y": -59.70555858386106,
+            "x": 166.50777602649066,
+            "y": -58.201227087173635,
             "specification": "to_BB",
             "execute_in_work": true,
             "cmd_line_args": [
@@ -178,8 +201,8 @@
         "Import_base": {
             "type": "Importer",
             "description": "",
-            "x": -238.86980629736235,
-            "y": 11.96348428055067,
+            "x": -213.55823190744184,
+            "y": 9.40955628458282,
             "specification": "base",
             "cancel_on_error": false,
             "file_selection": [
@@ -189,14 +212,28 @@
                 ]
             ]
         },
+        "Importer 1": {
+            "type": "Importer",
+            "description": "",
+            "x": 235.8863330105883,
+            "y": 87.2525790920886,
+            "specification": "",
+            "cancel_on_error": false,
+            "file_selection": [
+                [
+                    "exported.xlsx",
+                    true
+                ]
+            ]
+        },
         "Toward_BB": {
             "type": "Exporter",
             "description": "",
-            "x": 57.73463138299616,
-            "y": 78.26936674386087,
+            "x": 90.14815988506342,
+            "y": 88.90157690122676,
             "databases": [
                 {
-                    "output_file_name": "",
+                    "output_file_name": "exported.xlsx",
                     "database_url": {
                         "type": "file_url",
                         "relative": true,

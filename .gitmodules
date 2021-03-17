@@ -1,3 +1,5 @@
 [submodule "Backbone"]
 	path = Backbone
 	url = https://gitlab.vtt.fi/backbone/backbone.git
+[submodule "backbone"]
+	branch = dev

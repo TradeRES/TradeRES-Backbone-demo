@@ -1,0 +1,1 @@
+{"type": "parameter_renamer", "name_map": {"efficiency_full_load": "eff01", "efficiency_min_load": "eff00", "full_load": "op01", "min_load": "op00"}}

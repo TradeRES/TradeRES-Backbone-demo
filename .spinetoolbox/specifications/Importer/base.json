@@ -88,7 +88,8 @@
                             },
                             {
                                 "map_type": "Alternative",
-                                "position": "hidden"
+                                "position": "hidden",
+                                "value": "Base"
                             },
                             {
                                 "map_type": "ParameterValueMetadata",
@@ -139,7 +140,8 @@
                             },
                             {
                                 "map_type": "Alternative",
-                                "position": "hidden"
+                                "position": "hidden",
+                                "value": "Base"
                             },
                             {
                                 "map_type": "ParameterValueMetadata",
@@ -177,7 +179,8 @@
                             },
                             {
                                 "map_type": "Alternative",
-                                "position": "hidden"
+                                "position": "hidden",
+                                "value": "Base"
                             },
                             {
                                 "map_type": "ParameterValueMetadata",
@@ -219,48 +222,6 @@
                             },
                             {
                                 "map_type": "ObjectMetadata",
-                                "position": "hidden"
-                            }
-                        ]
-                    }
-                }
-            ],
-            "node__commodity": [
-                {
-                    "Mapping 0": {
-                        "mapping": [
-                            {
-                                "map_type": "RelationshipClass",
-                                "position": "hidden",
-                                "value": "node__commodity"
-                            },
-                            {
-                                "map_type": "RelationshipClassObjectClass",
-                                "position": "hidden",
-                                "value": "node"
-                            },
-                            {
-                                "map_type": "RelationshipClassObjectClass",
-                                "position": "hidden",
-                                "value": "commodity"
-                            },
-                            {
-                                "map_type": "Relationship",
-                                "position": "hidden",
-                                "value": "relationship"
-                            },
-                            {
-                                "map_type": "RelationshipObject",
-                                "position": 0,
-                                "import_objects": true
-                            },
-                            {
-                                "map_type": "RelationshipObject",
-                                "position": 1,
-                                "import_objects": true
-                            },
-                            {
-                                "map_type": "RelationshipMetadata",
                                 "position": "hidden"
                             }
                         ]
@@ -321,7 +282,8 @@
                             },
                             {
                                 "map_type": "Alternative",
-                                "position": "hidden"
+                                "position": "hidden",
+                                "value": "Base"
                             },
                             {
                                 "map_type": "ParameterValueMetadata",
@@ -343,10 +305,6 @@
             "demand": {},
             "unit": {},
             "commodity_price": {},
-            "node__commodity": {
-                "header": false,
-                "row": 1
-            },
             "Contacts": {},
             "node__unit": {}
         },
@@ -390,7 +348,9 @@
             "unit": {
                 "0": "string",
                 "1": "float",
-                "2": "float"
+                "2": "float",
+                "3": "float",
+                "4": "float"
             },
             "commodity_price": {
                 "0": "datetime",
@@ -400,15 +360,11 @@
                 "0": "string",
                 "1": "string"
             },
-            "node__commodity": {
-                "0": "string",
-                "1": "string"
-            },
             "node__unit": {
                 "0": "string",
                 "1": "string",
                 "2": "string",
-                "3": "string"
+                "3": "float"
             }
         },
         "table_row_types": {
@@ -416,7 +372,8 @@
                 "0": "string"
             },
             "unit": {
-                "0": "string"
+                "0": "string",
+                "1": "string"
             },
             "commodity_price": {
                 "0": "string"
@@ -427,7 +384,6 @@
             "demand",
             "unit",
             "commodity_price",
-            "node__commodity",
             "node__unit"
         ],
         "source_type": "ExcelConnector"

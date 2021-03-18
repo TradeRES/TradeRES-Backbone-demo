@@ -1,2 +1,9 @@
 *.log
 *.bak5
+.spinetoolbox/items/bb_base_sets/output/2021-03-17T11.03.00/Backbone_base_sets_to_gdx.lst
+.spinetoolbox/items/backbone/output/
+.spinetoolbox/items/bb_base_sets/output/2021-03-17T11.03.00/Backbone_base_sets.gdx
+.spinetoolbox/items/toward_bb/output/
+*.gdx
+.spinetoolbox/items/toward_bb/exported.json
+*.bak

@@ -24,36 +24,6 @@
                     }
                 }
             ],
-            "node__commodity": [
-                {
-                    "Mapping 1": {
-                        "mapping": [
-                            {
-                                "map_type": "RelationshipClass",
-                                "position": "hidden",
-                                "value": "commodity"
-                            },
-                            {
-                                "map_type": "RelationshipClassObjectClass",
-                                "position": "hidden"
-                            },
-                            {
-                                "map_type": "Relationship",
-                                "position": "hidden",
-                                "value": "relationship"
-                            },
-                            {
-                                "map_type": "RelationshipObject",
-                                "position": "hidden"
-                            },
-                            {
-                                "map_type": "RelationshipMetadata",
-                                "position": "hidden"
-                            }
-                        ]
-                    }
-                }
-            ],
             "demand": [
                 {
                     "Mapping 1": {
@@ -181,7 +151,153 @@
                     "Mapping 1": {
                         "mapping": [
                             {
+                                "map_type": "RelationshipClass",
+                                "position": "hidden",
+                                "value": "grid__node__unit__io"
+                            },
+                            {
+                                "map_type": "RelationshipClassObjectClass",
+                                "position": "hidden",
+                                "value": "grid"
+                            },
+                            {
+                                "map_type": "RelationshipClassObjectClass",
+                                "position": "hidden",
+                                "value": "node"
+                            },
+                            {
+                                "map_type": "RelationshipClassObjectClass",
+                                "position": "hidden",
+                                "value": "unit"
+                            },
+                            {
+                                "map_type": "RelationshipClassObjectClass",
+                                "position": "hidden",
+                                "value": "input_output"
+                            },
+                            {
+                                "map_type": "Relationship",
+                                "position": "hidden",
+                                "value": "relationship"
+                            },
+                            {
+                                "map_type": "RelationshipObject",
+                                "position": "hidden",
+                                "value": "grid"
+                            },
+                            {
+                                "map_type": "RelationshipObject",
+                                "position": 0
+                            },
+                            {
+                                "map_type": "RelationshipObject",
+                                "position": 1
+                            },
+                            {
+                                "map_type": "RelationshipObject",
+                                "position": 2
+                            },
+                            {
+                                "map_type": "RelationshipMetadata",
+                                "position": "hidden"
+                            }
+                        ]
+                    }
+                }
+            ],
+            "unit": [
+                {
+                    "Mapping 1": {
+                        "mapping": [
+                            {
                                 "map_type": "ObjectClass",
+                                "position": "hidden",
+                                "value": "unit"
+                            },
+                            {
+                                "map_type": "Object",
+                                "position": 0
+                            },
+                            {
+                                "map_type": "ObjectMetadata",
+                                "position": "hidden"
+                            }
+                        ]
+                    }
+                }
+            ],
+            "commodity": [
+                {
+                    "Mapping 1": {
+                        "mapping": [
+                            {
+                                "map_type": "ObjectClass",
+                                "position": "hidden"
+                            },
+                            {
+                                "map_type": "Object",
+                                "position": "hidden"
+                            },
+                            {
+                                "map_type": "ObjectMetadata",
+                                "position": "hidden"
+                            }
+                        ]
+                    }
+                }
+            ],
+            "p_commodity_price": [
+                {
+                    "Mapping 1": {
+                        "mapping": [
+                            {
+                                "map_type": "RelationshipClass",
+                                "position": "hidden",
+                                "value": "commodity"
+                            },
+                            {
+                                "map_type": "RelationshipClassObjectClass",
+                                "position": "hidden",
+                                "value": "node"
+                            },
+                            {
+                                "map_type": "Relationship",
+                                "position": "hidden",
+                                "value": "relationship"
+                            },
+                            {
+                                "map_type": "RelationshipObject",
+                                "position": -1,
+                                "import_objects": true
+                            },
+                            {
+                                "map_type": "RelationshipMetadata",
+                                "position": "hidden"
+                            },
+                            {
+                                "map_type": "ParameterDefinition",
+                                "position": "hidden",
+                                "value": "priceChange"
+                            },
+                            {
+                                "map_type": "Alternative",
+                                "position": 1
+                            },
+                            {
+                                "map_type": "ParameterValueMetadata",
+                                "position": "hidden"
+                            },
+                            {
+                                "map_type": "ParameterValueType",
+                                "position": "hidden",
+                                "value": "map"
+                            },
+                            {
+                                "map_type": "ParameterValueIndex",
+                                "position": 0
+                            },
+                            {
+                                "map_type": "ExpandedValue",
                                 "position": "hidden"
                             }
                         ]
@@ -191,18 +307,16 @@
         },
         "table_options": {
             "node": {},
-            "node__commodity": {},
             "demand": {},
             "p_unit": {},
-            "node__unit__io": {}
+            "node__unit__io": {},
+            "unit": {},
+            "commodity": {},
+            "p_commodity_price": {}
         },
         "table_types": {
             "node": {
                 "0": "string"
-            },
-            "node__commodity": {
-                "0": "string",
-                "1": "string"
             },
             "demand": {
                 "0": "datetime",
@@ -213,12 +327,24 @@
                 "1": "string",
                 "2": "float",
                 "3": "float",
-                "4": "float"
+                "4": "float",
+                "5": "string"
             },
             "node__unit__io": {
                 "0": "string",
                 "1": "string",
                 "2": "string"
+            },
+            "unit": {
+                "0": "string"
+            },
+            "commodity": {
+                "0": "string"
+            },
+            "p_commodity_price": {
+                "0": "datetime",
+                "1": "string",
+                "2": "float"
             }
         },
         "table_row_types": {
@@ -228,10 +354,12 @@
             }
         },
         "selected_tables": [
-            "node",
             "demand",
             "p_unit",
-            "node__unit__io"
+            "node__unit__io",
+            "node",
+            "unit",
+            "p_commodity_price"
         ],
         "source_type": "ExcelConnector"
     },

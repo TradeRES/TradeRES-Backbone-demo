@@ -1,1 +1,1 @@
-{"type": "parameter_renamer", "name_map": {"discountFactor": "p_s_discountFactor", "priceChange": "ts_priceChange"}}
+{"type": "parameter_renamer", "name_map": {"coefficient": "p_unitConstraintNode", "constant": "p_unitConstraint", "discountFactor": "p_s_discountFactor", "emission_content": "p_nEmission", "forwardReserve": "p_gnuRes2Res", "priceChange": "ts_priceChange", "reserveDemand": "ts_reserveDemand"}}

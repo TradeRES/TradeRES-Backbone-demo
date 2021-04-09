@@ -412,16 +412,27 @@
                     "Mapping 1": {
                         "mapping": [
                             {
-                                "map_type": "ObjectClass",
+                                "map_type": "RelationshipClass",
                                 "position": "hidden",
                                 "value": "unit_ts"
                             },
                             {
-                                "map_type": "Object",
-                                "position": 0
+                                "map_type": "RelationshipClassObjectClass",
+                                "position": "hidden",
+                                "value": "unit"
                             },
                             {
-                                "map_type": "ObjectMetadata",
+                                "map_type": "Relationship",
+                                "position": "hidden",
+                                "value": "relationship"
+                            },
+                            {
+                                "map_type": "RelationshipObject",
+                                "position": 0,
+                                "import_objects": true
+                            },
+                            {
+                                "map_type": "RelationshipMetadata",
                                 "position": "hidden"
                             },
                             {
@@ -531,10 +542,12 @@
             }
         },
         "selected_tables": [
+            "Select All",
             "demand",
             "node__unit__io",
             "node",
             "unit",
+            "commodity",
             "p_commodity_price",
             "capacityFactor",
             "reserveDemand",

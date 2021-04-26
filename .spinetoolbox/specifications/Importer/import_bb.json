@@ -31,7 +31,7 @@
                             {
                                 "map_type": "RelationshipClass",
                                 "position": "hidden",
-                                "value": "ts_grid__node__f"
+                                "value": "grid__node"
                             },
                             {
                                 "map_type": "RelationshipClassObjectClass",
@@ -42,11 +42,6 @@
                                 "map_type": "RelationshipClassObjectClass",
                                 "position": "hidden",
                                 "value": "node"
-                            },
-                            {
-                                "map_type": "RelationshipClassObjectClass",
-                                "position": "hidden",
-                                "value": "ft"
                             },
                             {
                                 "map_type": "Relationship",
@@ -65,19 +60,13 @@
                                 "import_objects": true
                             },
                             {
-                                "map_type": "RelationshipObject",
-                                "position": "hidden",
-                                "value": "f00",
-                                "import_objects": true
-                            },
-                            {
                                 "map_type": "RelationshipMetadata",
                                 "position": "hidden"
                             },
                             {
                                 "map_type": "ParameterDefinition",
                                 "position": "hidden",
-                                "value": "ts_influx"
+                                "value": "influx"
                             },
                             {
                                 "map_type": "Alternative",
@@ -94,47 +83,15 @@
                             },
                             {
                                 "map_type": "ParameterValueIndex",
+                                "position": "hidden",
+                                "value": "f00"
+                            },
+                            {
+                                "map_type": "ParameterValueIndex",
                                 "position": 0
                             },
                             {
                                 "map_type": "ExpandedValue",
-                                "position": "hidden"
-                            }
-                        ]
-                    }
-                }
-            ],
-            "p_unit": [
-                {
-                    "Mapping 1": {
-                        "mapping": [
-                            {
-                                "map_type": "ObjectClass",
-                                "position": "hidden",
-                                "value": "unit"
-                            },
-                            {
-                                "map_type": "Object",
-                                "position": 0
-                            },
-                            {
-                                "map_type": "ObjectMetadata",
-                                "position": "hidden"
-                            },
-                            {
-                                "map_type": "ParameterDefinition",
-                                "position": 1
-                            },
-                            {
-                                "map_type": "Alternative",
-                                "position": -1
-                            },
-                            {
-                                "map_type": "ParameterValueMetadata",
-                                "position": "hidden"
-                            },
-                            {
-                                "map_type": "ParameterValue",
                                 "position": "hidden"
                             }
                         ]
@@ -226,15 +183,27 @@
                     "Mapping 1": {
                         "mapping": [
                             {
-                                "map_type": "ObjectClass",
-                                "position": "hidden"
+                                "map_type": "RelationshipClass",
+                                "position": "hidden",
+                                "value": "commodity"
                             },
                             {
-                                "map_type": "Object",
-                                "position": "hidden"
+                                "map_type": "RelationshipClassObjectClass",
+                                "position": "hidden",
+                                "value": "node"
                             },
                             {
-                                "map_type": "ObjectMetadata",
+                                "map_type": "Relationship",
+                                "position": "hidden",
+                                "value": "relationship"
+                            },
+                            {
+                                "map_type": "RelationshipObject",
+                                "position": 0,
+                                "import_objects": true
+                            },
+                            {
+                                "map_type": "RelationshipMetadata",
                                 "position": "hidden"
                             }
                         ]
@@ -299,26 +268,6 @@
                     }
                 }
             ],
-            "capacityFactor": [
-                {
-                    "Mapping 1": {
-                        "mapping": [
-                            {
-                                "map_type": "ObjectClass",
-                                "position": "hidden"
-                            },
-                            {
-                                "map_type": "Object",
-                                "position": "hidden"
-                            },
-                            {
-                                "map_type": "ObjectMetadata",
-                                "position": "hidden"
-                            }
-                        ]
-                    }
-                }
-            ],
             "reserveDemand": [
                 {
                     "Mapping 1": {
@@ -326,7 +275,7 @@
                             {
                                 "map_type": "RelationshipClass",
                                 "position": "hidden",
-                                "value": "ts_restype__up_down__group"
+                                "value": "restype__up_down__group"
                             },
                             {
                                 "map_type": "RelationshipClassObjectClass",
@@ -342,11 +291,6 @@
                                 "map_type": "RelationshipClassObjectClass",
                                 "position": "hidden",
                                 "value": "group"
-                            },
-                            {
-                                "map_type": "RelationshipClassObjectClass",
-                                "position": "hidden",
-                                "value": "f"
                             },
                             {
                                 "map_type": "Relationship",
@@ -367,11 +311,6 @@
                                 "map_type": "RelationshipObject",
                                 "position": -1,
                                 "import_objects": true
-                            },
-                            {
-                                "map_type": "RelationshipObject",
-                                "position": "hidden",
-                                "value": "f00"
                             },
                             {
                                 "map_type": "RelationshipMetadata",
@@ -397,6 +336,11 @@
                             },
                             {
                                 "map_type": "ParameterValueIndex",
+                                "position": "hidden",
+                                "value": "f00"
+                            },
+                            {
+                                "map_type": "ParameterValueIndex",
                                 "position": 1
                             },
                             {
@@ -412,32 +356,109 @@
                     "Mapping 1": {
                         "mapping": [
                             {
-                                "map_type": "RelationshipClass",
-                                "position": "hidden",
-                                "value": "unit_ts"
-                            },
-                            {
-                                "map_type": "RelationshipClassObjectClass",
+                                "map_type": "ObjectClass",
                                 "position": "hidden",
                                 "value": "unit"
                             },
                             {
-                                "map_type": "Relationship",
-                                "position": "hidden",
-                                "value": "relationship"
+                                "map_type": "Object",
+                                "position": -1
                             },
                             {
-                                "map_type": "RelationshipObject",
-                                "position": 0,
-                                "import_objects": true
-                            },
-                            {
-                                "map_type": "RelationshipMetadata",
+                                "map_type": "ObjectMetadata",
                                 "position": "hidden"
                             },
                             {
                                 "map_type": "ParameterDefinition",
+                                "position": 1
+                            },
+                            {
+                                "map_type": "Alternative",
+                                "position": 0
+                            },
+                            {
+                                "map_type": "ParameterValueMetadata",
+                                "position": "hidden"
+                            },
+                            {
+                                "map_type": "ParameterValueType",
+                                "position": "hidden",
+                                "value": "map"
+                            },
+                            {
+                                "map_type": "ParameterValueIndex",
+                                "position": "hidden",
+                                "value": "f00"
+                            },
+                            {
+                                "map_type": "ParameterValueIndex",
                                 "position": 2
+                            },
+                            {
+                                "map_type": "ExpandedValue",
+                                "position": "hidden"
+                            }
+                        ]
+                    }
+                }
+            ],
+            "unit_p": [
+                {
+                    "Mapping 1": {
+                        "mapping": [
+                            {
+                                "map_type": "ObjectClass",
+                                "position": "hidden",
+                                "value": "unit"
+                            },
+                            {
+                                "map_type": "Object",
+                                "position": 0
+                            },
+                            {
+                                "map_type": "ObjectMetadata",
+                                "position": "hidden"
+                            },
+                            {
+                                "map_type": "ParameterDefinition",
+                                "position": 1
+                            },
+                            {
+                                "map_type": "Alternative",
+                                "position": -1
+                            },
+                            {
+                                "map_type": "ParameterValueMetadata",
+                                "position": "hidden"
+                            },
+                            {
+                                "map_type": "ParameterValue",
+                                "position": "hidden"
+                            }
+                        ]
+                    }
+                }
+            ],
+            "flow": [
+                {
+                    "Mapping 1": {
+                        "mapping": [
+                            {
+                                "map_type": "ObjectClass",
+                                "position": "hidden",
+                                "value": "flow"
+                            },
+                            {
+                                "map_type": "Object",
+                                "position": -1
+                            },
+                            {
+                                "map_type": "ObjectMetadata",
+                                "position": "hidden"
+                            },
+                            {
+                                "map_type": "ParameterDefinition",
+                                "position": 0
                             },
                             {
                                 "map_type": "Alternative",
@@ -454,7 +475,12 @@
                             },
                             {
                                 "map_type": "ParameterValueIndex",
-                                "position": 3
+                                "position": "hidden",
+                                "value": "f00"
+                            },
+                            {
+                                "map_type": "ParameterValueIndex",
+                                "position": 2
                             },
                             {
                                 "map_type": "ExpandedValue",
@@ -468,14 +494,14 @@
         "table_options": {
             "node": {},
             "demand": {},
-            "p_unit": {},
             "node__unit__io": {},
             "unit": {},
             "commodity": {},
             "p_commodity_price": {},
-            "capacityFactor": {},
             "reserveDemand": {},
-            "unit_ts": {}
+            "unit_ts": {},
+            "unit_p": {},
+            "flow": {}
         },
         "table_types": {
             "node": {
@@ -484,12 +510,6 @@
             "demand": {
                 "0": "string",
                 "1": "float"
-            },
-            "p_unit": {
-                "0": "string",
-                "1": "string",
-                "2": "float",
-                "3": "float"
             },
             "node__unit__io": {
                 "0": "string",
@@ -512,19 +532,23 @@
                 "1": "string",
                 "2": "float"
             },
-            "capacityFactor": {
-                "0": "string",
-                "1": "string",
-                "2": "string",
-                "3": "string",
-                "4": "string"
-            },
             "unit_ts": {
                 "0": "string",
                 "1": "string",
                 "2": "string",
-                "3": "string",
-                "4": "float"
+                "3": "float"
+            },
+            "unit_p": {
+                "0": "string",
+                "1": "string",
+                "2": "float",
+                "3": "float"
+            },
+            "flow": {
+                "0": "string",
+                "1": "string",
+                "2": "string",
+                "3": "float"
             }
         },
         "table_row_types": {
@@ -536,23 +560,19 @@
                 "1": "string",
                 "2": "string",
                 "0": "string"
-            },
-            "p_unit": {
-                "1": "string"
             }
         },
         "selected_tables": [
-            "Select All",
             "demand",
             "node__unit__io",
             "node",
             "unit",
             "commodity",
             "p_commodity_price",
-            "capacityFactor",
             "reserveDemand",
             "unit_ts",
-            "p_unit"
+            "unit_p",
+            "flow"
         ],
         "source_type": "ExcelConnector"
     },

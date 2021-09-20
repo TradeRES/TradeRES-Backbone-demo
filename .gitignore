@@ -11,4 +11,4 @@ Backbone_input_files/Backbone_base_sets_to_gdx.~gm
 # Ignore files created by execution
 .export-manifest.json
 .spinetoolbox/items/toward_bb/output/exported.xlsx
-.spinetoolbox/items/toward_bb/.exported.json
+.exported.json

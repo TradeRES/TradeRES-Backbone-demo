@@ -101,8 +101,16 @@
                     "filter_re": "2d_map"
                 },
                 {
+                    "map_type": "IndexName",
+                    "position": "hidden"
+                },
+                {
                     "map_type": "ParameterValueIndex",
                     "position": 1
+                },
+                {
+                    "map_type": "IndexName",
+                    "position": "hidden"
                 },
                 {
                     "map_type": "ParameterValueIndex",

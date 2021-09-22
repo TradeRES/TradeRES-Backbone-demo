@@ -82,9 +82,17 @@
                                 "value": "map"
                             },
                             {
+                                "map_type": "IndexName",
+                                "position": "hidden"
+                            },
+                            {
                                 "map_type": "ParameterValueIndex",
                                 "position": "hidden",
                                 "value": "f00"
+                            },
+                            {
+                                "map_type": "IndexName",
+                                "position": "hidden"
                             },
                             {
                                 "map_type": "ParameterValueIndex",
@@ -135,19 +143,23 @@
                             {
                                 "map_type": "RelationshipObject",
                                 "position": "hidden",
-                                "value": "grid"
+                                "value": "grid",
+                                "import_objects": true
                             },
                             {
                                 "map_type": "RelationshipObject",
-                                "position": 0
+                                "position": 0,
+                                "import_objects": true
                             },
                             {
                                 "map_type": "RelationshipObject",
-                                "position": 1
+                                "position": 1,
+                                "import_objects": true
                             },
                             {
                                 "map_type": "RelationshipObject",
-                                "position": 2
+                                "position": 2,
+                                "import_objects": true
                             },
                             {
                                 "map_type": "RelationshipMetadata",
@@ -178,64 +190,21 @@
                     }
                 }
             ],
-            "commodity": [
-                {
-                    "Mapping 1": {
-                        "mapping": [
-                            {
-                                "map_type": "RelationshipClass",
-                                "position": "hidden",
-                                "value": "commodity"
-                            },
-                            {
-                                "map_type": "RelationshipClassObjectClass",
-                                "position": "hidden",
-                                "value": "node"
-                            },
-                            {
-                                "map_type": "Relationship",
-                                "position": "hidden",
-                                "value": "relationship"
-                            },
-                            {
-                                "map_type": "RelationshipObject",
-                                "position": 0,
-                                "import_objects": true
-                            },
-                            {
-                                "map_type": "RelationshipMetadata",
-                                "position": "hidden"
-                            }
-                        ]
-                    }
-                }
-            ],
             "p_commodity_price": [
                 {
                     "Mapping 1": {
                         "mapping": [
                             {
-                                "map_type": "RelationshipClass",
+                                "map_type": "ObjectClass",
                                 "position": "hidden",
                                 "value": "commodity"
                             },
                             {
-                                "map_type": "RelationshipClassObjectClass",
-                                "position": "hidden",
-                                "value": "node"
+                                "map_type": "Object",
+                                "position": -1
                             },
                             {
-                                "map_type": "Relationship",
-                                "position": "hidden",
-                                "value": "relationship"
-                            },
-                            {
-                                "map_type": "RelationshipObject",
-                                "position": -1,
-                                "import_objects": true
-                            },
-                            {
-                                "map_type": "RelationshipMetadata",
+                                "map_type": "ObjectMetadata",
                                 "position": "hidden"
                             },
                             {
@@ -255,6 +224,10 @@
                                 "map_type": "ParameterValueType",
                                 "position": "hidden",
                                 "value": "map"
+                            },
+                            {
+                                "map_type": "IndexName",
+                                "position": "hidden"
                             },
                             {
                                 "map_type": "ParameterValueIndex",
@@ -335,9 +308,17 @@
                                 "value": "map"
                             },
                             {
+                                "map_type": "IndexName",
+                                "position": "hidden"
+                            },
+                            {
                                 "map_type": "ParameterValueIndex",
                                 "position": "hidden",
                                 "value": "f00"
+                            },
+                            {
+                                "map_type": "IndexName",
+                                "position": "hidden"
                             },
                             {
                                 "map_type": "ParameterValueIndex",
@@ -386,9 +367,17 @@
                                 "value": "map"
                             },
                             {
+                                "map_type": "IndexName",
+                                "position": "hidden"
+                            },
+                            {
                                 "map_type": "ParameterValueIndex",
                                 "position": "hidden",
                                 "value": "f00"
+                            },
+                            {
+                                "map_type": "IndexName",
+                                "position": "hidden"
                             },
                             {
                                 "map_type": "ParameterValueIndex",
@@ -474,9 +463,17 @@
                                 "value": "map"
                             },
                             {
+                                "map_type": "IndexName",
+                                "position": "hidden"
+                            },
+                            {
                                 "map_type": "ParameterValueIndex",
                                 "position": "hidden",
                                 "value": "f00"
+                            },
+                            {
+                                "map_type": "IndexName",
+                                "position": "hidden"
                             },
                             {
                                 "map_type": "ParameterValueIndex",
@@ -489,6 +486,26 @@
                         ]
                     }
                 }
+            ],
+            "price": [
+                {
+                    "Mapping 1": {
+                        "mapping": [
+                            {
+                                "map_type": "ObjectClass",
+                                "position": "hidden"
+                            },
+                            {
+                                "map_type": "Object",
+                                "position": "hidden"
+                            },
+                            {
+                                "map_type": "ObjectMetadata",
+                                "position": "hidden"
+                            }
+                        ]
+                    }
+                }
             ]
         },
         "table_options": {
@@ -496,12 +513,12 @@
             "demand": {},
             "node__unit__io": {},
             "unit": {},
-            "commodity": {},
             "p_commodity_price": {},
             "reserveDemand": {},
             "unit_ts": {},
             "unit_p": {},
-            "flow": {}
+            "flow": {},
+            "price": {}
         },
         "table_types": {
             "node": {
@@ -517,9 +534,6 @@
                 "2": "string"
             },
             "unit": {
-                "0": "string"
-            },
-            "commodity": {
                 "0": "string"
             },
             "p_commodity_price": {
@@ -541,14 +555,17 @@
             "unit_p": {
                 "0": "string",
                 "1": "string",
-                "2": "float",
-                "3": "float"
+                "2": "float"
             },
             "flow": {
                 "0": "string",
                 "1": "string",
                 "2": "string",
                 "3": "float"
+            },
+            "price": {
+                "0": "string",
+                "1": "string"
             }
         },
         "table_row_types": {
@@ -567,7 +584,6 @@
             "node__unit__io",
             "node",
             "unit",
-            "commodity",
             "p_commodity_price",
             "reserveDemand",
             "unit_ts",

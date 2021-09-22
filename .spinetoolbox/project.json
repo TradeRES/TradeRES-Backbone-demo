@@ -47,7 +47,7 @@
                 {
                     "type": "path",
                     "relative": true,
-                    "path": ".spinetoolbox/specifications/Exporter/foo.json"
+                    "path": ".spinetoolbox/specifications/Exporter/export_toward_bb.json"
                 },
                 {
                     "type": "path",

@@ -186,16 +186,6 @@
             },
             {
                 "from": [
-                    "To_BB_GDX",
-                    "left"
-                ],
-                "to": [
-                    "Backbone",
-                    "right"
-                ]
-            },
-            {
-                "from": [
                     "Toward_BB",
                     "right"
                 ],

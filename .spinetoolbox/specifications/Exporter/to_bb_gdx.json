@@ -18,7 +18,8 @@
                 },
                 {
                     "map_type": "ParameterDefinition",
-                    "position": 1
+                    "position": 1,
+                    "header": "param_unit"
                 },
                 {
                     "map_type": "ParameterValueList",
@@ -27,7 +28,8 @@
                 },
                 {
                     "map_type": "Object",
-                    "position": 0
+                    "position": 0,
+                    "header": "unit"
                 },
                 {
                     "map_type": "Alternative",

@@ -53,7 +53,7 @@
                 {
                     "map_type": "ObjectClass",
                     "position": "table_name",
-                    "filter_re": "^node$|^unit$|^emission$|^group$|^restype$|^flow$|^unittype$|^availability$|^t_invest$|^grid$"
+                    "filter_re": "^node$|^unit$|^emission$|^group$|^restype$|^flow$|^unittype$|^availability$|^t_invest$|^grid$|^commodity$"
                 },
                 {
                     "map_type": "Object",

@@ -31,6 +31,10 @@
                     "position": -2
                 },
                 {
+                    "map_type": "IndexName",
+                    "position": "hidden"
+                },
+                {
                     "map_type": "ParameterValueIndex",
                     "position": 0
                 },
@@ -173,6 +177,10 @@
                     "position": 1
                 },
                 {
+                    "map_type": "IndexName",
+                    "position": "hidden"
+                },
+                {
                     "map_type": "ParameterValueIndex",
                     "position": 0
                 },
@@ -240,6 +248,10 @@
                     "position": 0
                 },
                 {
+                    "map_type": "IndexName",
+                    "position": "hidden"
+                },
+                {
                     "map_type": "ParameterValueIndex",
                     "position": 1
                 },
@@ -286,6 +298,10 @@
                     "map_type": "ParameterValueType",
                     "position": "hidden",
                     "filter_re": "1d_map"
+                },
+                {
+                    "map_type": "IndexName",
+                    "position": "hidden"
                 },
                 {
                     "map_type": "ParameterValueIndex",
@@ -416,6 +432,10 @@
                 {
                     "map_type": "Alternative",
                     "position": 1
+                },
+                {
+                    "map_type": "IndexName",
+                    "position": "hidden"
                 },
                 {
                     "map_type": "ParameterValueIndex",

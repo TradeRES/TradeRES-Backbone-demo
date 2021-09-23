@@ -190,57 +190,6 @@
                     }
                 }
             ],
-            "p_commodity_price": [
-                {
-                    "Mapping 1": {
-                        "mapping": [
-                            {
-                                "map_type": "ObjectClass",
-                                "position": "hidden",
-                                "value": "commodity"
-                            },
-                            {
-                                "map_type": "Object",
-                                "position": -1
-                            },
-                            {
-                                "map_type": "ObjectMetadata",
-                                "position": "hidden"
-                            },
-                            {
-                                "map_type": "ParameterDefinition",
-                                "position": "hidden",
-                                "value": "priceChange"
-                            },
-                            {
-                                "map_type": "Alternative",
-                                "position": 1
-                            },
-                            {
-                                "map_type": "ParameterValueMetadata",
-                                "position": "hidden"
-                            },
-                            {
-                                "map_type": "ParameterValueType",
-                                "position": "hidden",
-                                "value": "map"
-                            },
-                            {
-                                "map_type": "IndexName",
-                                "position": "hidden"
-                            },
-                            {
-                                "map_type": "ParameterValueIndex",
-                                "position": 0
-                            },
-                            {
-                                "map_type": "ExpandedValue",
-                                "position": "hidden"
-                            }
-                        ]
-                    }
-                }
-            ],
             "reserveDemand": [
                 {
                     "Mapping 1": {
@@ -487,21 +436,74 @@
                     }
                 }
             ],
-            "price": [
+            "commodity": [
                 {
                     "Mapping 1": {
                         "mapping": [
                             {
                                 "map_type": "ObjectClass",
-                                "position": "hidden"
+                                "position": "hidden",
+                                "value": "commodity"
                             },
                             {
                                 "map_type": "Object",
-                                "position": "hidden"
+                                "position": 0
                             },
                             {
                                 "map_type": "ObjectMetadata",
                                 "position": "hidden"
+                            }
+                        ]
+                    }
+                }
+            ],
+            "p_commodity_priceChange": [
+                {
+                    "Mapping 1": {
+                        "mapping": [
+                            {
+                                "map_type": "ObjectClass",
+                                "position": "hidden",
+                                "value": "commodity"
+                            },
+                            {
+                                "map_type": "Object",
+                                "position": 0
+                            },
+                            {
+                                "map_type": "ObjectMetadata",
+                                "position": "hidden"
+                            },
+                            {
+                                "map_type": "ParameterDefinition",
+                                "position": "hidden",
+                                "value": "priceChange"
+                            },
+                            {
+                                "map_type": "Alternative",
+                                "position": 1
+                            },
+                            {
+                                "map_type": "ParameterValueMetadata",
+                                "position": "hidden"
+                            },
+                            {
+                                "map_type": "ParameterValueType",
+                                "position": "hidden",
+                                "value": "map"
+                            },
+                            {
+                                "map_type": "IndexName",
+                                "position": "hidden",
+                                "value": ""
+                            },
+                            {
+                                "map_type": "ParameterValueIndex",
+                                "position": 2
+                            },
+                            {
+                                "map_type": "ExpandedValue",
+                                "position": 3
                             }
                         ]
                     }
@@ -513,12 +515,12 @@
             "demand": {},
             "node__unit__io": {},
             "unit": {},
-            "p_commodity_price": {},
             "reserveDemand": {},
             "unit_ts": {},
             "unit_p": {},
             "flow": {},
-            "price": {}
+            "commodity": {},
+            "p_commodity_priceChange": {}
         },
         "table_types": {
             "node": {
@@ -535,11 +537,6 @@
             },
             "unit": {
                 "0": "string"
-            },
-            "p_commodity_price": {
-                "0": "string",
-                "1": "string",
-                "2": "float"
             },
             "reserveDemand": {
                 "0": "string",
@@ -563,9 +560,14 @@
                 "2": "string",
                 "3": "float"
             },
-            "price": {
+            "commodity": {
+                "0": "string"
+            },
+            "p_commodity_priceChange": {
                 "0": "string",
-                "1": "string"
+                "1": "string",
+                "2": "string",
+                "3": "float"
             }
         },
         "table_row_types": {
@@ -582,9 +584,10 @@
         "selected_tables": [
             "demand",
             "node__unit__io",
+            "commodity",
             "node",
             "unit",
-            "p_commodity_price",
+            "p_commodity_priceChange",
             "reserveDemand",
             "unit_ts",
             "unit_p",

@@ -139,19 +139,15 @@
             "use_fixed_table_name": false
         },
         "p_commodity_priceChange": {
-            "type": "relationship_parameter_values",
+            "type": "object_parameter_values",
             "mapping": [
                 {
                     "map_type": "FixedValue",
                     "position": "table_name",
-                    "value": "p_commodity_price"
+                    "value": "p_commodity_priceChange"
                 },
                 {
-                    "map_type": "RelationshipClass",
-                    "position": "hidden"
-                },
-                {
-                    "map_type": "RelationshipClassObjectClass",
+                    "map_type": "ObjectClass",
                     "position": "hidden"
                 },
                 {
@@ -165,16 +161,16 @@
                     "ignorable": true
                 },
                 {
-                    "map_type": "Relationship",
-                    "position": "hidden"
-                },
-                {
-                    "map_type": "RelationshipObject",
-                    "position": -1
+                    "map_type": "Object",
+                    "position": 0
                 },
                 {
                     "map_type": "Alternative",
                     "position": 1
+                },
+                {
+                    "map_type": "ParameterValueType",
+                    "position": "hidden"
                 },
                 {
                     "map_type": "IndexName",
@@ -182,11 +178,11 @@
                 },
                 {
                     "map_type": "ParameterValueIndex",
-                    "position": 0
+                    "position": 2
                 },
                 {
                     "map_type": "ExpandedValue",
-                    "position": 2
+                    "position": 3
                 }
             ],
             "enabled": true,
@@ -354,54 +350,6 @@
                 {
                     "map_type": "ParameterValue",
                     "position": 3
-                }
-            ],
-            "enabled": true,
-            "always_export_header": true,
-            "use_fixed_table_name": true
-        },
-        "price": {
-            "type": "object_parameter_values",
-            "mapping": [
-                {
-                    "map_type": "FixedValue",
-                    "position": "table_name",
-                    "value": "price"
-                },
-                {
-                    "map_type": "ObjectClass",
-                    "position": "hidden",
-                    "header": "commodity",
-                    "filter_re": "^commodity$"
-                },
-                {
-                    "map_type": "ParameterDefinition",
-                    "position": -1,
-                    "header": "param"
-                },
-                {
-                    "map_type": "ParameterValueList",
-                    "position": "hidden",
-                    "ignorable": true
-                },
-                {
-                    "map_type": "Object",
-                    "position": 0,
-                    "header": "commodity"
-                },
-                {
-                    "map_type": "Alternative",
-                    "position": 1,
-                    "header": "alternative"
-                },
-                {
-                    "map_type": "ParameterValueType",
-                    "position": "hidden"
-                },
-                {
-                    "map_type": "ParameterValue",
-                    "position": 3,
-                    "header": "value"
                 }
             ],
             "enabled": true,

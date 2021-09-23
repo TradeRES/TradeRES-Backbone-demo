@@ -101,6 +101,10 @@
                                 "value": "map"
                             },
                             {
+                                "map_type": "IndexName",
+                                "position": "hidden"
+                            },
+                            {
                                 "map_type": "ParameterValueIndex",
                                 "position": 0
                             },
@@ -244,26 +248,16 @@
                     "Mapping 1": {
                         "mapping": [
                             {
-                                "map_type": "RelationshipClass",
+                                "map_type": "ObjectClass",
                                 "position": "hidden",
                                 "value": "commodity"
                             },
                             {
-                                "map_type": "RelationshipClassObjectClass",
-                                "position": "hidden",
-                                "value": "node"
-                            },
-                            {
-                                "map_type": "Relationship",
-                                "position": "hidden",
-                                "value": "relationship"
-                            },
-                            {
-                                "map_type": "RelationshipObject",
+                                "map_type": "Object",
                                 "position": -1
                             },
                             {
-                                "map_type": "RelationshipMetadata",
+                                "map_type": "ObjectMetadata",
                                 "position": "hidden"
                             },
                             {
@@ -273,8 +267,7 @@
                             },
                             {
                                 "map_type": "Alternative",
-                                "position": "hidden",
-                                "value": "Base"
+                                "position": "hidden"
                             },
                             {
                                 "map_type": "ParameterValueMetadata",
@@ -284,6 +277,10 @@
                                 "map_type": "ParameterValueType",
                                 "position": "hidden",
                                 "value": "map"
+                            },
+                            {
+                                "map_type": "IndexName",
+                                "position": "hidden"
                             },
                             {
                                 "map_type": "ParameterValueIndex",
@@ -335,6 +332,10 @@
                                 "map_type": "ParameterValueType",
                                 "position": "hidden",
                                 "value": "map"
+                            },
+                            {
+                                "map_type": "IndexName",
+                                "position": "hidden"
                             },
                             {
                                 "map_type": "ParameterValueIndex",
@@ -389,6 +390,10 @@
                                 "value": "map"
                             },
                             {
+                                "map_type": "IndexName",
+                                "position": "hidden"
+                            },
+                            {
                                 "map_type": "ParameterValueIndex",
                                 "position": 0
                             },
@@ -421,7 +426,7 @@
                             {
                                 "map_type": "RelationshipClassObjectClass",
                                 "position": "hidden",
-                                "value": "unit"
+                                "value": "reserveType"
                             },
                             {
                                 "map_type": "RelationshipClassObjectClass",
@@ -470,6 +475,10 @@
                                 "map_type": "ParameterValueType",
                                 "position": "hidden",
                                 "value": "map"
+                            },
+                            {
+                                "map_type": "IndexName",
+                                "position": "hidden"
                             },
                             {
                                 "map_type": "ParameterValueIndex",
@@ -521,6 +530,10 @@
                                 "map_type": "ParameterValueType",
                                 "position": "hidden",
                                 "value": "map"
+                            },
+                            {
+                                "map_type": "IndexName",
+                                "position": "hidden"
                             },
                             {
                                 "map_type": "ParameterValueIndex",

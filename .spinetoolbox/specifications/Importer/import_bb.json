@@ -31,7 +31,7 @@
                             {
                                 "map_type": "RelationshipClass",
                                 "position": "hidden",
-                                "value": "grid__node"
+                                "value": "ts_grid__node__f"
                             },
                             {
                                 "map_type": "RelationshipClassObjectClass",
@@ -83,7 +83,8 @@
                             },
                             {
                                 "map_type": "IndexName",
-                                "position": "hidden"
+                                "position": "hidden",
+                                "value": "f"
                             },
                             {
                                 "map_type": "ParameterValueIndex",
@@ -92,7 +93,8 @@
                             },
                             {
                                 "map_type": "IndexName",
-                                "position": "hidden"
+                                "position": "hidden",
+                                "value": "t"
                             },
                             {
                                 "map_type": "ParameterValueIndex",
@@ -258,7 +260,8 @@
                             },
                             {
                                 "map_type": "IndexName",
-                                "position": "hidden"
+                                "position": "hidden",
+                                "value": "f"
                             },
                             {
                                 "map_type": "ParameterValueIndex",
@@ -267,7 +270,8 @@
                             },
                             {
                                 "map_type": "IndexName",
-                                "position": "hidden"
+                                "position": "hidden",
+                                "value": "t"
                             },
                             {
                                 "map_type": "ParameterValueIndex",
@@ -286,16 +290,26 @@
                     "Mapping 1": {
                         "mapping": [
                             {
-                                "map_type": "ObjectClass",
+                                "map_type": "RelationshipClass",
+                                "position": "hidden",
+                                "value": "ts_unit__param__f"
+                            },
+                            {
+                                "map_type": "RelationshipClassObjectClass",
                                 "position": "hidden",
                                 "value": "unit"
                             },
                             {
-                                "map_type": "Object",
+                                "map_type": "Relationship",
+                                "position": "hidden",
+                                "value": "relationship"
+                            },
+                            {
+                                "map_type": "RelationshipObject",
                                 "position": -1
                             },
                             {
-                                "map_type": "ObjectMetadata",
+                                "map_type": "RelationshipMetadata",
                                 "position": "hidden"
                             },
                             {
@@ -317,7 +331,8 @@
                             },
                             {
                                 "map_type": "IndexName",
-                                "position": "hidden"
+                                "position": "hidden",
+                                "value": "f"
                             },
                             {
                                 "map_type": "ParameterValueIndex",
@@ -326,7 +341,8 @@
                             },
                             {
                                 "map_type": "IndexName",
-                                "position": "hidden"
+                                "position": "hidden",
+                                "value": "t"
                             },
                             {
                                 "map_type": "ParameterValueIndex",
@@ -495,7 +511,7 @@
                             {
                                 "map_type": "IndexName",
                                 "position": "hidden",
-                                "value": ""
+                                "value": "t"
                             },
                             {
                                 "map_type": "ParameterValueIndex",

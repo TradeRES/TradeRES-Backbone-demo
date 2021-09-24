@@ -261,7 +261,7 @@
                 "database": {
                     "type": "path",
                     "relative": true,
-                    "path": "BB_Spine_DB.sqlite"
+                    "path": ".spinetoolbox/items/bb_spine_db/BB_Spine_DB.sqlite"
                 }
             },
             "cancel_on_error": true
@@ -413,7 +413,7 @@
                     "database_url": {
                         "type": "file_url",
                         "relative": true,
-                        "path": "BB_Spine_DB.sqlite",
+                        "path": ".spinetoolbox/items/bb_spine_db/BB_Spine_DB.sqlite",
                         "scheme": "sqlite"
                     }
                 }

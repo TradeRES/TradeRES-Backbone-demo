@@ -52,14 +52,14 @@
                 {
                     "type": "path",
                     "relative": true,
-                    "path": ".spinetoolbox/specifications/Exporter/to_bb_gdx.json"
+                    "path": "Backbone/tools/exporttobb.json"
                 }
             ],
             "Data Transformer": [
                 {
                     "type": "path",
                     "relative": true,
-                    "path": "Backbone/tools/Convert_to_Bacbbone_parameter_names.json"
+                    "path": ".spinetoolbox/specifications/Data Transformer/rename_for_bb_db.json"
                 },
                 {
                     "type": "path",
@@ -69,7 +69,7 @@
                 {
                     "type": "path",
                     "relative": true,
-                    "path": ".spinetoolbox/specifications/Data Transformer/rename_for_bb_db.json"
+                    "path": "Backbone/tools/Convert_to_Bacbbone_parameter_names.json"
                 }
             ]
         },
@@ -420,7 +420,7 @@
             ],
             "output_time_stamps": false,
             "cancel_on_error": true,
-            "specification": "To_BB_GDX"
+            "specification": "ExportToBB"
         },
         "BB_sets": {
             "type": "Data Transformer",

@@ -49,24 +49,6 @@
             "always_export_header": true,
             "use_fixed_table_name": true
         },
-        "main_sets": {
-            "type": "objects",
-            "mapping": [
-                {
-                    "map_type": "ObjectClass",
-                    "position": "table_name",
-                    "filter_re": "^node$|^unit$|^emission$|^group$|^restype$|^flow$|^unittype$|^availability$|^t_invest$|^grid$|^commodity$"
-                },
-                {
-                    "map_type": "Object",
-                    "position": 0,
-                    "header": "*"
-                }
-            ],
-            "enabled": true,
-            "always_export_header": true,
-            "use_fixed_table_name": false
-        },
         "utAvailabilityLimits": {
             "type": "object_parameter_values",
             "mapping": [
@@ -126,6 +108,123 @@
             "enabled": true,
             "always_export_header": true,
             "use_fixed_table_name": true
+        },
+        "2d_sets": {
+            "type": "relationships",
+            "mapping": [
+                {
+                    "map_type": "RelationshipClass",
+                    "position": "table_name",
+                    "filter_re": "^gn$|unitUnittype"
+                },
+                {
+                    "map_type": "RelationshipClassObjectClass",
+                    "position": "header"
+                },
+                {
+                    "map_type": "RelationshipClassObjectClass",
+                    "position": "header"
+                },
+                {
+                    "map_type": "Relationship",
+                    "position": "hidden"
+                },
+                {
+                    "map_type": "RelationshipObject",
+                    "position": 0
+                },
+                {
+                    "map_type": "RelationshipObject",
+                    "position": 1
+                }
+            ],
+            "enabled": true,
+            "always_export_header": true,
+            "use_fixed_table_name": false
+        },
+        "3d_sets": {
+            "type": "relationships",
+            "mapping": [
+                {
+                    "map_type": "RelationshipClass",
+                    "position": "table_name",
+                    "filter_re": "gnu|restypeDirectionGroup"
+                },
+                {
+                    "map_type": "RelationshipClassObjectClass",
+                    "position": "header"
+                },
+                {
+                    "map_type": "RelationshipClassObjectClass",
+                    "position": "header"
+                },
+                {
+                    "map_type": "RelationshipClassObjectClass",
+                    "position": "header"
+                },
+                {
+                    "map_type": "Relationship",
+                    "position": "hidden"
+                },
+                {
+                    "map_type": "RelationshipObject",
+                    "position": 0
+                },
+                {
+                    "map_type": "RelationshipObject",
+                    "position": 1
+                },
+                {
+                    "map_type": "RelationshipObject",
+                    "position": 2
+                }
+            ],
+            "enabled": true,
+            "always_export_header": true,
+            "use_fixed_table_name": false
+        },
+        "domain sets": {
+            "type": "objects",
+            "mapping": [
+                {
+                    "map_type": "ObjectClass",
+                    "position": "table_name",
+                    "filter_re": "^node$|^unit$|^emission$|^group$|^restype$|^flow$|^unittype$|^availability$|^t_invest$|^grid$|^commodity$"
+                },
+                {
+                    "map_type": "Object",
+                    "position": 0,
+                    "header": "*"
+                }
+            ],
+            "enabled": true,
+            "always_export_header": true,
+            "use_fixed_table_name": false
+        },
+        "1d_sets": {
+            "type": "relationships",
+            "mapping": [
+                {
+                    "map_type": "RelationshipClass",
+                    "position": "table_name",
+                    "filter_re": "unit_fail"
+                },
+                {
+                    "map_type": "RelationshipClassObjectClass",
+                    "position": "header"
+                },
+                {
+                    "map_type": "Relationship",
+                    "position": "hidden"
+                },
+                {
+                    "map_type": "RelationshipObject",
+                    "position": 0
+                }
+            ],
+            "enabled": true,
+            "always_export_header": true,
+            "use_fixed_table_name": false
         }
     }
 }

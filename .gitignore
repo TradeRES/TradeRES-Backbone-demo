@@ -1,14 +1,21 @@
+# Temporary and log files
 *.log
-*.bak5
-.spinetoolbox/items/bb_base_sets/output/2021-03-17T11.03.00/Backbone_base_sets_to_gdx.lst
-.spinetoolbox/items/backbone/output/
-.spinetoolbox/items/bb_base_sets/output/2021-03-17T11.03.00/Backbone_base_sets.gdx
-.spinetoolbox/items/toward_bb/output/
-*.gdx
-*.bak
-Backbone_input_files/Backbone_base_sets_to_gdx.~gm
+*.bak?
+*.sqlite-journal
+
+# Output files
+.spinetoolbox/items/*/output
 
 # Ignore files created by execution
 .export-manifest.json
-.spinetoolbox/items/toward_bb/output/exported.xlsx
+filter_config.json
+
+
+# Project specific
+
+## Data files
+*.gdx
 .exported.json
+
+## GAMS temp files
+*.~gm

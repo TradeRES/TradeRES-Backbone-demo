@@ -70,6 +70,11 @@
                     "type": "path",
                     "relative": true,
                     "path": "Backbone/tools/Convert_to_Bacbbone_parameter_names.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Data Transformer/transform_for_bb_db.json"
                 }
             ]
         },
@@ -146,16 +151,6 @@
             },
             {
                 "from": [
-                    "Rename_for_BB",
-                    "right"
-                ],
-                "to": [
-                    "Toward_BB",
-                    "left"
-                ]
-            },
-            {
-                "from": [
                     "Toward_BB",
                     "right"
                 ],
@@ -223,6 +218,26 @@
                     "Backbone",
                     "right"
                 ]
+            },
+            {
+                "from": [
+                    "Rename_for_BB",
+                    "right"
+                ],
+                "to": [
+                    "Transform_for_BB",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "Transform_for_BB",
+                    "right"
+                ],
+                "to": [
+                    "Toward_BB",
+                    "left"
+                ]
             }
         ],
         "jumps": []
@@ -232,7 +247,7 @@
             "type": "Data Store",
             "description": "",
             "x": -227.25355295788512,
-            "y": -61.81180347148069,
+            "y": -61.56180347148063,
             "url": {
                 "dialect": "sqlite",
                 "username": "",
@@ -251,7 +266,7 @@
             "type": "Data Store",
             "description": "",
             "x": 346.491467656653,
-            "y": -28.874372847757442,
+            "y": -28.624372847757385,
             "url": {
                 "dialect": "sqlite",
                 "username": "",
@@ -270,7 +285,7 @@
             "type": "Data Connection",
             "description": "",
             "x": -473.8704961717465,
-            "y": 15.026964124871668,
+            "y": 15.276964124871725,
             "references": [
                 {
                     "type": "path",
@@ -283,7 +298,7 @@
             "type": "Data Connection",
             "description": "",
             "x": 50.60772800152144,
-            "y": 65.11096386353111,
+            "y": 65.36096386353117,
             "references": [
                 {
                     "type": "path",
@@ -316,7 +331,7 @@
             "type": "Tool",
             "description": "",
             "x": -80.90791216278959,
-            "y": 170.0694668006854,
+            "y": 170.31946680068546,
             "specification": "Backbone",
             "execute_in_work": false,
             "cmd_line_args": []
@@ -325,7 +340,7 @@
             "type": "Tool",
             "description": "",
             "x": 50.365407644179044,
-            "y": -187.02065567754852,
+            "y": -186.77065567754846,
             "specification": "BB_base_sets",
             "execute_in_work": true,
             "cmd_line_args": []
@@ -334,13 +349,13 @@
             "type": "View",
             "description": "",
             "x": 422.0521115026474,
-            "y": -178.94500751074267
+            "y": -178.6950075107426
         },
         "Import_base": {
             "type": "Importer",
             "description": "",
             "x": -346.21359553914743,
-            "y": -56.51713422235515,
+            "y": -56.2671342223551,
             "specification": "base",
             "cancel_on_error": true,
             "file_selection": [
@@ -354,17 +369,17 @@
             "type": "Importer",
             "description": "",
             "x": 187.03624617021126,
-            "y": -177.86768498014465,
+            "y": -177.6176849801446,
             "specification": "Import_BB_base_sets",
             "cancel_on_error": false,
             "file_selection": [
                 [
-                    "Backbone_base_sets_to_gdx.lst",
-                    false
-                ],
-                [
                     "Backbone_base_sets.gdx",
                     true
+                ],
+                [
+                    "Backbone_base_sets_to_gdx.lst",
+                    false
                 ]
             ]
         },
@@ -372,7 +387,7 @@
             "type": "Importer",
             "description": "",
             "x": 203.3462533785156,
-            "y": -47.75449821426129,
+            "y": -47.50449821426123,
             "specification": "import_BB",
             "cancel_on_error": true,
             "file_selection": [
@@ -385,8 +400,8 @@
         "Toward_BB": {
             "type": "Exporter",
             "description": "",
-            "x": 56.967334983426184,
-            "y": -57.46093169130424,
+            "x": 83.80201946523574,
+            "y": -57.21093169130418,
             "databases": [
                 {
                     "output_file_name": "exported.xlsx",
@@ -406,7 +421,7 @@
             "type": "Exporter",
             "description": "",
             "x": 54.03958898720444,
-            "y": 191.0206556775484,
+            "y": 191.27065567754846,
             "databases": [
                 {
                     "output_file_name": "inputData.gdx",
@@ -426,21 +441,21 @@
             "type": "Data Transformer",
             "description": "",
             "x": 278.8458227891707,
-            "y": 75.64065260809156,
+            "y": 75.89065260809161,
             "specification": "ToBackboneSets"
         },
         "Rename_for_BB": {
             "type": "Data Transformer",
             "description": "",
-            "x": -99.18266827559233,
-            "y": -54.70704702266744,
+            "x": -124.22837379194793,
+            "y": -63.40194184993723,
             "specification": "Rename_for_BB_DB"
         },
         "Base classes": {
             "type": "Data Store",
             "description": "",
             "x": 458.37049617174654,
-            "y": -29.41482212731509,
+            "y": -29.164822127315034,
             "url": {
                 "dialect": "sqlite",
                 "username": "",
@@ -459,8 +474,15 @@
             "type": "Data Transformer",
             "description": "",
             "x": 230.4659113878163,
-            "y": 185.36333185318964,
+            "y": 185.6133318531897,
             "specification": "ToBackboneParameters"
+        },
+        "Transform_for_BB": {
+            "type": "Data Transformer",
+            "description": "",
+            "x": -21.467747585447658,
+            "y": -57.2473268945271,
+            "specification": "Transform_for_BB_DB"
         }
     }
 }

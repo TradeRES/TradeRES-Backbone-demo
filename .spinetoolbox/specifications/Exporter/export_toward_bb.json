@@ -8,13 +8,18 @@
             "type": "object_parameter_values",
             "mapping": [
                 {
+                    "map_type": "FixedValue",
+                    "position": "table_name",
+                    "value": "influx"
+                },
+                {
                     "map_type": "ObjectClass",
                     "position": "hidden",
                     "filter_re": "node"
                 },
                 {
                     "map_type": "ParameterDefinition",
-                    "position": "table_name",
+                    "position": "hidden",
                     "filter_re": "demand"
                 },
                 {
@@ -45,7 +50,7 @@
             ],
             "enabled": true,
             "always_export_header": true,
-            "use_fixed_table_name": false
+            "use_fixed_table_name": true
         },
         "relationship_classes_2D": {
             "type": "relationships",
@@ -260,102 +265,6 @@
             "always_export_header": true,
             "use_fixed_table_name": true
         },
-        "unit_ts": {
-            "type": "object_parameter_values",
-            "mapping": [
-                {
-                    "map_type": "FixedValue",
-                    "position": "table_name",
-                    "value": "unit_ts"
-                },
-                {
-                    "map_type": "ObjectClass",
-                    "position": "hidden",
-                    "filter_re": "^unit$"
-                },
-                {
-                    "map_type": "ParameterDefinition",
-                    "position": 1
-                },
-                {
-                    "map_type": "ParameterValueList",
-                    "position": "hidden",
-                    "ignorable": true
-                },
-                {
-                    "map_type": "Object",
-                    "position": -1
-                },
-                {
-                    "map_type": "Alternative",
-                    "position": 0
-                },
-                {
-                    "map_type": "ParameterValueType",
-                    "position": "hidden",
-                    "filter_re": "1d_map"
-                },
-                {
-                    "map_type": "IndexName",
-                    "position": "hidden"
-                },
-                {
-                    "map_type": "ParameterValueIndex",
-                    "position": 2
-                },
-                {
-                    "map_type": "ExpandedValue",
-                    "position": 4
-                }
-            ],
-            "enabled": true,
-            "always_export_header": true,
-            "use_fixed_table_name": true
-        },
-        "unit_p": {
-            "type": "object_parameter_values",
-            "mapping": [
-                {
-                    "map_type": "FixedValue",
-                    "position": "table_name",
-                    "value": "unit_p"
-                },
-                {
-                    "map_type": "ObjectClass",
-                    "position": "hidden",
-                    "filter_re": "^unit$"
-                },
-                {
-                    "map_type": "ParameterDefinition",
-                    "position": 1
-                },
-                {
-                    "map_type": "ParameterValueList",
-                    "position": "hidden",
-                    "ignorable": true
-                },
-                {
-                    "map_type": "Object",
-                    "position": 0
-                },
-                {
-                    "map_type": "Alternative",
-                    "position": -3
-                },
-                {
-                    "map_type": "ParameterValueType",
-                    "position": "hidden",
-                    "filter_re": "single_value"
-                },
-                {
-                    "map_type": "ParameterValue",
-                    "position": 3
-                }
-            ],
-            "enabled": true,
-            "always_export_header": true,
-            "use_fixed_table_name": true
-        },
         "flow": {
             "type": "object_parameter_values",
             "mapping": [
@@ -397,6 +306,104 @@
             "enabled": true,
             "always_export_header": true,
             "use_fixed_table_name": false
+        },
+        "unit_efficiency": {
+            "type": "object_parameter_values",
+            "mapping": [
+                {
+                    "map_type": "FixedValue",
+                    "position": "table_name",
+                    "value": "unit_efficiency"
+                },
+                {
+                    "map_type": "ObjectClass",
+                    "position": "hidden",
+                    "filter_re": "^unit$"
+                },
+                {
+                    "map_type": "ParameterDefinition",
+                    "position": 1,
+                    "filter_re": "^(eff|op)"
+                },
+                {
+                    "map_type": "ParameterValueList",
+                    "position": "hidden",
+                    "ignorable": true
+                },
+                {
+                    "map_type": "Object",
+                    "position": 0
+                },
+                {
+                    "map_type": "Alternative",
+                    "position": -3
+                },
+                {
+                    "map_type": "ParameterValueType",
+                    "position": "hidden",
+                    "filter_re": "single_value"
+                },
+                {
+                    "map_type": "ParameterValue",
+                    "position": 3
+                }
+            ],
+            "enabled": true,
+            "always_export_header": true,
+            "use_fixed_table_name": true
+        },
+        "unit_efficiency_ts": {
+            "type": "object_parameter_values",
+            "mapping": [
+                {
+                    "map_type": "FixedValue",
+                    "position": "table_name",
+                    "value": "unit_efficiency_ts"
+                },
+                {
+                    "map_type": "ObjectClass",
+                    "position": "hidden",
+                    "filter_re": "^unit$"
+                },
+                {
+                    "map_type": "ParameterDefinition",
+                    "position": 1,
+                    "filter_re": "eff\\d{2}"
+                },
+                {
+                    "map_type": "ParameterValueList",
+                    "position": "hidden",
+                    "ignorable": true
+                },
+                {
+                    "map_type": "Object",
+                    "position": -1
+                },
+                {
+                    "map_type": "Alternative",
+                    "position": 0
+                },
+                {
+                    "map_type": "ParameterValueType",
+                    "position": "hidden",
+                    "filter_re": "1d_map"
+                },
+                {
+                    "map_type": "IndexName",
+                    "position": "hidden"
+                },
+                {
+                    "map_type": "ParameterValueIndex",
+                    "position": 2
+                },
+                {
+                    "map_type": "ExpandedValue",
+                    "position": 4
+                }
+            ],
+            "enabled": true,
+            "always_export_header": true,
+            "use_fixed_table_name": true
         }
     }
 }

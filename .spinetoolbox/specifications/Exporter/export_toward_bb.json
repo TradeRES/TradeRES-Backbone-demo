@@ -144,7 +144,7 @@
             "use_fixed_table_name": false
         },
         "p_commodity_priceChange": {
-            "type": "object_parameter_values",
+            "type": "relationship_parameter_values",
             "mapping": [
                 {
                     "map_type": "FixedValue",
@@ -152,7 +152,11 @@
                     "value": "p_commodity_priceChange"
                 },
                 {
-                    "map_type": "ObjectClass",
+                    "map_type": "RelationshipClass",
+                    "position": "hidden"
+                },
+                {
+                    "map_type": "RelationshipClassObjectClass",
                     "position": "hidden"
                 },
                 {
@@ -166,7 +170,11 @@
                     "ignorable": true
                 },
                 {
-                    "map_type": "Object",
+                    "map_type": "Relationship",
+                    "position": "hidden"
+                },
+                {
+                    "map_type": "RelationshipObject",
                     "position": 0
                 },
                 {

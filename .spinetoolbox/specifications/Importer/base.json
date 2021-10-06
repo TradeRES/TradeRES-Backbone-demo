@@ -248,16 +248,26 @@
                     "Mapping 1": {
                         "mapping": [
                             {
-                                "map_type": "ObjectClass",
+                                "map_type": "RelationshipClass",
                                 "position": "hidden",
                                 "value": "commodity"
                             },
                             {
-                                "map_type": "Object",
+                                "map_type": "RelationshipClassObjectClass",
+                                "position": "hidden",
+                                "value": "node"
+                            },
+                            {
+                                "map_type": "Relationship",
+                                "position": "hidden",
+                                "value": "relationship"
+                            },
+                            {
+                                "map_type": "RelationshipObject",
                                 "position": -1
                             },
                             {
-                                "map_type": "ObjectMetadata",
+                                "map_type": "RelationshipMetadata",
                                 "position": "hidden"
                             },
                             {

@@ -91,26 +91,6 @@
             },
             {
                 "from": [
-                    "BB_base_sets",
-                    "right"
-                ],
-                "to": [
-                    "Import_BB_base_sets",
-                    "left"
-                ]
-            },
-            {
-                "from": [
-                    "Import_BB_base_sets",
-                    "right"
-                ],
-                "to": [
-                    "BB_Spine_DB",
-                    "left"
-                ]
-            },
-            {
-                "from": [
                     "BB_Spine_DB",
                     "bottom"
                 ],
@@ -161,21 +141,11 @@
             },
             {
                 "from": [
-                    "Export_to_GDX",
+                    "Export_to_BB",
                     "left"
                 ],
                 "to": [
                     "Backbone",
-                    "right"
-                ]
-            },
-            {
-                "from": [
-                    "BB_params",
-                    "left"
-                ],
-                "to": [
-                    "Export_to_GDX",
                     "right"
                 ]
             },
@@ -191,21 +161,11 @@
             },
             {
                 "from": [
-                    "Base classes",
+                    "BB_data_template",
                     "left"
                 ],
                 "to": [
                     "BB_Spine_DB",
-                    "right"
-                ]
-            },
-            {
-                "from": [
-                    "BB_sets",
-                    "bottom"
-                ],
-                "to": [
-                    "BB_params",
                     "right"
                 ]
             },
@@ -238,6 +198,16 @@
                     "Toward_BB",
                     "left"
                 ]
+            },
+            {
+                "from": [
+                    "BB_sets",
+                    "left"
+                ],
+                "to": [
+                    "Export_to_BB",
+                    "right"
+                ]
             }
         ],
         "jumps": []
@@ -246,7 +216,7 @@
         "TradeRES": {
             "type": "Data Store",
             "description": "",
-            "x": -227.25355295788512,
+            "x": -233.25355295788512,
             "y": -61.56180347148063,
             "url": {
                 "dialect": "sqlite",
@@ -262,29 +232,10 @@
             },
             "cancel_on_error": true
         },
-        "BB_Spine_DB": {
-            "type": "Data Store",
-            "description": "",
-            "x": 346.491467656653,
-            "y": -28.624372847757385,
-            "url": {
-                "dialect": "sqlite",
-                "username": "",
-                "password": "",
-                "host": "",
-                "port": "",
-                "database": {
-                    "type": "path",
-                    "relative": true,
-                    "path": ".spinetoolbox/items/bb_spine_db/BB_Spine_DB.sqlite"
-                }
-            },
-            "cancel_on_error": true
-        },
         "DataExcel": {
             "type": "Data Connection",
             "description": "",
-            "x": -473.8704961717465,
+            "x": -479.8704961717465,
             "y": 15.276964124871725,
             "references": [
                 {
@@ -297,8 +248,8 @@
         "BB_input_files": {
             "type": "Data Connection",
             "description": "",
-            "x": 50.60772800152144,
-            "y": 65.36096386353117,
+            "x": 146.1730845718207,
+            "y": 207.0179085536854,
             "references": [
                 {
                     "type": "path",
@@ -330,63 +281,36 @@
         "Backbone": {
             "type": "Tool",
             "description": "",
-            "x": -80.90791216278959,
-            "y": 170.31946680068546,
+            "x": 7.975513054200526,
+            "y": 103.50015326759382,
             "specification": "Backbone",
             "execute_in_work": false,
-            "cmd_line_args": []
-        },
-        "BB_base_sets": {
-            "type": "Tool",
-            "description": "",
-            "x": 50.365407644179044,
-            "y": -186.77065567754846,
-            "specification": "BB_base_sets",
-            "execute_in_work": true,
             "cmd_line_args": []
         },
         "View 1": {
             "type": "View",
             "description": "",
-            "x": 422.0521115026474,
+            "x": 416.0521115026474,
             "y": -178.6950075107426
         },
         "Import_base": {
             "type": "Importer",
             "description": "",
-            "x": -346.21359553914743,
+            "x": -352.21359553914743,
             "y": -56.2671342223551,
             "specification": "base",
             "cancel_on_error": true,
             "file_selection": [
                 [
-                    "Nomenclature comparison.xlsx",
+                    "<project>/Nomenclature comparison.xlsx",
                     true
-                ]
-            ]
-        },
-        "Import_BB_base_sets": {
-            "type": "Importer",
-            "description": "",
-            "x": 187.03624617021126,
-            "y": -177.6176849801446,
-            "specification": "Import_BB_base_sets",
-            "cancel_on_error": false,
-            "file_selection": [
-                [
-                    "Backbone_base_sets.gdx",
-                    true
-                ],
-                [
-                    "Backbone_base_sets_to_gdx.lst",
-                    false
                 ]
             ]
         },
         "Import_BB_Excel": {
             "type": "Importer",
             "description": "",
-            "x": 203.3462533785156,
+            "x": 197.3462533785156,
             "y": -47.50449821426123,
             "specification": "import_BB",
             "cancel_on_error": true,
@@ -400,7 +324,7 @@
         "Toward_BB": {
             "type": "Exporter",
             "description": "",
-            "x": 83.80201946523574,
+            "x": 77.80201946523574,
             "y": -57.21093169130418,
             "databases": [
                 {
@@ -417,11 +341,51 @@
             "cancel_on_error": true,
             "specification": "Export_toward_BB"
         },
-        "Export_to_GDX": {
+        "BB_sets": {
+            "type": "Data Transformer",
+            "description": "",
+            "x": 278.1913678718181,
+            "y": 98.60921920934275,
+            "specification": "ToBackboneSets"
+        },
+        "Rename_for_BB": {
+            "type": "Data Transformer",
+            "description": "",
+            "x": -130.22837379194794,
+            "y": -63.40194184993723,
+            "specification": "Rename_for_BB_DB"
+        },
+        "Transform_for_BB": {
+            "type": "Data Transformer",
+            "description": "",
+            "x": -27.467747585447658,
+            "y": -57.2473268945271,
+            "specification": "Transform_for_BB_DB"
+        },
+        "BB_data_template": {
+            "type": "Data Store",
+            "description": "",
+            "x": 479.09822158498326,
+            "y": -29.164822127315034,
+            "url": {
+                "dialect": "sqlite",
+                "username": "",
+                "password": "",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": "Backbone/.spinetoolbox/items/bb_data_template/BB_data_template.sqlite"
+                }
+            },
+            "cancel_on_error": false
+        },
+        "Export_to_BB": {
             "type": "Exporter",
             "description": "",
-            "x": 54.03958898720444,
-            "y": 191.27065567754846,
+            "x": 148.26855928684188,
+            "y": 104.40554808452939,
             "databases": [
                 {
                     "output_file_name": "inputData.gdx",
@@ -437,25 +401,11 @@
             "cancel_on_error": true,
             "specification": "ExportToBB"
         },
-        "BB_sets": {
-            "type": "Data Transformer",
-            "description": "",
-            "x": 278.8458227891707,
-            "y": 75.89065260809161,
-            "specification": "ToBackboneSets"
-        },
-        "Rename_for_BB": {
-            "type": "Data Transformer",
-            "description": "",
-            "x": -124.22837379194793,
-            "y": -63.40194184993723,
-            "specification": "Rename_for_BB_DB"
-        },
-        "Base classes": {
+        "BB_Spine_DB": {
             "type": "Data Store",
             "description": "",
-            "x": 458.37049617174654,
-            "y": -29.164822127315034,
+            "x": 340.491467656653,
+            "y": -28.624372847757385,
             "url": {
                 "dialect": "sqlite",
                 "username": "",
@@ -465,24 +415,10 @@
                 "database": {
                     "type": "path",
                     "relative": true,
-                    "path": ".spinetoolbox/items/base_classes/Base classes.sqlite"
+                    "path": ".spinetoolbox/items/bb_spine_db/BB_Spine_DB.sqlite"
                 }
             },
-            "cancel_on_error": false
-        },
-        "BB_params": {
-            "type": "Data Transformer",
-            "description": "",
-            "x": 230.4659113878163,
-            "y": 185.6133318531897,
-            "specification": "ToBackboneParameters"
-        },
-        "Transform_for_BB": {
-            "type": "Data Transformer",
-            "description": "",
-            "x": -21.467747585447658,
-            "y": -57.2473268945271,
-            "specification": "Transform_for_BB_DB"
+            "cancel_on_error": true
         }
     }
 }

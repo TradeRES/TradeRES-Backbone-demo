@@ -50,6 +50,7 @@
             ],
             "enabled": true,
             "always_export_header": true,
+            "group_fn": "no_group",
             "use_fixed_table_name": true
         },
         "relationship_classes_2D": {
@@ -83,6 +84,7 @@
             ],
             "enabled": true,
             "always_export_header": true,
+            "group_fn": "no_group",
             "use_fixed_table_name": false
         },
         "relationship_classes_3D": {
@@ -124,6 +126,7 @@
             ],
             "enabled": true,
             "always_export_header": true,
+            "group_fn": "no_group",
             "use_fixed_table_name": false
         },
         "object_classes": {
@@ -141,6 +144,7 @@
             ],
             "enabled": true,
             "always_export_header": true,
+            "group_fn": "no_group",
             "use_fixed_table_name": false
         },
         "p_commodity_priceChange": {
@@ -200,6 +204,7 @@
             ],
             "enabled": true,
             "always_export_header": true,
+            "group_fn": "no_group",
             "use_fixed_table_name": true
         },
         "reserveDemand": {
@@ -271,6 +276,7 @@
             ],
             "enabled": true,
             "always_export_header": true,
+            "group_fn": "no_group",
             "use_fixed_table_name": true
         },
         "flow": {
@@ -313,6 +319,7 @@
             ],
             "enabled": true,
             "always_export_header": true,
+            "group_fn": "no_group",
             "use_fixed_table_name": false
         },
         "unit_efficiency": {
@@ -358,6 +365,7 @@
             ],
             "enabled": true,
             "always_export_header": true,
+            "group_fn": "no_group",
             "use_fixed_table_name": true
         },
         "unit_efficiency_ts": {
@@ -411,6 +419,7 @@
             ],
             "enabled": true,
             "always_export_header": true,
+            "group_fn": "no_group",
             "use_fixed_table_name": true
         }
     }

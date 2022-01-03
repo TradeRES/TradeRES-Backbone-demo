@@ -1,6 +1,6 @@
 {
     "project": {
-        "version": 6,
+        "version": 7,
         "name": "TradeRES",
         "description": "",
         "specifications": {
@@ -24,6 +24,11 @@
                     "type": "path",
                     "relative": true,
                     "path": ".spinetoolbox/specifications/Importer/import_bb_base_sets.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Importer/import_to_bb_spine_db.json"
                 }
             ],
             "Tool": [
@@ -53,6 +58,11 @@
                     "type": "path",
                     "relative": true,
                     "path": "Backbone/tools/exporttobb.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Exporter/export_toward_backbone.json"
                 }
             ],
             "Data Transformer": [
@@ -161,16 +171,6 @@
             },
             {
                 "from": [
-                    "BB_data_template",
-                    "left"
-                ],
-                "to": [
-                    "BB_Spine_DB",
-                    "right"
-                ]
-            },
-            {
-                "from": [
                     "BB_input_files",
                     "left"
                 ],
@@ -208,6 +208,56 @@
                     "Export_to_BB",
                     "right"
                 ]
+            },
+            {
+                "from": [
+                    "BB_data_template",
+                    "left"
+                ],
+                "to": [
+                    "BB_Spine_DB merger",
+                    "right"
+                ]
+            },
+            {
+                "from": [
+                    "BB_Spine_DB merger",
+                    "left"
+                ],
+                "to": [
+                    "BB_Spine_DB",
+                    "right"
+                ]
+            },
+            {
+                "from": [
+                    "TradeRES_common_DB",
+                    "right"
+                ],
+                "to": [
+                    "Export_toward_BB",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "Export_toward_BB",
+                    "right"
+                ],
+                "to": [
+                    "Import_BB_Spine_DB",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "Import_BB_Spine_DB",
+                    "right"
+                ],
+                "to": [
+                    "BB_Spine_DB",
+                    "left"
+                ]
             }
         ],
         "jumps": []
@@ -216,12 +266,10 @@
         "TradeRES": {
             "type": "Data Store",
             "description": "",
-            "x": -246.61741566450354,
-            "y": -73.47325399295201,
+            "x": -311.73737351908466,
+            "y": -57.70584380940451,
             "url": {
                 "dialect": "sqlite",
-                "username": "",
-                "password": "",
                 "host": "",
                 "port": "",
                 "database": {
@@ -229,14 +277,13 @@
                     "relative": true,
                     "path": ".spinetoolbox/items/traderes/TradeRES.sqlite"
                 }
-            },
-            "cancel_on_error": true
+            }
         },
         "DataExcel": {
             "type": "Data Connection",
             "description": "",
-            "x": -493.2343588783649,
-            "y": 3.3655136034003448,
+            "x": -558.354316732946,
+            "y": 19.132923786947842,
             "references": [
                 {
                     "type": "path",
@@ -248,8 +295,8 @@
         "BB_input_files": {
             "type": "Data Connection",
             "description": "",
-            "x": 132.8092218652023,
-            "y": 195.10645803221402,
+            "x": 67.68926401062117,
+            "y": 210.87386821576152,
             "references": [
                 {
                     "type": "path",
@@ -281,8 +328,8 @@
         "Backbone": {
             "type": "Tool",
             "description": "",
-            "x": -5.388349652417894,
-            "y": 91.58870274612244,
+            "x": -70.50830750699902,
+            "y": 107.35611292966993,
             "specification": "Backbone",
             "execute_in_work": false,
             "cmd_line_args": []
@@ -290,16 +337,18 @@
         "View 1": {
             "type": "View",
             "description": "",
-            "x": 402.688248796029,
-            "y": -190.606458032214
+            "x": 337.56829094144786,
+            "y": -174.8390478486665
         },
         "Import_base": {
             "type": "Importer",
             "description": "",
-            "x": -365.57745824576585,
-            "y": -68.17858474382648,
+            "x": -430.69741610034697,
+            "y": -52.41117456027898,
             "specification": "base",
             "cancel_on_error": true,
+            "purge_before_writing": false,
+            "on_conflict": "merge",
             "file_selection": [
                 [
                     "<project>/Nomenclature comparison.xlsx",
@@ -310,10 +359,12 @@
         "Import_BB_Excel": {
             "type": "Importer",
             "description": "",
-            "x": 183.98239067189718,
-            "y": -59.41594873573261,
+            "x": 118.86243281731606,
+            "y": -43.648538552185116,
             "specification": "import_BB",
             "cancel_on_error": true,
+            "purge_before_writing": false,
+            "on_conflict": "merge",
             "file_selection": [
                 [
                     "exported.xlsx",
@@ -324,8 +375,8 @@
         "Toward_BB": {
             "type": "Exporter",
             "description": "",
-            "x": 64.43815675861732,
-            "y": -69.12238221277556,
+            "x": -0.6818010959637917,
+            "y": -53.354972029228065,
             "databases": [
                 {
                     "output_file_name": "exported.xlsx",
@@ -344,33 +395,31 @@
         "BB_sets": {
             "type": "Data Transformer",
             "description": "",
-            "x": 264.8275051651997,
-            "y": 86.69776868787137,
+            "x": 199.70754731061857,
+            "y": 102.46517887141887,
             "specification": "ToBackboneSets"
         },
         "Rename_for_BB": {
             "type": "Data Transformer",
             "description": "",
-            "x": -143.59223649856636,
-            "y": -75.31339237140861,
+            "x": -208.71219435314748,
+            "y": -59.545982187861114,
             "specification": "Rename_for_BB_DB"
         },
         "Transform_for_BB": {
             "type": "Data Transformer",
             "description": "",
-            "x": -40.831610292066074,
-            "y": -69.15877741599849,
+            "x": -105.95156814664719,
+            "y": -53.39136723245099,
             "specification": "Transform_for_BB_DB"
         },
         "BB_data_template": {
             "type": "Data Store",
             "description": "",
-            "x": 465.73435887836484,
-            "y": -41.076272648786414,
+            "x": 531.854316732946,
+            "y": -16.28433787111028,
             "url": {
                 "dialect": "sqlite",
-                "username": "",
-                "password": "",
                 "host": "",
                 "port": "",
                 "database": {
@@ -378,14 +427,13 @@
                     "relative": true,
                     "path": "Backbone/.spinetoolbox/items/bb_data_template/BB_data_template.sqlite"
                 }
-            },
-            "cancel_on_error": false
+            }
         },
         "Export_to_BB": {
             "type": "Exporter",
             "description": "",
-            "x": 134.90469658022346,
-            "y": 92.494097563058,
+            "x": 69.78473872564234,
+            "y": 108.2615077466055,
             "databases": [
                 {
                     "output_file_name": "inputData.gdx",
@@ -404,12 +452,10 @@
         "BB_Spine_DB": {
             "type": "Data Store",
             "description": "",
-            "x": 327.1276049500346,
-            "y": -40.535823369228766,
+            "x": 262.0076470954535,
+            "y": -24.76841318568127,
             "url": {
                 "dialect": "sqlite",
-                "username": "",
-                "password": "",
                 "host": "",
                 "port": "",
                 "database": {
@@ -417,18 +463,15 @@
                     "relative": true,
                     "path": ".spinetoolbox/items/bb_spine_db/BB_Spine_DB.sqlite"
                 }
-            },
-            "cancel_on_error": true
+            }
         },
         "TradeRES_common_DB": {
             "type": "Data Store",
             "description": "",
-            "x": 4.113727377765024,
-            "y": -222.1412783993091,
+            "x": -247.79384739044795,
+            "y": -217.1797634091122,
             "url": {
                 "dialect": "sqlite",
-                "username": "",
-                "password": "",
                 "host": "",
                 "port": "",
                 "database": {
@@ -436,8 +479,51 @@
                     "relative": true,
                     "path": ".spinetoolbox/items/traderes_common_db/TradeRES-common-db.sqlite"
                 }
-            },
-            "cancel_on_error": false
+            }
+        },
+        "BB_Spine_DB merger": {
+            "type": "Merger",
+            "description": "Merges data into BB_Spine_DB",
+            "x": 381.76150759326794,
+            "y": -21.598832129984004,
+            "cancel_on_error": true,
+            "purge_before_writing": false
+        },
+        "Import_BB_Spine_DB": {
+            "type": "Importer",
+            "description": "",
+            "x": 67.92276978677522,
+            "y": -211.48680592700467,
+            "specification": "Import_to_BB_Spine_DB",
+            "cancel_on_error": true,
+            "purge_before_writing": false,
+            "on_conflict": "merge",
+            "file_selection": [
+                [
+                    "exported_toward_bb.xlsx",
+                    true
+                ]
+            ]
+        },
+        "Export_toward_BB": {
+            "type": "Exporter",
+            "description": "",
+            "x": -92.62195880014804,
+            "y": -217.66160318034787,
+            "databases": [
+                {
+                    "output_file_name": "exported_toward_bb.xlsx",
+                    "database_url": {
+                        "type": "file_url",
+                        "relative": true,
+                        "path": ".spinetoolbox/items/traderes_common_db/TradeRES-common-db.sqlite",
+                        "scheme": "sqlite"
+                    }
+                }
+            ],
+            "output_time_stamps": false,
+            "cancel_on_error": true,
+            "specification": "Export_toward_backbone"
         }
     }
 }

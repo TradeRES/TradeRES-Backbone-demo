@@ -1,0 +1,32 @@
+{
+    "item_type": "Exporter",
+    "output_format": "Excel",
+    "name": "Export_toward_backbone",
+    "description": "",
+    "mappings": {
+        "grid": {
+            "type": "objects",
+            "mapping": [
+                {
+                    "map_type": "FixedValue",
+                    "position": "table_name",
+                    "value": "grid"
+                },
+                {
+                    "map_type": "ObjectClass",
+                    "position": "hidden",
+                    "filter_re": "^commodity$"
+                },
+                {
+                    "map_type": "Object",
+                    "position": 0,
+                    "header": "*"
+                }
+            ],
+            "enabled": true,
+            "always_export_header": true,
+            "group_fn": "no_group",
+            "use_fixed_table_name": true
+        }
+    }
+}

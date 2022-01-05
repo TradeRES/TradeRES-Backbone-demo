@@ -10,6 +10,9 @@
 .export-manifest.json
 filter_config.json
 
+# Local settings
+.spinetoolbox/local
+
 
 # Project specific
 

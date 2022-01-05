@@ -267,7 +267,7 @@
             "type": "Data Store",
             "description": "",
             "x": -311.73737351908466,
-            "y": -57.70584380940451,
+            "y": -52.06197632711135,
             "url": {
                 "dialect": "sqlite",
                 "host": "",
@@ -283,7 +283,7 @@
             "type": "Data Connection",
             "description": "",
             "x": -558.354316732946,
-            "y": 19.132923786947842,
+            "y": 24.776791269241002,
             "references": [
                 {
                     "type": "path",
@@ -296,7 +296,7 @@
             "type": "Data Connection",
             "description": "",
             "x": 67.68926401062117,
-            "y": 210.87386821576152,
+            "y": 216.51773569805465,
             "references": [
                 {
                     "type": "path",
@@ -329,7 +329,7 @@
             "type": "Tool",
             "description": "",
             "x": -70.50830750699902,
-            "y": 107.35611292966993,
+            "y": 112.9999804119631,
             "specification": "Backbone",
             "execute_in_work": false,
             "cmd_line_args": []
@@ -338,13 +338,13 @@
             "type": "View",
             "description": "",
             "x": 337.56829094144786,
-            "y": -174.8390478486665
+            "y": -169.19518036637334
         },
         "Import_base": {
             "type": "Importer",
             "description": "",
             "x": -430.69741610034697,
-            "y": -52.41117456027898,
+            "y": -46.76730707798582,
             "specification": "base",
             "cancel_on_error": true,
             "purge_before_writing": false,
@@ -360,7 +360,7 @@
             "type": "Importer",
             "description": "",
             "x": 118.86243281731606,
-            "y": -43.648538552185116,
+            "y": -38.004671069891955,
             "specification": "import_BB",
             "cancel_on_error": true,
             "purge_before_writing": false,
@@ -376,7 +376,7 @@
             "type": "Exporter",
             "description": "",
             "x": -0.6818010959637917,
-            "y": -53.354972029228065,
+            "y": -47.711104546934905,
             "databases": [
                 {
                     "output_file_name": "exported.xlsx",
@@ -396,28 +396,28 @@
             "type": "Data Transformer",
             "description": "",
             "x": 199.70754731061857,
-            "y": 102.46517887141887,
+            "y": 108.10904635371202,
             "specification": "ToBackboneSets"
         },
         "Rename_for_BB": {
             "type": "Data Transformer",
             "description": "",
             "x": -208.71219435314748,
-            "y": -59.545982187861114,
+            "y": -53.90211470556795,
             "specification": "Rename_for_BB_DB"
         },
         "Transform_for_BB": {
             "type": "Data Transformer",
             "description": "",
             "x": -105.95156814664719,
-            "y": -53.39136723245099,
+            "y": -47.74749975015783,
             "specification": "Transform_for_BB_DB"
         },
         "BB_data_template": {
             "type": "Data Store",
             "description": "",
             "x": 531.854316732946,
-            "y": -16.28433787111028,
+            "y": -10.640470388817121,
             "url": {
                 "dialect": "sqlite",
                 "host": "",
@@ -433,7 +433,7 @@
             "type": "Exporter",
             "description": "",
             "x": 69.78473872564234,
-            "y": 108.2615077466055,
+            "y": 113.90537522889866,
             "databases": [
                 {
                     "output_file_name": "inputData.gdx",
@@ -453,7 +453,7 @@
             "type": "Data Store",
             "description": "",
             "x": 262.0076470954535,
-            "y": -24.76841318568127,
+            "y": -19.124545703388108,
             "url": {
                 "dialect": "sqlite",
                 "host": "",
@@ -469,23 +469,19 @@
             "type": "Data Store",
             "description": "",
             "x": -247.79384739044795,
-            "y": -217.1797634091122,
+            "y": -211.53589592681905,
             "url": {
-                "dialect": "sqlite",
-                "host": "",
-                "port": "",
-                "database": {
-                    "type": "path",
-                    "relative": true,
-                    "path": ".spinetoolbox/items/traderes_common_db/TradeRES-common-db.sqlite"
-                }
+                "dialect": "mysql",
+                "host": "localhost",
+                "port": "44999",
+                "database": "traderes"
             }
         },
         "BB_Spine_DB merger": {
             "type": "Merger",
             "description": "Merges data into BB_Spine_DB",
             "x": 381.76150759326794,
-            "y": -21.598832129984004,
+            "y": -15.954964647690844,
             "cancel_on_error": true,
             "purge_before_writing": false
         },
@@ -493,7 +489,7 @@
             "type": "Importer",
             "description": "",
             "x": 67.92276978677522,
-            "y": -211.48680592700467,
+            "y": -205.8429384447115,
             "specification": "Import_to_BB_Spine_DB",
             "cancel_on_error": true,
             "purge_before_writing": false,
@@ -509,15 +505,14 @@
             "type": "Exporter",
             "description": "",
             "x": -92.62195880014804,
-            "y": -217.66160318034787,
+            "y": -212.0177356980547,
             "databases": [
                 {
                     "output_file_name": "exported_toward_bb.xlsx",
                     "database_url": {
-                        "type": "file_url",
-                        "relative": true,
-                        "path": ".spinetoolbox/items/traderes_common_db/TradeRES-common-db.sqlite",
-                        "scheme": "sqlite"
+                        "type": "url",
+                        "relative": false,
+                        "path": ""
                     }
                 }
             ],

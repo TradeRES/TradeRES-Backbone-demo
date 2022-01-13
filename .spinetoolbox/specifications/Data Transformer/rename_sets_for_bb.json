@@ -1,0 +1,12 @@
+{
+    "name": "rename_sets_for_bb",
+    "item_type": "Data Transformer",
+    "description": "",
+    "filter": {
+        "type": "entity_class_rename",
+        "settings": {
+            "commodity": "grid",
+            "technology": "unittype"
+        }
+    }
+}

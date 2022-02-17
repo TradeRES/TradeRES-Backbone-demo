@@ -6,7 +6,9 @@
         "type": "entity_class_rename",
         "settings": {
             "commodity": "grid",
-            "technology": "unittype"
+            "technology": "unittype",
+            "unit__technology": "unit__unittype",
+            "commodity__node": "grid__node"
         }
     }
 }

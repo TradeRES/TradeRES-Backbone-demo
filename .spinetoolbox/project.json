@@ -90,11 +90,22 @@
                     "type": "path",
                     "relative": true,
                     "path": ".spinetoolbox/specifications/Data Transformer/rename_sets_for_bb.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Data Transformer/rename_params_for_bb.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Data Transformer/transform_values_for_bb.json"
                 }
             ]
         },
         "connections": [
             {
+                "name": "from DataExcel to Import_base",
                 "from": [
                     "DataExcel",
                     "right"
@@ -105,6 +116,7 @@
                 ]
             },
             {
+                "name": "from BB_Spine_DB to BB_sets",
                 "from": [
                     "BB_Spine_DB",
                     "bottom"
@@ -115,6 +127,7 @@
                 ]
             },
             {
+                "name": "from Import_BB_Excel to BB_Spine_DB",
                 "from": [
                     "Import_BB_Excel",
                     "right"
@@ -125,6 +138,7 @@
                 ]
             },
             {
+                "name": "from Import_base to TradeRES",
                 "from": [
                     "Import_base",
                     "right"
@@ -135,6 +149,7 @@
                 ]
             },
             {
+                "name": "from TradeRES to Rename_for_BB",
                 "from": [
                     "TradeRES",
                     "right"
@@ -145,6 +160,7 @@
                 ]
             },
             {
+                "name": "from Toward_BB to Import_BB_Excel",
                 "from": [
                     "Toward_BB",
                     "right"
@@ -155,6 +171,7 @@
                 ]
             },
             {
+                "name": "from Export_to_BB to Backbone",
                 "from": [
                     "Export_to_BB",
                     "left"
@@ -165,6 +182,7 @@
                 ]
             },
             {
+                "name": "from BB_Spine_DB to View 1",
                 "from": [
                     "BB_Spine_DB",
                     "right"
@@ -175,6 +193,7 @@
                 ]
             },
             {
+                "name": "from BB_input_files to Backbone",
                 "from": [
                     "BB_input_files",
                     "left"
@@ -185,6 +204,7 @@
                 ]
             },
             {
+                "name": "from Rename_for_BB to Transform_for_BB",
                 "from": [
                     "Rename_for_BB",
                     "right"
@@ -195,6 +215,7 @@
                 ]
             },
             {
+                "name": "from Transform_for_BB to Toward_BB",
                 "from": [
                     "Transform_for_BB",
                     "right"
@@ -205,6 +226,7 @@
                 ]
             },
             {
+                "name": "from BB_sets to Export_to_BB",
                 "from": [
                     "BB_sets",
                     "left"
@@ -215,6 +237,7 @@
                 ]
             },
             {
+                "name": "from BB_data_template to BB_Spine_DB merger",
                 "from": [
                     "BB_data_template",
                     "left"
@@ -225,6 +248,7 @@
                 ]
             },
             {
+                "name": "from BB_Spine_DB merger to BB_Spine_DB",
                 "from": [
                     "BB_Spine_DB merger",
                     "left"
@@ -235,6 +259,7 @@
                 ]
             },
             {
+                "name": "from Export_toward_BB to Import_BB_Spine_DB",
                 "from": [
                     "Export_toward_BB",
                     "right"
@@ -245,6 +270,7 @@
                 ]
             },
             {
+                "name": "from Import_BB_Spine_DB to BB_Spine_DB",
                 "from": [
                     "Import_BB_Spine_DB",
                     "right"
@@ -255,6 +281,7 @@
                 ]
             },
             {
+                "name": "from TradeRES_common_DB to Rename_sets_for_BB",
                 "from": [
                     "TradeRES_common_DB",
                     "right"
@@ -265,8 +292,31 @@
                 ]
             },
             {
+                "name": "from Rename_sets_for_BB to Rename_params_for_BB",
                 "from": [
                     "Rename_sets_for_BB",
+                    "right"
+                ],
+                "to": [
+                    "Rename_params_for_BB",
+                    "left"
+                ]
+            },
+            {
+                "name": "from Rename_params_for_BB to Transform_values_for_BB",
+                "from": [
+                    "Rename_params_for_BB",
+                    "right"
+                ],
+                "to": [
+                    "Transform_values_for_BB",
+                    "left"
+                ]
+            },
+            {
+                "name": "from Transform_values_for_BB to Export_toward_BB",
+                "from": [
+                    "Transform_values_for_BB",
                     "right"
                 ],
                 "to": [
@@ -468,8 +518,8 @@
         "TradeRES_common_DB": {
             "type": "Data Store",
             "description": "",
-            "x": -411.42597460404284,
-            "y": -218.72346272244795,
+            "x": -548.873952718177,
+            "y": -214.05605564615226,
             "url": {
                 "dialect": "mysql",
                 "host": "localhost",
@@ -488,8 +538,8 @@
         "Import_BB_Spine_DB": {
             "type": "Importer",
             "description": "",
-            "x": 67.92276978677522,
-            "y": -199.1372114203182,
+            "x": 134.4830843091488,
+            "y": -199.13721142031824,
             "specification": "Import_to_BB_Spine_DB",
             "cancel_on_error": true,
             "purge_before_writing": false,
@@ -504,13 +554,13 @@
         "Export_toward_BB": {
             "type": "Exporter",
             "description": "",
-            "x": -92.62195880014804,
-            "y": -205.3120086736614,
+            "x": -3.463877579085504,
+            "y": -218.1857928544733,
             "output_time_stamps": false,
             "cancel_on_error": true,
             "output_labels": [
                 {
-                    "in_label": "db_url@Rename_sets_for_BB",
+                    "in_label": "db_url@Transform_values_for_BB",
                     "out_label": "exported_toward_bb.xlsx"
                 }
             ],
@@ -519,9 +569,23 @@
         "Rename_sets_for_BB": {
             "type": "Data Transformer",
             "description": "",
-            "x": -253.1666873870713,
-            "y": -215.58697409596198,
+            "x": -418.3508582387711,
+            "y": -194.9287214148376,
             "specification": "rename_sets_for_bb"
+        },
+        "Rename_params_for_BB": {
+            "type": "Data Transformer",
+            "description": "",
+            "x": -280.10619055384524,
+            "y": -220.76110485244894,
+            "specification": "rename_params_for_bb"
+        },
+        "Transform_values_for_BB": {
+            "type": "Data Transformer",
+            "description": "",
+            "x": -138.51093468437327,
+            "y": -197.23767034805724,
+            "specification": "transform_values_for_bb"
         }
     }
 }

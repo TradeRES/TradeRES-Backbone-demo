@@ -1,0 +1,27 @@
+{
+    "name": "rename_params_for_bb",
+    "item_type": "Data Transformer",
+    "description": "",
+    "filter": {
+        "type": "parameter_rename",
+        "settings": {
+            "unit": {
+                "investment_limit": "maxUnitCount",
+                "min_down_time": "minShutDownHours",
+                "min_up_time": "minOperationHours",
+                "number_of_subunits": "unitCount",
+                "min_load": "op00",
+                "full_load": "op01",
+                "efficiency_min_load": "eff00",
+                "efficiency_full_load": "eff01"
+            },
+            "group": {
+                "co2_cap": "emissionCap"
+            },
+            "node": {
+                "co2_price": "emissionTax",
+                "annual_resource_limit": "energyMax"
+            }
+        }
+    }
+}

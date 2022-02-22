@@ -10,7 +10,7 @@
                 {
                     "map_type": "ObjectClass",
                     "position": "table_name",
-                    "filter_re": "^grid$|^flow$|^unittype$|^reserve_type$|^group$"
+                    "filter_re": "^grid$|^flow$|^unittype$|^reserve_type$|^group$|^node$|^unit$"
                 },
                 {
                     "map_type": "Object",
@@ -164,7 +164,7 @@
                     "position": 3
                 }
             ],
-            "enabled": false,
+            "enabled": true,
             "always_export_header": true,
             "group_fn": "no_group",
             "use_fixed_table_name": true
@@ -306,7 +306,7 @@
                 },
                 {
                     "map_type": "ParameterDefaultValueIndex",
-                    "position": "hidden"
+                    "position": 4
                 },
                 {
                     "map_type": "DefaultValueIndexName",
@@ -314,14 +314,14 @@
                 },
                 {
                     "map_type": "ParameterDefaultValueIndex",
-                    "position": "hidden"
+                    "position": 5
                 },
                 {
                     "map_type": "ParameterValue",
-                    "position": 4
+                    "position": 6
                 }
             ],
-            "enabled": false,
+            "enabled": true,
             "always_export_header": true,
             "group_fn": "no_group",
             "use_fixed_table_name": true
@@ -342,7 +342,7 @@
                 {
                     "map_type": "ParameterDefinition",
                     "position": 1,
-                    "filter_re": "^annual_resource_limit$"
+                    "filter_re": "^energyMax$"
                 },
                 {
                     "map_type": "ParameterValueList",

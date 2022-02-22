@@ -74,6 +74,25 @@
                             }
                         ]
                     }
+                },
+                {
+                    "Mapping 2": {
+                        "mapping": [
+                            {
+                                "map_type": "ObjectClass",
+                                "position": "hidden",
+                                "value": "node"
+                            },
+                            {
+                                "map_type": "Object",
+                                "position": 0
+                            },
+                            {
+                                "map_type": "ObjectMetadata",
+                                "position": "hidden"
+                            }
+                        ]
+                    }
                 }
             ],
             "unit": [
@@ -113,34 +132,87 @@
                     }
                 }
             ],
-            "grid__node__unit__io": [
+            "flow": [
+                {
+                    "Mapping 1": {
+                        "mapping": [
+                            {
+                                "map_type": "ObjectClass",
+                                "position": "hidden",
+                                "value": "flow"
+                            },
+                            {
+                                "map_type": "Object",
+                                "position": 0
+                            },
+                            {
+                                "map_type": "ObjectMetadata",
+                                "position": "hidden"
+                            }
+                        ]
+                    }
+                }
+            ],
+            "reserve_type": [
+                {
+                    "Mapping 1": {
+                        "mapping": [
+                            {
+                                "map_type": "ObjectClass",
+                                "position": "hidden",
+                                "value": "restype"
+                            },
+                            {
+                                "map_type": "Object",
+                                "position": 0
+                            },
+                            {
+                                "map_type": "ObjectMetadata",
+                                "position": "hidden"
+                            }
+                        ]
+                    }
+                }
+            ],
+            "unittype": [
+                {
+                    "Mapping 1": {
+                        "mapping": [
+                            {
+                                "map_type": "ObjectClass",
+                                "position": "hidden",
+                                "value": "unittype"
+                            },
+                            {
+                                "map_type": "Object",
+                                "position": 0
+                            },
+                            {
+                                "map_type": "ObjectMetadata",
+                                "position": "hidden"
+                            }
+                        ]
+                    }
+                }
+            ],
+            "flow__unit": [
                 {
                     "Mapping 1": {
                         "mapping": [
                             {
                                 "map_type": "RelationshipClass",
                                 "position": "hidden",
-                                "value": "grid__node__unit__io"
+                                "value": "flow__unit"
                             },
                             {
                                 "map_type": "RelationshipClassObjectClass",
                                 "position": "hidden",
-                                "value": "grid"
-                            },
-                            {
-                                "map_type": "RelationshipClassObjectClass",
-                                "position": "hidden",
-                                "value": "node"
+                                "value": "flow"
                             },
                             {
                                 "map_type": "RelationshipClassObjectClass",
                                 "position": "hidden",
                                 "value": "unit"
-                            },
-                            {
-                                "map_type": "RelationshipClassObjectClass",
-                                "position": "hidden",
-                                "value": "io"
                             },
                             {
                                 "map_type": "Relationship",
@@ -154,30 +226,82 @@
                             },
                             {
                                 "map_type": "RelationshipObject",
-                                "position": 0,
-                                "import_objects": true
-                            },
-                            {
-                                "map_type": "RelationshipObject",
                                 "position": 1,
-                                "import_objects": true
-                            },
-                            {
-                                "map_type": "RelationshipObject",
-                                "position": 2,
                                 "import_objects": true
                             },
                             {
                                 "map_type": "RelationshipMetadata",
                                 "position": "hidden"
+                            }
+                        ]
+                    }
+                }
+            ],
+            "unit__unittype": [
+                {
+                    "Mapping 1": {
+                        "mapping": [
+                            {
+                                "map_type": "RelationshipClass",
+                                "position": "hidden",
+                                "value": "unit__unittype"
+                            },
+                            {
+                                "map_type": "RelationshipClassObjectClass",
+                                "position": "hidden",
+                                "value": "unit"
+                            },
+                            {
+                                "map_type": "RelationshipClassObjectClass",
+                                "position": "hidden",
+                                "value": "unittype"
+                            },
+                            {
+                                "map_type": "Relationship",
+                                "position": "hidden",
+                                "value": "relationship"
+                            },
+                            {
+                                "map_type": "RelationshipObject",
+                                "position": 0,
+                                "import_objects": true
+                            },
+                            {
+                                "map_type": "RelationshipObject",
+                                "position": 1
+                            },
+                            {
+                                "map_type": "RelationshipMetadata",
+                                "position": "hidden"
+                            }
+                        ]
+                    }
+                }
+            ],
+            "group_energymax": [
+                {
+                    "Mapping 1": {
+                        "mapping": [
+                            {
+                                "map_type": "ObjectClass",
+                                "position": "hidden",
+                                "value": "group"
+                            },
+                            {
+                                "map_type": "Object",
+                                "position": 0
+                            },
+                            {
+                                "map_type": "ObjectMetadata",
+                                "position": "hidden"
                             },
                             {
                                 "map_type": "ParameterDefinition",
-                                "position": 3
+                                "position": 1
                             },
                             {
                                 "map_type": "Alternative",
-                                "position": 4
+                                "position": 2
                             },
                             {
                                 "map_type": "ParameterValueMetadata",
@@ -185,25 +309,25 @@
                             },
                             {
                                 "map_type": "ParameterValue",
-                                "position": 5
+                                "position": 3
                             }
                         ]
                     }
                 }
             ],
-            "node_emission": [
+            "group_emission": [
                 {
                     "Mapping 1": {
                         "mapping": [
                             {
                                 "map_type": "RelationshipClass",
                                 "position": "hidden",
-                                "value": "node__emission"
+                                "value": "group__emission"
                             },
                             {
                                 "map_type": "RelationshipClassObjectClass",
                                 "position": "hidden",
-                                "value": "node"
+                                "value": "group"
                             },
                             {
                                 "map_type": "RelationshipClassObjectClass",
@@ -217,14 +341,12 @@
                             },
                             {
                                 "map_type": "RelationshipObject",
-                                "position": 0,
-                                "import_objects": true
+                                "position": 0
                             },
                             {
                                 "map_type": "RelationshipObject",
                                 "position": "hidden",
-                                "value": "CO2",
-                                "import_objects": true
+                                "value": "CO2"
                             },
                             {
                                 "map_type": "RelationshipMetadata",
@@ -232,9 +354,7 @@
                             },
                             {
                                 "map_type": "ParameterDefinition",
-                                "position": "hidden",
-                                "value": "emission_content",
-                                "filter_re": "^co2_content$"
+                                "position": 1
                             },
                             {
                                 "map_type": "Alternative",
@@ -257,8 +377,13 @@
             "grid",
             "node",
             "unit",
-            "grid__node__unit__io",
-            "node_emission"
+            "flow",
+            "reserve_type",
+            "unittype",
+            "flow__unit",
+            "unit__unittype",
+            "group_energymax",
+            "group_emission"
         ],
         "table_options": {
             "grid": {
@@ -266,11 +391,16 @@
                 "max_rows": 5
             },
             "node": {
-                "max_rows": 4
+                "max_rows": 10
             },
             "unit": {},
-            "grid__node__unit__io": {},
-            "node_emission": {}
+            "flow": {},
+            "reserve_type": {},
+            "unittype": {},
+            "flow__unit": {},
+            "unit__unittype": {},
+            "group_energymax": {},
+            "group_emission": {}
         },
         "table_types": {
             "grid": {
@@ -288,15 +418,30 @@
                 "2": "string",
                 "3": "float"
             },
-            "grid__node__unit__io": {
+            "flow": {
+                "0": "string"
+            },
+            "reserve_type": {
+                "0": "string"
+            },
+            "unittype": {
+                "0": "string"
+            },
+            "flow__unit": {
+                "0": "string",
+                "1": "string"
+            },
+            "unit__unittype": {
+                "0": "string",
+                "1": "string"
+            },
+            "group_energymax": {
                 "0": "string",
                 "1": "string",
                 "2": "string",
-                "3": "string",
-                "4": "string",
-                "5": "float"
+                "3": "float"
             },
-            "node_emission": {
+            "group_emission": {
                 "0": "string",
                 "1": "string",
                 "2": "string",

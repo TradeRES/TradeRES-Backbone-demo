@@ -1,0 +1,21 @@
+{
+    "name": "convert_from_common_db_to_bb_db",
+    "tooltype": "python",
+    "includes": [
+        "convert_from_common_db_to_bb_db.py"
+    ],
+    "description": "",
+    "inputfiles": [],
+    "inputfiles_opt": [],
+    "outputfiles": [],
+    "cmdline_args": [],
+    "execute_in_work": true,
+    "includes_main_path": "../../..",
+    "execution_settings": {
+        "env": "",
+        "kernel_spec_name": "python3",
+        "use_jupyter_console": true,
+        "executable": "",
+        "fail_on_stderror": false
+    }
+}

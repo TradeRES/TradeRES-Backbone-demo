@@ -12,6 +12,14 @@
                         "rhs": 1000.0
                     }
                 ]
+            },
+            "node": {
+                "demand": [
+                    {
+                        "operation": "multiply",
+                        "rhs": -1.0
+                    }
+                ]
             }
         }
     }

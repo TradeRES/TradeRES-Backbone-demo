@@ -26,8 +26,13 @@
             "type": "object_parameter_values",
             "mapping": [
                 {
-                    "map_type": "ObjectClass",
+                    "map_type": "FixedValue",
                     "position": "table_name",
+                    "value": "node_p"
+                },
+                {
+                    "map_type": "ObjectClass",
+                    "position": "hidden",
                     "filter_re": "^node$"
                 },
                 {
@@ -60,7 +65,7 @@
             "enabled": true,
             "always_export_header": true,
             "group_fn": "no_group",
-            "use_fixed_table_name": false
+            "use_fixed_table_name": true
         },
         "unit": {
             "type": "object_parameter_values",
@@ -68,7 +73,7 @@
                 {
                     "map_type": "FixedValue",
                     "position": "table_name",
-                    "value": "unit"
+                    "value": "unit_p"
                 },
                 {
                     "map_type": "ObjectClass",
@@ -241,84 +246,6 @@
                 {
                     "map_type": "ParameterValue",
                     "position": 3
-                }
-            ],
-            "enabled": true,
-            "always_export_header": true,
-            "group_fn": "no_group",
-            "use_fixed_table_name": true
-        },
-        "grid__node": {
-            "type": "relationship_object_parameter_values",
-            "mapping": [
-                {
-                    "map_type": "FixedValue",
-                    "position": "table_name",
-                    "value": "grid__node_demand"
-                },
-                {
-                    "map_type": "RelationshipClassObjectHighlightingMapping",
-                    "position": "hidden",
-                    "filter_re": "^grid__node$",
-                    "highlight_dimension": 1
-                },
-                {
-                    "map_type": "RelationshipClassObjectClass",
-                    "position": "hidden"
-                },
-                {
-                    "map_type": "RelationshipClassObjectClass",
-                    "position": "hidden"
-                },
-                {
-                    "map_type": "ParameterDefinition",
-                    "position": 2,
-                    "filter_re": "demand"
-                },
-                {
-                    "map_type": "ParameterValueList",
-                    "position": "hidden",
-                    "ignorable": true
-                },
-                {
-                    "map_type": "RelationshipObjectHighlightingMapping",
-                    "position": "hidden"
-                },
-                {
-                    "map_type": "RelationshipObject",
-                    "position": 0
-                },
-                {
-                    "map_type": "RelationshipObject",
-                    "position": 1
-                },
-                {
-                    "map_type": "Alternative",
-                    "position": 3
-                },
-                {
-                    "map_type": "ParameterValueType",
-                    "position": "hidden"
-                },
-                {
-                    "map_type": "DefaultValueIndexName",
-                    "position": "hidden"
-                },
-                {
-                    "map_type": "ParameterDefaultValueIndex",
-                    "position": 4
-                },
-                {
-                    "map_type": "DefaultValueIndexName",
-                    "position": "hidden"
-                },
-                {
-                    "map_type": "ParameterDefaultValueIndex",
-                    "position": 5
-                },
-                {
-                    "map_type": "ParameterValue",
-                    "position": 6
                 }
             ],
             "enabled": true,
@@ -562,6 +489,84 @@
                 {
                     "map_type": "ParameterValue",
                     "position": 5
+                }
+            ],
+            "enabled": true,
+            "always_export_header": true,
+            "group_fn": "no_group",
+            "use_fixed_table_name": true
+        },
+        "grid__node": {
+            "type": "relationship_object_parameter_values",
+            "mapping": [
+                {
+                    "map_type": "FixedValue",
+                    "position": "table_name",
+                    "value": "grid__node_demand"
+                },
+                {
+                    "map_type": "RelationshipClassObjectHighlightingMapping",
+                    "position": "hidden",
+                    "filter_re": "^grid__node$",
+                    "highlight_dimension": 1
+                },
+                {
+                    "map_type": "RelationshipClassObjectClass",
+                    "position": "hidden"
+                },
+                {
+                    "map_type": "RelationshipClassObjectClass",
+                    "position": "hidden"
+                },
+                {
+                    "map_type": "ParameterDefinition",
+                    "position": 2,
+                    "filter_re": "demand"
+                },
+                {
+                    "map_type": "ParameterValueList",
+                    "position": "hidden",
+                    "ignorable": true
+                },
+                {
+                    "map_type": "RelationshipObjectHighlightingMapping",
+                    "position": "hidden"
+                },
+                {
+                    "map_type": "RelationshipObject",
+                    "position": 0
+                },
+                {
+                    "map_type": "RelationshipObject",
+                    "position": 1
+                },
+                {
+                    "map_type": "Alternative",
+                    "position": 3
+                },
+                {
+                    "map_type": "ParameterValueType",
+                    "position": "hidden"
+                },
+                {
+                    "map_type": "IndexName",
+                    "position": "hidden"
+                },
+                {
+                    "map_type": "ParameterValueIndex",
+                    "position": 4
+                },
+                {
+                    "map_type": "IndexName",
+                    "position": "hidden"
+                },
+                {
+                    "map_type": "ParameterValueIndex",
+                    "position": 5
+                },
+                {
+                    "map_type": "ExpandedValue",
+                    "position": 6
                 }
             ],
             "enabled": true,

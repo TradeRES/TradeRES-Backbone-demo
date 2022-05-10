@@ -1,5 +1,6 @@
 # Temporary and log files
 *.log
+*.bak
 *.bak?
 *.sqlite-journal
 

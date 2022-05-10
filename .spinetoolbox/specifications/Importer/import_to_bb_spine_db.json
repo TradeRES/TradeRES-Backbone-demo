@@ -588,161 +588,6 @@
                         ]
                     }
                 }
-            ],
-            "unit__constraint__node": [
-                {
-                    "Mapping 1": {
-                        "mapping": [
-                            {
-                                "map_type": "RelationshipClass",
-                                "position": "hidden",
-                                "value": "unit__constraint__node"
-                            },
-                            {
-                                "map_type": "RelationshipClassObjectClass",
-                                "position": "hidden",
-                                "value": "unit"
-                            },
-                            {
-                                "map_type": "RelationshipClassObjectClass",
-                                "position": "hidden",
-                                "value": "constraint"
-                            },
-                            {
-                                "map_type": "RelationshipClassObjectClass",
-                                "position": "hidden",
-                                "value": "node"
-                            },
-                            {
-                                "map_type": "Relationship",
-                                "position": "hidden",
-                                "value": "relationship"
-                            },
-                            {
-                                "map_type": "RelationshipObject",
-                                "position": 0,
-                                "import_objects": true
-                            },
-                            {
-                                "map_type": "RelationshipObject",
-                                "position": 1
-                            },
-                            {
-                                "map_type": "RelationshipObject",
-                                "position": 2
-                            },
-                            {
-                                "map_type": "RelationshipMetadata",
-                                "position": "hidden"
-                            },
-                            {
-                                "map_type": "ParameterDefinition",
-                                "position": 3
-                            },
-                            {
-                                "map_type": "Alternative",
-                                "position": 4
-                            },
-                            {
-                                "map_type": "ParameterValueMetadata",
-                                "position": "hidden"
-                            },
-                            {
-                                "map_type": "ParameterValue",
-                                "position": 5
-                            }
-                        ]
-                    }
-                }
-            ],
-            "group__restype__up_down": [
-                {
-                    "Mapping 1": {
-                        "mapping": [
-                            {
-                                "map_type": "RelationshipClass",
-                                "position": "hidden",
-                                "value": "group__restype__up_down"
-                            },
-                            {
-                                "map_type": "RelationshipClassObjectClass",
-                                "position": "hidden",
-                                "value": "group"
-                            },
-                            {
-                                "map_type": "RelationshipClassObjectClass",
-                                "position": "hidden",
-                                "value": "restype"
-                            },
-                            {
-                                "map_type": "RelationshipClassObjectClass",
-                                "position": "hidden",
-                                "value": "up_down"
-                            },
-                            {
-                                "map_type": "Relationship",
-                                "position": "hidden",
-                                "value": "relationship"
-                            },
-                            {
-                                "map_type": "RelationshipObject",
-                                "position": 0,
-                                "import_objects": true
-                            },
-                            {
-                                "map_type": "RelationshipObject",
-                                "position": 1
-                            },
-                            {
-                                "map_type": "RelationshipObject",
-                                "position": 2
-                            },
-                            {
-                                "map_type": "RelationshipMetadata",
-                                "position": "hidden"
-                            },
-                            {
-                                "map_type": "ParameterDefinition",
-                                "position": 3
-                            },
-                            {
-                                "map_type": "Alternative",
-                                "position": 4
-                            },
-                            {
-                                "map_type": "ParameterValueMetadata",
-                                "position": "hidden"
-                            },
-                            {
-                                "map_type": "ParameterValueType",
-                                "position": "hidden",
-                                "value": "map"
-                            },
-                            {
-                                "map_type": "IndexName",
-                                "position": "hidden",
-                                "value": "t"
-                            },
-                            {
-                                "map_type": "ParameterValueIndex",
-                                "position": 5
-                            },
-                            {
-                                "map_type": "IndexName",
-                                "position": "hidden",
-                                "value": "f"
-                            },
-                            {
-                                "map_type": "ParameterValueIndex",
-                                "position": 6
-                            },
-                            {
-                                "map_type": "ExpandedValue",
-                                "position": 7
-                            }
-                        ]
-                    }
-                }
             ]
         },
         "selected_tables": [
@@ -759,17 +604,15 @@
             "node_emission",
             "grid__node_demand",
             "node_p",
-            "unit_p",
-            "unit__constraint__node",
-            "group__restype__up_down"
+            "unit_p"
         ],
         "table_options": {
             "grid": {
                 "header": false,
-                "max_rows": 5
+                "max_rows": -1
             },
             "node": {
-                "max_rows": 10
+                "max_rows": -1
             },
             "unit": {},
             "flow": {},
@@ -782,9 +625,7 @@
             "node_emission": {},
             "grid__node_demand": {},
             "node_p": {},
-            "unit_p": {},
-            "unit__constraint__node": {},
-            "group__restype__up_down": {}
+            "unit_p": {}
         },
         "table_types": {
             "grid": {
@@ -851,24 +692,6 @@
                 "4": "string",
                 "5": "string",
                 "6": "float"
-            },
-            "unit__constraint__node": {
-                "0": "string",
-                "1": "string",
-                "2": "string",
-                "3": "string",
-                "4": "string",
-                "5": "float"
-            },
-            "group__restype__up_down": {
-                "0": "string",
-                "1": "string",
-                "2": "string",
-                "3": "string",
-                "4": "string",
-                "5": "string",
-                "6": "string",
-                "7": "float"
             }
         },
         "table_row_types": {},

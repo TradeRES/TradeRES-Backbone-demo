@@ -110,17 +110,6 @@
         },
         "connections": [
             {
-                "name": "from DataExcel to Import_base",
-                "from": [
-                    "DataExcel",
-                    "right"
-                ],
-                "to": [
-                    "Import_base",
-                    "left"
-                ]
-            },
-            {
                 "name": "from BB_Spine_DB to BB_sets",
                 "from": [
                     "BB_Spine_DB",
@@ -129,50 +118,6 @@
                 "to": [
                     "BB_sets",
                     "right"
-                ]
-            },
-            {
-                "name": "from Import_BB_Excel to BB_Spine_DB",
-                "from": [
-                    "Import_BB_Excel",
-                    "right"
-                ],
-                "to": [
-                    "BB_Spine_DB",
-                    "left"
-                ]
-            },
-            {
-                "name": "from Import_base to TradeRES",
-                "from": [
-                    "Import_base",
-                    "right"
-                ],
-                "to": [
-                    "TradeRES",
-                    "left"
-                ]
-            },
-            {
-                "name": "from TradeRES to Rename_for_BB",
-                "from": [
-                    "TradeRES",
-                    "right"
-                ],
-                "to": [
-                    "Rename_for_BB",
-                    "left"
-                ]
-            },
-            {
-                "name": "from Toward_BB to Import_BB_Excel",
-                "from": [
-                    "Toward_BB",
-                    "right"
-                ],
-                "to": [
-                    "Import_BB_Excel",
-                    "left"
                 ]
             },
             {
@@ -206,28 +151,6 @@
                 "to": [
                     "Backbone",
                     "right"
-                ]
-            },
-            {
-                "name": "from Rename_for_BB to Transform_for_BB",
-                "from": [
-                    "Rename_for_BB",
-                    "right"
-                ],
-                "to": [
-                    "Transform_for_BB",
-                    "left"
-                ]
-            },
-            {
-                "name": "from Transform_for_BB to Toward_BB",
-                "from": [
-                    "Transform_for_BB",
-                    "right"
-                ],
-                "to": [
-                    "Toward_BB",
-                    "left"
                 ]
             },
             {
@@ -377,36 +300,6 @@
         "jumps": []
     },
     "items": {
-        "TradeRES": {
-            "type": "Data Store",
-            "description": "",
-            "x": -320.3525875779121,
-            "y": 56.30327659144436,
-            "url": {
-                "dialect": "sqlite",
-                "host": "",
-                "port": "",
-                "database": {
-                    "type": "path",
-                    "relative": true,
-                    "path": ".spinetoolbox/items/traderes/TradeRES.sqlite"
-                }
-            }
-        },
-        "DataExcel": {
-            "type": "Data Connection",
-            "description": "",
-            "x": -566.9695307917734,
-            "y": 133.14204418779673,
-            "file_references": [
-                {
-                    "type": "path",
-                    "relative": true,
-                    "path": "Nomenclature comparison.xlsx"
-                }
-            ],
-            "db_references": []
-        },
         "BB_input_files": {
             "type": "Data Connection",
             "description": "",
@@ -454,50 +347,7 @@
             "type": "View",
             "description": "",
             "x": 399.7277369633785,
-            "y": 125.70434185060759,
-            "pinned_values": {}
-        },
-        "Import_base": {
-            "type": "Importer",
-            "description": "",
-            "x": -439.31263015917443,
-            "y": 61.59794584056989,
-            "specification": "base",
-            "cancel_on_error": true,
-            "purge_before_writing": false,
-            "on_conflict": "merge",
-            "file_selection": [
-                [
-                    "<project>/Nomenclature comparison.xlsx",
-                    true
-                ]
-            ]
-        },
-        "Import_BB_Excel": {
-            "type": "Importer",
-            "description": "",
-            "x": 111.65993344080525,
-            "y": 71.77329653098036,
-            "specification": "import_BB",
-            "cancel_on_error": true,
-            "purge_before_writing": false,
-            "on_conflict": "merge",
-            "file_selection": []
-        },
-        "Toward_BB": {
-            "type": "Exporter",
-            "description": "",
-            "x": -9.297015154791211,
-            "y": 60.654148371620806,
-            "output_time_stamps": false,
-            "cancel_on_error": true,
-            "output_labels": [
-                {
-                    "in_label": "db_url@Transform_for_BB",
-                    "out_label": ""
-                }
-            ],
-            "specification": "Export_toward_BB"
+            "y": 125.70434185060759
         },
         "BB_sets": {
             "type": "Data Transformer",
@@ -505,20 +355,6 @@
             "x": 189.3692904400258,
             "y": 223.3664705193296,
             "specification": "ToBackboneSets"
-        },
-        "Rename_for_BB": {
-            "type": "Data Transformer",
-            "description": "",
-            "x": -217.32740841197483,
-            "y": 54.46313821298776,
-            "specification": "Rename_for_BB_DB"
-        },
-        "Transform_for_BB": {
-            "type": "Data Transformer",
-            "description": "",
-            "x": -114.56678220547462,
-            "y": 60.61775316839788,
-            "specification": "Transform_for_BB_DB"
         },
         "BB_data_template": {
             "type": "Data Store",

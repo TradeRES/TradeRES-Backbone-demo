@@ -79,6 +79,11 @@ parameters_gnur = {"capability": "capability"}
 source_relationship_class_gnur = "node__unit__reserve_type__up_down"
 target_relationship_class_gnur = "grid__node__unit__restype"
 
+parameters_gnu_storage = {"capacity": "capacity", "fom_cost": "fomCosts",
+                          "vom_cost": "vomCosts"}
+source_relationship_class_gnu_storage = "node__storage__io"
+link_relationship_class_gnu_storage = "grid__node__unit"
+target_relationship_class_gnu_storage = "grid__node__unit__io"
 
 def _extract_relationship_objects(source_relationship_class):
     relationships = export_relationships(in_db)
@@ -500,6 +505,10 @@ def main():
         #group__restype relationships and parameters
         remove_parameter_dimension(parameters_gr_min, source_relationship_class_gr, target_relationship_class_gr, "min")
         remove_parameter_dimension(parameters_gr_max, source_relationship_class_gr, target_relationship_class_gr, "max")
+
+        # storage units0
+        add_parameter_dimension(parameters_gnu_storage, source_relationship_class_gnu_storage,
+                                link_relationship_class_gnu_storage, target_relationship_class_gnu_storage)
 
         out_db.commit_session("Importing data from the common database.")
     finally:

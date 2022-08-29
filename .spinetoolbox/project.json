@@ -110,17 +110,6 @@
         },
         "connections": [
             {
-                "name": "from BB_Spine_DB to BB_sets",
-                "from": [
-                    "BB_Spine_DB",
-                    "bottom"
-                ],
-                "to": [
-                    "BB_sets",
-                    "right"
-                ]
-            },
-            {
                 "name": "from Export_to_BB to Backbone",
                 "from": [
                     "Export_to_BB",
@@ -150,17 +139,6 @@
                 ],
                 "to": [
                     "Backbone",
-                    "right"
-                ]
-            },
-            {
-                "name": "from BB_sets to Export_to_BB",
-                "from": [
-                    "BB_sets",
-                    "left"
-                ],
-                "to": [
-                    "Export_to_BB",
                     "right"
                 ]
             },
@@ -209,17 +187,6 @@
                 ]
             },
             {
-                "name": "from TradeRES_common_DB to Rename_sets_for_BB",
-                "from": [
-                    "TradeRES_common_DB",
-                    "right"
-                ],
-                "to": [
-                    "Rename_sets_for_BB",
-                    "left"
-                ]
-            },
-            {
                 "name": "from Rename_sets_for_BB to Rename_params_for_BB",
                 "from": [
                     "Rename_sets_for_BB",
@@ -249,17 +216,6 @@
                 ],
                 "to": [
                     "Export_toward_BB",
-                    "left"
-                ]
-            },
-            {
-                "name": "from TradeRES_common_DB to Common_DB_to_BB_DB",
-                "from": [
-                    "TradeRES_common_DB",
-                    "bottom"
-                ],
-                "to": [
-                    "Common_DB_to_BB_DB",
                     "left"
                 ]
             },
@@ -295,6 +251,80 @@
                     "Import_BB_Spine_DB",
                     "bottom"
                 ]
+            },
+            {
+                "name": "from TradeRES_common_DB to Copy_DB",
+                "from": [
+                    "TradeRES_common_DB",
+                    "left"
+                ],
+                "to": [
+                    "Copy_DB",
+                    "left"
+                ]
+            },
+            {
+                "name": "from Copy_DB to TradeRES_common_sqlite",
+                "from": [
+                    "Copy_DB",
+                    "right"
+                ],
+                "to": [
+                    "TradeRES_common_sqlite",
+                    "left"
+                ]
+            },
+            {
+                "name": "from TradeRES_common_sqlite to Common_DB_to_BB_DB",
+                "from": [
+                    "TradeRES_common_sqlite",
+                    "right"
+                ],
+                "to": [
+                    "Common_DB_to_BB_DB",
+                    "left"
+                ]
+            },
+            {
+                "name": "from TradeRES_common_sqlite to Rename_sets_for_BB",
+                "from": [
+                    "TradeRES_common_sqlite",
+                    "right"
+                ],
+                "to": [
+                    "Rename_sets_for_BB",
+                    "left"
+                ]
+            },
+            {
+                "name": "from BB_Spine_DB_direct to BB_sets",
+                "from": [
+                    "BB_Spine_DB_direct",
+                    "left"
+                ],
+                "to": [
+                    "BB_sets",
+                    "right"
+                ],
+                "disabled_filters": {
+                    "db_url@BB_Spine_DB_direct": {
+                        "scenario_filter": [
+                            "base",
+                            "high_coal_price"
+                        ]
+                    }
+                }
+            },
+            {
+                "name": "from BB_sets to Export_to_BB",
+                "from": [
+                    "BB_sets",
+                    "left"
+                ],
+                "to": [
+                    "Export_to_BB",
+                    "right"
+                ]
             }
         ],
         "jumps": []
@@ -303,33 +333,28 @@
         "BB_input_files": {
             "type": "Data Connection",
             "description": "",
-            "x": 57.3510071400284,
-            "y": 331.77515986367223,
+            "x": -149.33536475328663,
+            "y": 229.34651538556923,
             "file_references": [
                 {
                     "type": "path",
-                    "relative": true,
-                    "path": "Backbone_input_files/1_options.gms"
+                    "relative": false,
+                    "path": "C:/data/backbone/input/TradeRES/1_options.gms"
                 },
                 {
                     "type": "path",
-                    "relative": true,
-                    "path": "Backbone_input_files/investInit.gms"
+                    "relative": false,
+                    "path": "C:/data/backbone/input/TradeRES/modelsInit.gms"
                 },
                 {
                     "type": "path",
-                    "relative": true,
-                    "path": "Backbone_input_files/modelsInit.gms"
+                    "relative": false,
+                    "path": "C:/data/backbone/input/TradeRES/scheduleInit.gms"
                 },
                 {
                     "type": "path",
-                    "relative": true,
-                    "path": "Backbone_input_files/scheduleInit.gms"
-                },
-                {
-                    "type": "path",
-                    "relative": true,
-                    "path": "Backbone_input_files/timeAndSamples.inc"
+                    "relative": false,
+                    "path": "C:/data/backbone/input/TradeRES/timeAndSamples.inc"
                 }
             ],
             "db_references": []
@@ -337,8 +362,8 @@
         "Backbone": {
             "type": "Tool",
             "description": "",
-            "x": -80.8465643775918,
-            "y": 228.25740457758064,
+            "x": -287.5329362709068,
+            "y": 125.82876009947765,
             "specification": "Backbone",
             "execute_in_work": true,
             "cmd_line_args": []
@@ -346,14 +371,15 @@
         "View 1": {
             "type": "View",
             "description": "",
-            "x": 399.7277369633785,
-            "y": 125.70434185060759
+            "x": 496.6691326301545,
+            "y": 10.472116812741717,
+            "pinned_values": {}
         },
         "BB_sets": {
             "type": "Data Transformer",
             "description": "",
-            "x": 189.3692904400258,
-            "y": 223.3664705193296,
+            "x": 15.606411414672493,
+            "y": 135.57048953809849,
             "specification": "ToBackboneSets"
         },
         "BB_data_template": {
@@ -375,14 +401,14 @@
         "Export_to_BB": {
             "type": "Exporter",
             "description": "",
-            "x": 59.44648185504957,
-            "y": 229.16279939451624,
+            "x": -121.63272891873959,
+            "y": 108.4433255453234,
             "output_time_stamps": false,
-            "cancel_on_error": true,
+            "cancel_on_error": false,
             "output_labels": [
                 {
                     "in_label": "db_url@BB_sets",
-                    "out_label": ""
+                    "out_label": "inputData.gdx"
                 }
             ],
             "specification": "ExportToBB"
@@ -390,8 +416,8 @@
         "BB_Spine_DB": {
             "type": "Data Store",
             "description": "",
-            "x": 262.0076470954535,
-            "y": -12.41881867899481,
+            "x": 262.00764709545354,
+            "y": -14.164265616991454,
             "url": {
                 "dialect": "sqlite",
                 "host": "",
@@ -406,8 +432,8 @@
         "TradeRES_common_DB": {
             "type": "Data Store",
             "description": "",
-            "x": -548.873952718177,
-            "y": -214.05605564615226,
+            "x": -582.5369047720878,
+            "y": -357.888668967408,
             "url": {
                 "dialect": "mysql",
                 "host": "localhost",
@@ -457,15 +483,15 @@
         "Rename_sets_for_BB": {
             "type": "Data Transformer",
             "description": "",
-            "x": -418.3508582387711,
-            "y": -194.9287214148376,
+            "x": -407.6399189488904,
+            "y": -237.7724785743606,
             "specification": "rename_sets_for_bb"
         },
         "Rename_params_for_BB": {
             "type": "Data Transformer",
             "description": "",
-            "x": -280.10619055384524,
-            "y": -220.76110485244894,
+            "x": -270.92538544823316,
+            "y": -217.7008364839116,
             "specification": "rename_params_for_bb"
         },
         "Transform_values_for_BB": {
@@ -478,20 +504,60 @@
         "Common_DB_to_BB_DB": {
             "type": "Tool",
             "description": "",
-            "x": -153.2084471066196,
-            "y": -83.61562801144316,
+            "x": -153.20844710661956,
+            "y": -87.10652188743644,
             "specification": "convert_from_common_db_to_bb_db",
-            "execute_in_work": true,
+            "execute_in_work": false,
             "cmd_line_args": [
                 {
                     "type": "resource",
-                    "arg": "db_url@TradeRES_common_DB"
+                    "arg": "db_url@TradeRES_common_sqlite"
                 },
                 {
                     "type": "resource",
                     "arg": "db_url@BB_Spine_DB"
                 }
             ]
+        },
+        "TradeRES_common_sqlite": {
+            "type": "Data Store",
+            "description": "",
+            "x": -536.7428305954868,
+            "y": -185.77180452338365,
+            "url": {
+                "dialect": "sqlite",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/items/traderes_common_sqlite/TradeRES_common_sqlite.sqlite"
+                }
+            }
+        },
+        "Copy_DB": {
+            "type": "Merger",
+            "description": "",
+            "x": -659.4878334198004,
+            "y": -205.03798069200298,
+            "cancel_on_error": false,
+            "purge_before_writing": false
+        },
+        "BB_Spine_DB_direct": {
+            "type": "Data Store",
+            "description": "",
+            "x": 176.11535697246813,
+            "y": 156.50915953426798,
+            "url": {
+                "dialect": "sqlite",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": "BB_data.sqlite"
+                }
+            }
         }
     }
 }

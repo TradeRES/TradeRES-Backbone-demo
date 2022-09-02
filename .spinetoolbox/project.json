@@ -51,6 +51,11 @@
                     "type": "path",
                     "relative": true,
                     "path": ".spinetoolbox/specifications/Tool/common_db_to_bb_db.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Tool/backbone_loop.json"
                 }
             ],
             "Exporter": [
@@ -110,17 +115,6 @@
         },
         "connections": [
             {
-                "name": "from Export_to_BB to Backbone",
-                "from": [
-                    "Export_to_BB",
-                    "left"
-                ],
-                "to": [
-                    "Backbone",
-                    "right"
-                ]
-            },
-            {
                 "name": "from BB_Spine_DB to View 1",
                 "from": [
                     "BB_Spine_DB",
@@ -129,17 +123,6 @@
                 "to": [
                     "View 1",
                     "bottom"
-                ]
-            },
-            {
-                "name": "from BB_input_files to Backbone",
-                "from": [
-                    "BB_input_files",
-                    "left"
-                ],
-                "to": [
-                    "Backbone",
-                    "right"
                 ]
             },
             {
@@ -305,15 +288,7 @@
                 "to": [
                     "BB_sets",
                     "right"
-                ],
-                "disabled_filters": {
-                    "db_url@BB_Spine_DB_direct": {
-                        "scenario_filter": [
-                            "base",
-                            "high_coal_price"
-                        ]
-                    }
-                }
+                ]
             },
             {
                 "name": "from BB_sets to Export_to_BB",
@@ -323,6 +298,28 @@
                 ],
                 "to": [
                     "Export_to_BB",
+                    "right"
+                ]
+            },
+            {
+                "name": "from Export_to_BB to Backbone_loop",
+                "from": [
+                    "Export_to_BB",
+                    "left"
+                ],
+                "to": [
+                    "Backbone_loop",
+                    "right"
+                ]
+            },
+            {
+                "name": "from BB_input_files to Backbone_loop",
+                "from": [
+                    "BB_input_files",
+                    "left"
+                ],
+                "to": [
+                    "Backbone_loop",
                     "right"
                 ]
             }
@@ -355,6 +352,26 @@
                     "type": "path",
                     "relative": false,
                     "path": "C:/data/backbone/input/TradeRES/timeAndSamples.inc"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": "Backbone/input/TradeRES/4d_postProcess_invest.gms"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": "Backbone/input/TradeRES/changes-invest.inc"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": "Backbone/input/TradeRES/changes-schedule.inc"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": "Backbone/input/TradeRES/investInit.gms"
                 }
             ],
             "db_references": []
@@ -362,8 +379,8 @@
         "Backbone": {
             "type": "Tool",
             "description": "",
-            "x": -287.5329362709068,
-            "y": 125.82876009947765,
+            "x": -625.1230968713467,
+            "y": 122.49346954427497,
             "specification": "Backbone",
             "execute_in_work": true,
             "cmd_line_args": []
@@ -401,8 +418,8 @@
         "Export_to_BB": {
             "type": "Exporter",
             "description": "",
-            "x": -121.63272891873959,
-            "y": 108.4433255453234,
+            "x": -141.773121914434,
+            "y": 102.51968054658975,
             "output_time_stamps": false,
             "cancel_on_error": false,
             "output_labels": [
@@ -558,6 +575,15 @@
                     "path": "BB_data.sqlite"
                 }
             }
+        },
+        "Backbone_loop": {
+            "type": "Tool",
+            "description": "",
+            "x": -300.9211659356696,
+            "y": 142.16747996960765,
+            "specification": "Backbone_loop",
+            "execute_in_work": true,
+            "cmd_line_args": []
         }
     }
 }

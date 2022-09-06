@@ -29,6 +29,11 @@
                     "type": "path",
                     "relative": true,
                     "path": ".spinetoolbox/specifications/Importer/import_to_bb_spine_db.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Importer/import_ev_timeseries.json"
                 }
             ],
             "Tool": [
@@ -288,7 +293,17 @@
                 "to": [
                     "BB_sets",
                     "right"
-                ]
+                ],
+                "disabled_filters": {
+                    "db_url@BB_Spine_DB_direct": {
+                        "scenario_filter": [
+                            "europe_low_ev",
+                            "germany-only",
+                            "iberia-only",
+                            "netherlands-only"
+                        ]
+                    }
+                }
             },
             {
                 "name": "from BB_sets to Export_to_BB",
@@ -320,6 +335,28 @@
                 ],
                 "to": [
                     "Backbone_loop",
+                    "right"
+                ]
+            },
+            {
+                "name": "from EV_data to Import_EV_ts",
+                "from": [
+                    "EV_data",
+                    "left"
+                ],
+                "to": [
+                    "Import_EV_ts",
+                    "right"
+                ]
+            },
+            {
+                "name": "from Import_EV_ts to BB_Spine_DB_direct",
+                "from": [
+                    "Import_EV_ts",
+                    "left"
+                ],
+                "to": [
+                    "BB_Spine_DB_direct",
                     "right"
                 ]
             }
@@ -379,8 +416,8 @@
         "Backbone": {
             "type": "Tool",
             "description": "",
-            "x": -625.1230968713467,
-            "y": 122.49346954427497,
+            "x": -605.1453137383626,
+            "y": 137.47680689401304,
             "specification": "Backbone",
             "execute_in_work": true,
             "cmd_line_args": []
@@ -418,8 +455,8 @@
         "Export_to_BB": {
             "type": "Exporter",
             "description": "",
-            "x": -141.773121914434,
-            "y": 102.51968054658975,
+            "x": -143.437937175516,
+            "y": 102.51968054658974,
             "output_time_stamps": false,
             "cancel_on_error": false,
             "output_labels": [
@@ -563,8 +600,8 @@
         "BB_Spine_DB_direct": {
             "type": "Data Store",
             "description": "",
-            "x": 176.11535697246813,
-            "y": 156.50915953426798,
+            "x": 187.76906380004218,
+            "y": 156.509159534268,
             "url": {
                 "dialect": "sqlite",
                 "host": "",
@@ -584,6 +621,36 @@
             "specification": "Backbone_loop",
             "execute_in_work": true,
             "cmd_line_args": []
+        },
+        "EV_data": {
+            "type": "Data Connection",
+            "description": "",
+            "x": 499.4445783246023,
+            "y": 168.14634136928274,
+            "file_references": [
+                {
+                    "type": "path",
+                    "relative": false,
+                    "path": "C:/Users/prokjt/Teknologian Tutkimuskeskus VTT/TradeRES - WP2 common work/TradeRES T2.1/Time series data/EV Profiles/EV Profiles CHAPROEV.xlsx"
+                }
+            ],
+            "db_references": []
+        },
+        "Import_EV_ts": {
+            "type": "Importer",
+            "description": "",
+            "x": 369.58898796020566,
+            "y": 176.4704176746928,
+            "specification": "import_ev_timeseries",
+            "cancel_on_error": false,
+            "purge_before_writing": false,
+            "on_conflict": "replace",
+            "file_selection": [
+                [
+                    "C:\\Users\\prokjt\\Teknologian Tutkimuskeskus VTT\\TradeRES - WP2 common work\\TradeRES T2.1\\Time series data\\EV Profiles\\EV Profiles CHAPROEV.xlsx",
+                    true
+                ]
+            ]
         }
     }
 }

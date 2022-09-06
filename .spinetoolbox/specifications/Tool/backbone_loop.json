@@ -1,0 +1,36 @@
+{
+    "name": "Backbone_loop",
+    "tooltype": "executable",
+    "includes": [
+        "run-invest-and-schedule-TradeRES.cmd",
+        "inc/*.gms",
+        "inc/rampSched/*.gms",
+        "defModels/*.gms",
+        "defOutput/debugSymbols.inc",
+        "defOutput/resultSymbols.inc",
+        "cplex.opt",
+        "Backbone.gms"
+    ],
+    "description": "",
+    "inputfiles": [
+        "input/TradeRES/scheduleInit.gms",
+        "input/TradeRES/changes-invest.inc",
+        "input/TradeRES/timeAndSamples.inc",
+        "input/TradeRES/changes-schedule.inc",
+        "input/TradeRES/1_options.gms",
+        "input/TradeRES/4d_postProcess_invest.gms",
+        "input/TradeRES/investInit.gms",
+        "input/TradeRES/modelsInit.gms",
+        "input/TradeRES/inputData.gdx"
+    ],
+    "inputfiles_opt": [
+        "input/TradeRES/*.*"
+    ],
+    "outputfiles": [
+        "output/results.gdx",
+        "Backbone.lst"
+    ],
+    "cmdline_args": [],
+    "execute_in_work": true,
+    "includes_main_path": "../../../Backbone"
+}

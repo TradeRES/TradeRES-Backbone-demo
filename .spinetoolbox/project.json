@@ -1,6 +1,6 @@
 {
     "project": {
-        "version": 7,
+        "version": 8,
         "name": "TradeRES",
         "description": "",
         "specifications": {
@@ -34,6 +34,11 @@
                     "type": "path",
                     "relative": true,
                     "path": ".spinetoolbox/specifications/Importer/import_ev_timeseries.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Importer/import_dataprep.json"
                 }
             ],
             "Tool": [
@@ -297,9 +302,13 @@
                 "disabled_filters": {
                     "db_url@BB_Spine_DB_direct": {
                         "scenario_filter": [
+                            "base",
                             "europe_low_ev",
+                            "fHigh_fHigh",
+                            "fHigh_sLow",
+                            "fLow_sHigh",
+                            "fLow_sLow",
                             "germany-only",
-                            "iberia-only",
                             "netherlands-only"
                         ]
                     }
@@ -313,17 +322,6 @@
                 ],
                 "to": [
                     "Export_to_BB",
-                    "right"
-                ]
-            },
-            {
-                "name": "from Export_to_BB to Backbone_loop",
-                "from": [
-                    "Export_to_BB",
-                    "left"
-                ],
-                "to": [
-                    "Backbone_loop",
                     "right"
                 ]
             },
@@ -359,6 +357,61 @@
                     "BB_Spine_DB_direct",
                     "right"
                 ]
+            },
+            {
+                "name": "from BB_input_files to Backbone",
+                "from": [
+                    "BB_input_files",
+                    "left"
+                ],
+                "to": [
+                    "Backbone",
+                    "right"
+                ]
+            },
+            {
+                "name": "from Export_to_BB to Backbone",
+                "from": [
+                    "Export_to_BB",
+                    "left"
+                ],
+                "to": [
+                    "Backbone",
+                    "right"
+                ]
+            },
+            {
+                "name": "from Export_to_BB to Backbone_loop",
+                "from": [
+                    "Export_to_BB",
+                    "left"
+                ],
+                "to": [
+                    "Backbone_loop",
+                    "right"
+                ]
+            },
+            {
+                "name": "from H2 to Import_H2",
+                "from": [
+                    "H2",
+                    "left"
+                ],
+                "to": [
+                    "Import_H2",
+                    "right"
+                ]
+            },
+            {
+                "name": "from Import_H2 to BB_Spine_DB_direct",
+                "from": [
+                    "Import_H2",
+                    "left"
+                ],
+                "to": [
+                    "BB_Spine_DB_direct",
+                    "right"
+                ]
             }
         ],
         "jumps": []
@@ -367,29 +420,9 @@
         "BB_input_files": {
             "type": "Data Connection",
             "description": "",
-            "x": -149.33536475328663,
-            "y": 229.34651538556923,
+            "x": -154.7115181337088,
+            "y": 229.34651538556926,
             "file_references": [
-                {
-                    "type": "path",
-                    "relative": false,
-                    "path": "C:/data/backbone/input/TradeRES/1_options.gms"
-                },
-                {
-                    "type": "path",
-                    "relative": false,
-                    "path": "C:/data/backbone/input/TradeRES/modelsInit.gms"
-                },
-                {
-                    "type": "path",
-                    "relative": false,
-                    "path": "C:/data/backbone/input/TradeRES/scheduleInit.gms"
-                },
-                {
-                    "type": "path",
-                    "relative": false,
-                    "path": "C:/data/backbone/input/TradeRES/timeAndSamples.inc"
-                },
                 {
                     "type": "path",
                     "relative": true,
@@ -408,7 +441,27 @@
                 {
                     "type": "path",
                     "relative": true,
+                    "path": "Backbone/input/TradeRES/modelsInit.gms"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": "Backbone/input/TradeRES/timeAndSamples.inc"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
                     "path": "Backbone/input/TradeRES/investInit.gms"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": "Backbone/input/TradeRES/1_options.gms"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": "Backbone/input/TradeRES/scheduleInit.gms"
                 }
             ],
             "db_references": []
@@ -416,8 +469,8 @@
         "Backbone": {
             "type": "Tool",
             "description": "",
-            "x": -605.1453137383626,
-            "y": 137.47680689401304,
+            "x": -350.2870659468533,
+            "y": 119.96908259645505,
             "specification": "Backbone",
             "execute_in_work": true,
             "cmd_line_args": []
@@ -455,8 +508,8 @@
         "Export_to_BB": {
             "type": "Exporter",
             "description": "",
-            "x": -143.437937175516,
-            "y": 102.51968054658974,
+            "x": -145.22998830232336,
+            "y": 105.50246331911634,
             "output_time_stamps": false,
             "cancel_on_error": false,
             "output_labels": [
@@ -500,8 +553,7 @@
             "description": "Merges data into BB_Spine_DB",
             "x": 366.22164608778525,
             "y": -126.50455625557585,
-            "cancel_on_error": true,
-            "purge_before_writing": false
+            "cancel_on_error": true
         },
         "Import_BB_Spine_DB": {
             "type": "Importer",
@@ -510,7 +562,6 @@
             "y": -199.13721142031824,
             "specification": "Import_to_BB_Spine_DB",
             "cancel_on_error": true,
-            "purge_before_writing": false,
             "on_conflict": "merge",
             "file_selection": [
                 [
@@ -559,7 +610,7 @@
             "type": "Tool",
             "description": "",
             "x": -153.20844710661956,
-            "y": -87.10652188743644,
+            "y": -88.89857301424382,
             "specification": "convert_from_common_db_to_bb_db",
             "execute_in_work": false,
             "cmd_line_args": [
@@ -594,14 +645,13 @@
             "description": "",
             "x": -659.4878334198004,
             "y": -205.03798069200298,
-            "cancel_on_error": false,
-            "purge_before_writing": false
+            "cancel_on_error": false
         },
         "BB_Spine_DB_direct": {
             "type": "Data Store",
             "description": "",
-            "x": 187.76906380004218,
-            "y": 156.509159534268,
+            "x": 189.36067509982013,
+            "y": 151.5338858079046,
             "url": {
                 "dialect": "sqlite",
                 "host": "",
@@ -616,10 +666,10 @@
         "Backbone_loop": {
             "type": "Tool",
             "description": "",
-            "x": -300.9211659356696,
-            "y": 142.16747996960765,
+            "x": -372.9445540797382,
+            "y": 229.90654128442696,
             "specification": "Backbone_loop",
-            "execute_in_work": true,
+            "execute_in_work": false,
             "cmd_line_args": []
         },
         "EV_data": {
@@ -639,15 +689,43 @@
         "Import_EV_ts": {
             "type": "Importer",
             "description": "",
-            "x": 369.58898796020566,
-            "y": 176.4704176746928,
+            "x": 336.75456282949875,
+            "y": 149.00023860795076,
             "specification": "import_ev_timeseries",
             "cancel_on_error": false,
-            "purge_before_writing": false,
             "on_conflict": "replace",
             "file_selection": [
                 [
                     "C:\\Users\\prokjt\\Teknologian Tutkimuskeskus VTT\\TradeRES - WP2 common work\\TradeRES T2.1\\Time series data\\EV Profiles\\EV Profiles CHAPROEV.xlsx",
+                    true
+                ]
+            ]
+        },
+        "H2": {
+            "type": "Data Connection",
+            "description": "",
+            "x": 498.1902132524568,
+            "y": 259.8474133870727,
+            "file_references": [
+                {
+                    "type": "path",
+                    "relative": false,
+                    "path": "C:/Users/prokjt/Teknologian Tutkimuskeskus VTT/TradeRES - WP2 common work/TradeRES T2.1/DataPrep.xlsx"
+                }
+            ],
+            "db_references": []
+        },
+        "Import_H2": {
+            "type": "Importer",
+            "description": "",
+            "x": 344.07381634702045,
+            "y": 249.09510662622836,
+            "specification": "import_dataprep",
+            "cancel_on_error": false,
+            "on_conflict": "merge",
+            "file_selection": [
+                [
+                    "C:\\Users\\prokjt\\Teknologian Tutkimuskeskus VTT\\TradeRES - WP2 common work\\TradeRES T2.1\\DataPrep.xlsx",
                     true
                 ]
             ]

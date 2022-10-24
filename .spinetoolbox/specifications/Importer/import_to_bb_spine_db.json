@@ -212,242 +212,6 @@
                     }
                 }
             ],
-            "group_energymax": [
-                {
-                    "Mapping 1": {
-                        "mapping": [
-                            {
-                                "map_type": "ObjectClass",
-                                "position": "hidden",
-                                "value": "group"
-                            },
-                            {
-                                "map_type": "Object",
-                                "position": 0
-                            },
-                            {
-                                "map_type": "ObjectMetadata",
-                                "position": "hidden"
-                            },
-                            {
-                                "map_type": "ParameterDefinition",
-                                "position": 1
-                            },
-                            {
-                                "map_type": "Alternative",
-                                "position": 2
-                            },
-                            {
-                                "map_type": "ParameterValueMetadata",
-                                "position": "hidden"
-                            },
-                            {
-                                "map_type": "ParameterValue",
-                                "position": 3
-                            }
-                        ]
-                    }
-                }
-            ],
-            "group_emission": [
-                {
-                    "Mapping 1": {
-                        "mapping": [
-                            {
-                                "map_type": "RelationshipClass",
-                                "position": "hidden",
-                                "value": "group__emission"
-                            },
-                            {
-                                "map_type": "RelationshipClassObjectClass",
-                                "position": "hidden",
-                                "value": "group"
-                            },
-                            {
-                                "map_type": "RelationshipClassObjectClass",
-                                "position": "hidden",
-                                "value": "emission"
-                            },
-                            {
-                                "map_type": "Relationship",
-                                "position": "hidden",
-                                "value": "relationship"
-                            },
-                            {
-                                "map_type": "RelationshipObject",
-                                "position": 0,
-                                "import_objects": true
-                            },
-                            {
-                                "map_type": "RelationshipObject",
-                                "position": "hidden",
-                                "value": "CO2",
-                                "import_objects": true
-                            },
-                            {
-                                "map_type": "RelationshipMetadata",
-                                "position": "hidden"
-                            },
-                            {
-                                "map_type": "ParameterDefinition",
-                                "position": 1
-                            },
-                            {
-                                "map_type": "Alternative",
-                                "position": 2
-                            },
-                            {
-                                "map_type": "ParameterValueMetadata",
-                                "position": "hidden"
-                            },
-                            {
-                                "map_type": "ParameterValue",
-                                "position": 3
-                            }
-                        ]
-                    }
-                }
-            ],
-            "node_emission": [
-                {
-                    "Mapping 1": {
-                        "mapping": [
-                            {
-                                "map_type": "RelationshipClass",
-                                "position": "hidden",
-                                "value": "node__emission"
-                            },
-                            {
-                                "map_type": "RelationshipClassObjectClass",
-                                "position": "hidden",
-                                "value": "node"
-                            },
-                            {
-                                "map_type": "RelationshipClassObjectClass",
-                                "position": "hidden",
-                                "value": "emission"
-                            },
-                            {
-                                "map_type": "Relationship",
-                                "position": "hidden",
-                                "value": "relationship"
-                            },
-                            {
-                                "map_type": "RelationshipObject",
-                                "position": 0,
-                                "import_objects": true
-                            },
-                            {
-                                "map_type": "RelationshipObject",
-                                "position": "hidden",
-                                "value": "CO2"
-                            },
-                            {
-                                "map_type": "RelationshipMetadata",
-                                "position": "hidden"
-                            },
-                            {
-                                "map_type": "ParameterDefinition",
-                                "position": "hidden",
-                                "value": "emission_content"
-                            },
-                            {
-                                "map_type": "Alternative",
-                                "position": 2
-                            },
-                            {
-                                "map_type": "ParameterValueMetadata",
-                                "position": "hidden"
-                            },
-                            {
-                                "map_type": "ParameterValue",
-                                "position": 3
-                            }
-                        ]
-                    }
-                }
-            ],
-            "grid__node_demand": [
-                {
-                    "Mapping 1": {
-                        "mapping": [
-                            {
-                                "map_type": "RelationshipClass",
-                                "position": "hidden",
-                                "value": "grid__node"
-                            },
-                            {
-                                "map_type": "RelationshipClassObjectClass",
-                                "position": "hidden",
-                                "value": "grid"
-                            },
-                            {
-                                "map_type": "RelationshipClassObjectClass",
-                                "position": "hidden",
-                                "value": "node"
-                            },
-                            {
-                                "map_type": "Relationship",
-                                "position": "hidden",
-                                "value": "relationship"
-                            },
-                            {
-                                "map_type": "RelationshipObject",
-                                "position": 0,
-                                "import_objects": true
-                            },
-                            {
-                                "map_type": "RelationshipObject",
-                                "position": 1
-                            },
-                            {
-                                "map_type": "RelationshipMetadata",
-                                "position": "hidden"
-                            },
-                            {
-                                "map_type": "ParameterDefinition",
-                                "position": "hidden",
-                                "value": "influx"
-                            },
-                            {
-                                "map_type": "Alternative",
-                                "position": 3
-                            },
-                            {
-                                "map_type": "ParameterValueMetadata",
-                                "position": "hidden"
-                            },
-                            {
-                                "map_type": "ParameterValueType",
-                                "position": "hidden",
-                                "value": "map"
-                            },
-                            {
-                                "map_type": "IndexName",
-                                "position": "hidden",
-                                "value": "f"
-                            },
-                            {
-                                "map_type": "ParameterValueIndex",
-                                "position": 4
-                            },
-                            {
-                                "map_type": "IndexName",
-                                "position": "hidden",
-                                "value": "t"
-                            },
-                            {
-                                "map_type": "ParameterValueIndex",
-                                "position": 5
-                            },
-                            {
-                                "map_type": "ExpandedValue",
-                                "position": 6
-                            }
-                        ]
-                    }
-                }
-            ],
             "node_p": [
                 {
                     "Mapping 1": {
@@ -500,94 +264,6 @@
                         ]
                     }
                 }
-            ],
-            "unit_p": [
-                {
-                    "other parameters": {
-                        "mapping": [
-                            {
-                                "map_type": "ObjectClass",
-                                "position": "hidden",
-                                "value": "unit"
-                            },
-                            {
-                                "map_type": "Object",
-                                "position": 0
-                            },
-                            {
-                                "map_type": "ObjectMetadata",
-                                "position": "hidden"
-                            },
-                            {
-                                "map_type": "ParameterDefinition",
-                                "position": 1,
-                                "filter_re": "^(?!(eff|op))"
-                            },
-                            {
-                                "map_type": "Alternative",
-                                "position": 2
-                            },
-                            {
-                                "map_type": "ParameterValueMetadata",
-                                "position": "hidden"
-                            },
-                            {
-                                "map_type": "ParameterValue",
-                                "position": 3
-                            }
-                        ]
-                    }
-                },
-                {
-                    "efficiency": {
-                        "mapping": [
-                            {
-                                "map_type": "ObjectClass",
-                                "position": "hidden",
-                                "value": "unit"
-                            },
-                            {
-                                "map_type": "Object",
-                                "position": 0
-                            },
-                            {
-                                "map_type": "ObjectMetadata",
-                                "position": "hidden"
-                            },
-                            {
-                                "map_type": "ParameterDefinition",
-                                "position": "hidden",
-                                "value": "efficiency"
-                            },
-                            {
-                                "map_type": "Alternative",
-                                "position": 2
-                            },
-                            {
-                                "map_type": "ParameterValueMetadata",
-                                "position": "hidden"
-                            },
-                            {
-                                "map_type": "ParameterValueType",
-                                "position": "hidden",
-                                "value": "map"
-                            },
-                            {
-                                "map_type": "IndexName",
-                                "position": "hidden"
-                            },
-                            {
-                                "map_type": "ParameterValueIndex",
-                                "position": 1,
-                                "filter_re": "^eff0|^op0"
-                            },
-                            {
-                                "map_type": "ExpandedValue",
-                                "position": 3
-                            }
-                        ]
-                    }
-                }
             ]
         },
         "selected_tables": [
@@ -599,12 +275,7 @@
             "unittype",
             "flow__unit",
             "unit__unittype",
-            "group_energymax",
-            "group_emission",
-            "node_emission",
-            "grid__node_demand",
-            "node_p",
-            "unit_p"
+            "node_p"
         ],
         "table_options": {
             "grid": {
@@ -620,12 +291,7 @@
             "unittype": {},
             "flow__unit": {},
             "unit__unittype": {},
-            "group_energymax": {},
-            "group_emission": {},
-            "node_emission": {},
-            "grid__node_demand": {},
-            "node_p": {},
-            "unit_p": {}
+            "node_p": {}
         },
         "table_types": {
             "grid": {
@@ -654,46 +320,14 @@
                 "0": "string",
                 "1": "string"
             },
-            "group_energymax": {
-                "0": "string",
-                "1": "string",
-                "2": "string",
-                "3": "float"
-            },
-            "group_emission": {
-                "0": "string",
-                "1": "string",
-                "2": "string",
-                "3": "float"
-            },
-            "node_emission": {
-                "0": "string",
-                "1": "string",
-                "2": "string",
-                "3": "float"
-            },
             "node_p": {
                 "0": "string",
                 "1": "string",
                 "2": "string",
                 "3": "float"
-            },
-            "unit_p": {
-                "0": "string",
-                "1": "string",
-                "2": "string",
-                "3": "float"
-            },
-            "grid__node_demand": {
-                "0": "string",
-                "1": "string",
-                "2": "string",
-                "3": "string",
-                "4": "string",
-                "5": "string",
-                "6": "float"
             }
         },
+        "table_default_column_type": {},
         "table_row_types": {},
         "source_type": "ExcelConnector"
     },

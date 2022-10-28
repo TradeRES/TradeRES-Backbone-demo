@@ -1313,11 +1313,13 @@
                             },
                             {
                                 "map_type": "RelationshipObject",
-                                "position": 0
+                                "position": 0,
+                                "import_objects": true
                             },
                             {
                                 "map_type": "RelationshipObject",
-                                "position": 1
+                                "position": 1,
+                                "import_objects": true
                             },
                             {
                                 "map_type": "RelationshipMetadata",
@@ -1374,15 +1376,18 @@
                             },
                             {
                                 "map_type": "RelationshipObject",
-                                "position": 0
+                                "position": 0,
+                                "import_objects": true
                             },
                             {
                                 "map_type": "RelationshipObject",
-                                "position": 1
+                                "position": 1,
+                                "import_objects": true
                             },
                             {
                                 "map_type": "RelationshipObject",
-                                "position": 2
+                                "position": 2,
+                                "import_objects": true
                             },
                             {
                                 "map_type": "RelationshipMetadata",
@@ -1434,11 +1439,13 @@
                             },
                             {
                                 "map_type": "RelationshipObject",
-                                "position": 0
+                                "position": 0,
+                                "import_objects": true
                             },
                             {
                                 "map_type": "RelationshipObject",
-                                "position": 1
+                                "position": 1,
+                                "import_objects": true
                             },
                             {
                                 "map_type": "RelationshipMetadata",
@@ -1643,13 +1650,15 @@
                 "2": "string",
                 "3": "string",
                 "4": "float",
-                "5": "float"
+                "5": "float",
+                "6": "string"
             },
             "unit__unittype": {
                 "0": "string",
                 "1": "string"
             }
         },
+        "table_default_column_type": {},
         "table_row_types": {
             "capacity_ts": {
                 "1": "string"

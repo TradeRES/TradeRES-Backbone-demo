@@ -13,25 +13,25 @@
     ],
     "description": "",
     "inputfiles": [
-        "input/TradeRES/4d_postProcess_invest.gms",
         "input/TradeRES/1_options.gms",
-        "input/TradeRES/investInit.gms",
-        "input/TradeRES/inputData.gdx",
-        "input/TradeRES/modelsInit.gms",
-        "input/TradeRES/timeAndSamples.inc",
-        "input/TradeRES/scheduleInit.gms",
+        "input/TradeRES/4d_postProcess_invest.gms",
         "input/TradeRES/changes-invest.inc",
-        "input/TradeRES/changes-schedule.inc"
+        "input/TradeRES/changes-schedule.inc",
+        "input/TradeRES/inputData.gdx",
+        "input/TradeRES/investInit.gms",
+        "input/TradeRES/modelsInit.gms",
+        "input/TradeRES/scheduleInit.gms",
+        "input/TradeRES/timeAndSamples.inc"
     ],
     "inputfiles_opt": [],
     "outputfiles": [
-        "output/lst-invest.lst",
-        "output/results.gdx",
-        "output/log-invest.log",
-        "output/debug.gdx",
-        "output/debug-invest.gdx",
+        "Backbone.log",
         "Backbone.lst",
-        "Backbone.log"
+        "output/debug-invest.gdx",
+        "output/debug.gdx",
+        "output/log-invest.log",
+        "output/lst-invest.lst",
+        "output/results.gdx"
     ],
     "cmdline_args": [],
     "execute_in_work": true,

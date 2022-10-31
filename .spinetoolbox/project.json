@@ -44,6 +44,16 @@
                     "type": "path",
                     "relative": true,
                     "path": ".spinetoolbox/specifications/Importer/bb_to_spinedb_TradeRES.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Importer/import_bb_results.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Importer/bb_result_invest2.json"
                 }
             ],
             "Tool": [
@@ -88,6 +98,11 @@
                     "type": "path",
                     "relative": true,
                     "path": ".spinetoolbox/specifications/Exporter/export_toward_backbone.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Exporter/export_bb_results_to_excel.json"
                 }
             ],
             "Data Transformer": [
@@ -307,8 +322,7 @@
                 "disabled_filters": {
                     "db_url@BB_Spine_DB_direct": {
                         "scenario_filter": [
-                            "VRE-flex-europe",
-                            "base-europe",
+                            "H2-low-iberia",
                             "base-iberia",
                             "buildings-low-iberia"
                         ]
@@ -466,6 +480,61 @@
                 "options": {
                     "write_index": 4
                 }
+            },
+            {
+                "name": "from Backbone_loop to Result_import",
+                "from": [
+                    "Backbone_loop",
+                    "left"
+                ],
+                "to": [
+                    "Result_import",
+                    "right"
+                ]
+            },
+            {
+                "name": "from Result_import to BB_results",
+                "from": [
+                    "Result_import",
+                    "left"
+                ],
+                "to": [
+                    "BB_results",
+                    "right"
+                ]
+            },
+            {
+                "name": "from BB_results to Results_to_Excel",
+                "from": [
+                    "BB_results",
+                    "bottom"
+                ],
+                "to": [
+                    "Results_to_Excel",
+                    "left"
+                ]
+            },
+            {
+                "name": "from Backbone_loop to BB_result_invest",
+                "from": [
+                    "Backbone_loop",
+                    "left"
+                ],
+                "to": [
+                    "BB_result_invest",
+                    "right"
+                ]
+            },
+            {
+                "name": "from BB_result_invest to BB_results",
+                "from": [
+                    "BB_result_invest",
+                    "left"
+                ],
+                "to": [
+                    "BB_results",
+                    "right"
+                ]
             }
         ],
         "jumps": []
@@ -495,11 +564,6 @@
                 {
                     "type": "path",
                     "relative": true,
-                    "path": "Backbone/input/TradeRES/modelsInit.gms"
-                },
-                {
-                    "type": "path",
-                    "relative": true,
                     "path": "Backbone/input/TradeRES/timeAndSamples.inc"
                 },
                 {
@@ -516,6 +580,11 @@
                     "type": "path",
                     "relative": true,
                     "path": "Backbone/input/TradeRES/investInit.gms"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": "Backbone/input/TradeRES/modelsInit.gms"
                 }
             ],
             "db_references": []
@@ -523,10 +592,10 @@
         "Backbone": {
             "type": "Tool",
             "description": "",
-            "x": -350.2870659468533,
-            "y": 119.96908259645505,
+            "x": -351.69200936107643,
+            "y": 100.29987479733208,
             "specification": "Backbone",
-            "execute_in_work": true,
+            "execute_in_work": false,
             "cmd_line_args": []
         },
         "View 1": {
@@ -562,8 +631,8 @@
         "Export_to_BB": {
             "type": "Exporter",
             "description": "",
-            "x": -145.22998830232336,
-            "y": 105.50246331911634,
+            "x": -147.19498450221622,
+            "y": 107.46745951900917,
             "output_time_stamps": false,
             "cancel_on_error": false,
             "output_labels": [
@@ -835,6 +904,115 @@
             "x": 82.8862897939319,
             "y": 300.2673139704703,
             "cancel_on_error": false
+        },
+        "Result_import": {
+            "type": "Importer",
+            "description": "",
+            "x": -517.3434283352594,
+            "y": 210.34842690554498,
+            "specification": "import_BB_results",
+            "cancel_on_error": false,
+            "on_conflict": "replace",
+            "file_selection": [
+                [
+                    "Backbone.log",
+                    false
+                ],
+                [
+                    "Backbone.lst",
+                    false
+                ],
+                [
+                    "output/debug-invest.gdx",
+                    false
+                ],
+                [
+                    "output/debug.gdx",
+                    false
+                ],
+                [
+                    "output/log-invest.log",
+                    false
+                ],
+                [
+                    "output/lst-invest.lst",
+                    false
+                ],
+                [
+                    "output/results.gdx",
+                    true
+                ]
+            ]
+        },
+        "Results_to_Excel": {
+            "type": "Exporter",
+            "description": "",
+            "x": -524.4497941090951,
+            "y": 328.3140987512223,
+            "output_time_stamps": false,
+            "cancel_on_error": true,
+            "output_labels": [
+                {
+                    "in_label": "db_url@BB_results",
+                    "out_label": "bb_results"
+                }
+            ],
+            "specification": "export_BB_results_to_Excel"
+        },
+        "BB_results": {
+            "type": "Data Store",
+            "description": "",
+            "x": -652.3643780381431,
+            "y": 207.50588059601063,
+            "url": {
+                "dialect": "sqlite",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": "BB_results.sqlite"
+                }
+            }
+        },
+        "BB_result_invest": {
+            "type": "Importer",
+            "description": "",
+            "x": -524.4391338506647,
+            "y": 107.82860695994975,
+            "specification": "BB_result_invest",
+            "cancel_on_error": false,
+            "on_conflict": "merge",
+            "file_selection": [
+                [
+                    "Backbone.log",
+                    false
+                ],
+                [
+                    "Backbone.lst",
+                    false
+                ],
+                [
+                    "output/debug-invest.gdx",
+                    true
+                ],
+                [
+                    "output/debug.gdx",
+                    false
+                ],
+                [
+                    "output/log-invest.log",
+                    false
+                ],
+                [
+                    "output/lst-invest.lst",
+                    false
+                ],
+                [
+                    "output/results.gdx",
+                    false
+                ]
+            ]
         }
     }
 }

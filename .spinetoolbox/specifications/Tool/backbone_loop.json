@@ -23,7 +23,9 @@
         "input/TradeRES/scheduleInit.gms",
         "input/TradeRES/timeAndSamples.inc"
     ],
-    "inputfiles_opt": [],
+    "inputfiles_opt": [
+        "input/TradeRES/*.*"
+    ],
     "outputfiles": [
         "Backbone.log",
         "Backbone.lst",

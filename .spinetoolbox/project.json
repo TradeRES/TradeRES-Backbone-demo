@@ -512,7 +512,18 @@
                 "to": [
                     "Results_to_Excel",
                     "left"
-                ]
+                ],
+                "disabled_filters": {
+                    "db_url@BB_results": {
+                        "scenario_filter": [
+                            "VRE+flex+europe",
+                            "VRE+flex-europe",
+                            "VRE-flex+europe",
+                            "VRE-flex-europe",
+                            "base-europe"
+                        ]
+                    }
+                }
             },
             {
                 "name": "from Backbone_loop to BB_result_invest",
@@ -579,12 +590,17 @@
                 {
                     "type": "path",
                     "relative": true,
+                    "path": "Backbone/input/TradeRES/modelsInit.gms"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
                     "path": "Backbone/input/TradeRES/investInit.gms"
                 },
                 {
                     "type": "path",
                     "relative": true,
-                    "path": "Backbone/input/TradeRES/modelsInit.gms"
+                    "path": "Backbone/input/TradeRES/invest_results.inc"
                 }
             ],
             "db_references": []

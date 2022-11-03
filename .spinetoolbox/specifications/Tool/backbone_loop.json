@@ -17,6 +17,8 @@
         "input/TradeRES/4d_postProcess_invest.gms",
         "input/TradeRES/changes-invest.inc",
         "input/TradeRES/changes-schedule.inc",
+        "input/TradeRES/cplex_invest.opt",
+        "input/TradeRES/cplex_schedule.opt",
         "input/TradeRES/inputData.gdx",
         "input/TradeRES/investInit.gms",
         "input/TradeRES/modelsInit.gms",

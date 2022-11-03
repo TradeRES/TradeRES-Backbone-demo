@@ -323,9 +323,6 @@
                     "db_url@BB_Spine_DB_direct": {
                         "scenario_filter": [
                             "H2-low-iberia",
-                            "VRE+flex+europe",
-                            "VRE-flex+europe",
-                            "VRE-flex-europe",
                             "base-europe",
                             "base-iberia",
                             "buildings-low-iberia"
@@ -516,18 +513,7 @@
                 "to": [
                     "Results_to_Excel",
                     "left"
-                ],
-                "disabled_filters": {
-                    "db_url@BB_results": {
-                        "scenario_filter": [
-                            "VRE+flex+europe",
-                            "VRE+flex-europe",
-                            "VRE-flex+europe",
-                            "VRE-flex-europe",
-                            "base-europe"
-                        ]
-                    }
-                }
+                ]
             },
             {
                 "name": "from Backbone_loop to BB_result_invest",
@@ -605,6 +591,16 @@
                     "type": "path",
                     "relative": true,
                     "path": "Backbone/input/TradeRES/1_options.gms"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": "Backbone/input/TradeRES/cplex_invest.opt"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": "Backbone/input/TradeRES/cplex_schedule.opt"
                 }
             ],
             "db_references": []
@@ -615,7 +611,7 @@
             "x": -351.69200936107643,
             "y": 100.29987479733208,
             "specification": "Backbone",
-            "execute_in_work": false,
+            "execute_in_work": true,
             "cmd_line_args": []
         },
         "View 1": {

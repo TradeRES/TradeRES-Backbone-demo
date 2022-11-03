@@ -323,6 +323,10 @@
                     "db_url@BB_Spine_DB_direct": {
                         "scenario_filter": [
                             "H2-low-iberia",
+                            "VRE+flex+europe",
+                            "VRE-flex+europe",
+                            "VRE-flex-europe",
+                            "base-europe",
                             "base-iberia",
                             "buildings-low-iberia"
                         ]
@@ -580,11 +584,6 @@
                 {
                     "type": "path",
                     "relative": true,
-                    "path": "Backbone/input/TradeRES/1_options.gms"
-                },
-                {
-                    "type": "path",
-                    "relative": true,
                     "path": "Backbone/input/TradeRES/scheduleInit.gms"
                 },
                 {
@@ -601,6 +600,11 @@
                     "type": "path",
                     "relative": true,
                     "path": "Backbone/input/TradeRES/invest_results.inc"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": "Backbone/input/TradeRES/1_options.gms"
                 }
             ],
             "db_references": []
@@ -963,7 +967,7 @@
         "Results_to_Excel": {
             "type": "Exporter",
             "description": "",
-            "x": -524.4497941090951,
+            "x": -526.1574693780495,
             "y": 328.3140987512223,
             "output_time_stamps": false,
             "cancel_on_error": true,

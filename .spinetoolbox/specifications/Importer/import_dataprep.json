@@ -639,6 +639,88 @@
                         ]
                     }
                 }
+            ],
+            "gnss_bound": [
+                {
+                    "Mapping 1": {
+                        "mapping": [
+                            {
+                                "map_type": "RelationshipClass",
+                                "position": "hidden",
+                                "value": "grid__node",
+                                "read_start_row": 1
+                            },
+                            {
+                                "map_type": "RelationshipClassObjectClass",
+                                "position": "hidden",
+                                "value": "grid"
+                            },
+                            {
+                                "map_type": "RelationshipClassObjectClass",
+                                "position": "hidden",
+                                "value": "node"
+                            },
+                            {
+                                "map_type": "Relationship",
+                                "position": "hidden",
+                                "value": "relationship"
+                            },
+                            {
+                                "map_type": "RelationshipObject",
+                                "position": 1,
+                                "import_objects": true
+                            },
+                            {
+                                "map_type": "RelationshipObject",
+                                "position": 2,
+                                "import_objects": true
+                            },
+                            {
+                                "map_type": "RelationshipMetadata",
+                                "position": "hidden"
+                            },
+                            {
+                                "map_type": "ParameterDefinition",
+                                "position": "hidden",
+                                "value": "boundSamples"
+                            },
+                            {
+                                "map_type": "Alternative",
+                                "position": 0
+                            },
+                            {
+                                "map_type": "ParameterValueMetadata",
+                                "position": "hidden"
+                            },
+                            {
+                                "map_type": "ParameterValueType",
+                                "position": "hidden",
+                                "value": "map"
+                            },
+                            {
+                                "map_type": "IndexName",
+                                "position": "hidden"
+                            },
+                            {
+                                "map_type": "ParameterValueIndex",
+                                "position": 3
+                            },
+                            {
+                                "map_type": "IndexName",
+                                "position": "hidden"
+                            },
+                            {
+                                "map_type": "ParameterValueIndex",
+                                "position": 4
+                            },
+                            {
+                                "map_type": "ExpandedValue",
+                                "position": "hidden",
+                                "value": "true"
+                            }
+                        ]
+                    }
+                }
             ]
         },
         "selected_tables": [
@@ -649,7 +731,8 @@
             "node",
             "gn",
             "unit__unittype",
-            "p_gnBoundaryPropertiesForStates"
+            "p_gnBoundaryPropertiesForStates",
+            "gnss_bound"
         ],
         "table_options": {
             "Sheet1": {},
@@ -664,7 +747,8 @@
             "node": {},
             "gn": {},
             "unit__unittype": {},
-            "p_gnBoundaryPropertiesForStates": {}
+            "p_gnBoundaryPropertiesForStates": {},
+            "gnss_bound": {}
         },
         "table_types": {
             "Sheet1": {
@@ -9537,6 +9621,13 @@
                 "12": "float",
                 "13": "float",
                 "14": "float"
+            },
+            "gnss_bound": {
+                "0": "string",
+                "1": "string",
+                "2": "string",
+                "3": "string",
+                "4": "string"
             }
         },
         "table_default_column_type": {

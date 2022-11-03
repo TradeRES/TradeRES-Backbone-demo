@@ -321,7 +321,7 @@
                     "position": 6
                 }
             ],
-            "enabled": false,
+            "enabled": true,
             "always_export_header": true,
             "group_fn": "no_group",
             "use_fixed_table_name": true
@@ -473,7 +473,7 @@
                     "position": 6
                 }
             ],
-            "enabled": false,
+            "enabled": true,
             "always_export_header": true,
             "group_fn": "no_group",
             "use_fixed_table_name": true
@@ -699,7 +699,7 @@
                     "position": 6
                 }
             ],
-            "enabled": false,
+            "enabled": true,
             "always_export_header": true,
             "group_fn": "no_group",
             "use_fixed_table_name": true
@@ -801,7 +801,7 @@
                 {
                     "map_type": "ParameterDefinition",
                     "position": "hidden",
-                    "filter_re": "^gen__unittypeTotal$"
+                    "filter_re": "^genTotal$"
                 },
                 {
                     "map_type": "ParameterValueList",
@@ -897,6 +897,116 @@
             "always_export_header": true,
             "group_fn": "no_group",
             "use_fixed_table_name": false
+        },
+        "genGridUnittypeTotal_invest": {
+            "type": "relationship_parameter_values",
+            "mapping": [
+                {
+                    "map_type": "FixedValue",
+                    "position": "table_name",
+                    "value": "genUnittypeTotalInvest"
+                },
+                {
+                    "map_type": "RelationshipClass",
+                    "position": "hidden",
+                    "filter_re": "^grid__unittype$"
+                },
+                {
+                    "map_type": "RelationshipClassObjectClass",
+                    "position": "hidden"
+                },
+                {
+                    "map_type": "RelationshipClassObjectClass",
+                    "position": "hidden"
+                },
+                {
+                    "map_type": "ParameterDefinition",
+                    "position": "hidden",
+                    "filter_re": "^genTotalInvest$"
+                },
+                {
+                    "map_type": "ParameterValueList",
+                    "position": "hidden",
+                    "ignorable": true
+                },
+                {
+                    "map_type": "Relationship",
+                    "position": "hidden"
+                },
+                {
+                    "map_type": "RelationshipObject",
+                    "position": 0,
+                    "header": "grid"
+                },
+                {
+                    "map_type": "RelationshipObject",
+                    "position": 1,
+                    "header": "unittype"
+                },
+                {
+                    "map_type": "Alternative",
+                    "position": -3,
+                    "header": "scen"
+                },
+                {
+                    "map_type": "ParameterValueType",
+                    "position": "hidden",
+                    "filter_re": "single_value"
+                },
+                {
+                    "map_type": "ParameterValue",
+                    "position": 6
+                }
+            ],
+            "enabled": true,
+            "always_export_header": true,
+            "group_fn": "no_group",
+            "use_fixed_table_name": true
+        },
+        "invest": {
+            "type": "object_parameter_values",
+            "mapping": [
+                {
+                    "map_type": "FixedValue",
+                    "position": "table_name",
+                    "value": "unit_invest"
+                },
+                {
+                    "map_type": "ObjectClass",
+                    "position": "hidden",
+                    "filter_re": "^unit$"
+                },
+                {
+                    "map_type": "ParameterDefinition",
+                    "position": "hidden",
+                    "filter_re": "^invest$"
+                },
+                {
+                    "map_type": "ParameterValueList",
+                    "position": "hidden",
+                    "ignorable": true
+                },
+                {
+                    "map_type": "Object",
+                    "position": 0
+                },
+                {
+                    "map_type": "Alternative",
+                    "position": -1
+                },
+                {
+                    "map_type": "ParameterValueType",
+                    "position": "hidden"
+                },
+                {
+                    "map_type": "ParameterValue",
+                    "position": 4
+                }
+            ],
+            "enabled": true,
+            "always_export_header": true,
+            "group_fn": "no_group",
+            "use_fixed_table_name": true
         }
     }
 }

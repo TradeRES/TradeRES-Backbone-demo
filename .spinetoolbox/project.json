@@ -323,7 +323,10 @@
                     "db_url@BB_Spine_DB_direct": {
                         "scenario_filter": [
                             "H2-low-iberia",
-                            "base-europe",
+                            "VRE+flex+europe",
+                            "VRE+flex-europe",
+                            "VRE-flex+europe",
+                            "VRE-flex-europe",
                             "base-iberia",
                             "buildings-low-iberia"
                         ]
@@ -513,7 +516,32 @@
                 "to": [
                     "Results_to_Excel",
                     "left"
-                ]
+                ],
+                "disabled_filters": {
+                    "db_url@BB_results": {
+                        "scenario_filter": [
+                            "++I150",
+                            "++I60",
+                            "++S150",
+                            "++S60",
+                            "+-I150",
+                            "+-I60",
+                            "+-S150",
+                            "+-S60",
+                            "-+I150",
+                            "-+I60",
+                            "-+S150",
+                            "-+S60",
+                            "--I150",
+                            "--I60",
+                            "--S150",
+                            "--S60",
+                            "BI150",
+                            "BI60",
+                            "BS60"
+                        ]
+                    }
+                }
             },
             {
                 "name": "from Backbone_loop to BB_result_invest",
@@ -544,8 +572,8 @@
         "BB_input_files": {
             "type": "Data Connection",
             "description": "",
-            "x": -154.7115181337088,
-            "y": 229.34651538556926,
+            "x": -164.9575697474356,
+            "y": 227.6388401166148,
             "file_references": [
                 {
                     "type": "path",
@@ -789,8 +817,8 @@
         "BB_Spine_DB_direct": {
             "type": "Data Store",
             "description": "",
-            "x": 192.52779451960154,
-            "y": 149.9205341480003,
+            "x": 196.616160069511,
+            "y": 147.87635137304562,
             "url": {
                 "dialect": "sqlite",
                 "host": "",
@@ -798,7 +826,7 @@
                 "database": {
                     "type": "path",
                     "relative": true,
-                    "path": "BB_data.sqlite"
+                    "path": "BB_data_template.sqlite"
                 }
             }
         },

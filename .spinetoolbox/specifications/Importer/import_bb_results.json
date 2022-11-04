@@ -2890,6 +2890,7 @@
             "r_totalRealizedCost",
             "r_transfer",
             "r_balanceMarginal",
+            "r_gen",
             "r_solveStatus",
             "mSettings",
             "r_genGridUnittype",

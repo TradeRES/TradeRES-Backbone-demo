@@ -1451,16 +1451,65 @@
                     "Mapping 1": {
                         "mapping": [
                             {
-                                "map_type": "ObjectClass",
+                                "map_type": "RelationshipClass",
+                                "position": "hidden",
+                                "value": "gn__unittype"
+                            },
+                            {
+                                "map_type": "RelationshipClassObjectClass",
+                                "position": "hidden",
+                                "value": "grid"
+                            },
+                            {
+                                "map_type": "RelationshipClassObjectClass",
+                                "position": "hidden",
+                                "value": "node"
+                            },
+                            {
+                                "map_type": "RelationshipClassObjectClass",
+                                "position": "hidden",
+                                "value": "unittype"
+                            },
+                            {
+                                "map_type": "Relationship",
+                                "position": "hidden",
+                                "value": "relationship"
+                            },
+                            {
+                                "map_type": "RelationshipObject",
+                                "position": 0,
+                                "import_objects": true
+                            },
+                            {
+                                "map_type": "RelationshipObject",
+                                "position": 1,
+                                "import_objects": true
+                            },
+                            {
+                                "map_type": "RelationshipObject",
+                                "position": 2,
+                                "import_objects": true
+                            },
+                            {
+                                "map_type": "RelationshipMetadata",
                                 "position": "hidden"
                             },
                             {
-                                "map_type": "Object",
+                                "map_type": "ParameterDefinition",
+                                "position": "hidden",
+                                "value": "totalGen"
+                            },
+                            {
+                                "map_type": "Alternative",
                                 "position": "hidden"
                             },
                             {
-                                "map_type": "ObjectMetadata",
+                                "map_type": "ParameterValueMetadata",
                                 "position": "hidden"
+                            },
+                            {
+                                "map_type": "ParameterValue",
+                                "position": 3
                             }
                         ]
                     }
@@ -2527,15 +2576,47 @@
                         "mapping": [
                             {
                                 "map_type": "ObjectClass",
-                                "position": "hidden"
+                                "position": "hidden",
+                                "value": "grid"
                             },
                             {
                                 "map_type": "Object",
-                                "position": "hidden"
+                                "position": 1
                             },
                             {
                                 "map_type": "ObjectMetadata",
                                 "position": "hidden"
+                            },
+                            {
+                                "map_type": "ParameterDefinition",
+                                "position": "hidden",
+                                "value": "slack"
+                            },
+                            {
+                                "map_type": "Alternative",
+                                "position": "hidden"
+                            },
+                            {
+                                "map_type": "ParameterValueMetadata",
+                                "position": "hidden"
+                            },
+                            {
+                                "map_type": "ParameterValueType",
+                                "position": "hidden",
+                                "value": "map"
+                            },
+                            {
+                                "map_type": "IndexName",
+                                "position": "hidden",
+                                "value": "inc_dec"
+                            },
+                            {
+                                "map_type": "ParameterValueIndex",
+                                "position": 0
+                            },
+                            {
+                                "map_type": "ExpandedValue",
+                                "position": 2
                             }
                         ]
                     }
@@ -2888,9 +2969,16 @@
         },
         "selected_tables": [
             "r_totalRealizedCost",
+            "r_state",
             "r_transfer",
             "r_balanceMarginal",
             "r_gen",
+            "r_genUnittype",
+            "r_gnuTotalGen",
+            "r_gnuTotalGen_unittype",
+            "r_invest",
+            "r_qGen",
+            "r_gTotalqGen",
             "r_solveStatus",
             "mSettings",
             "r_genGridUnittype",
@@ -3075,7 +3163,7 @@
                 "0": "string",
                 "1": "string",
                 "2": "string",
-                "3": "string"
+                "3": "float"
             },
             "r_gnTotalGen": {
                 "0": "string",
@@ -3111,7 +3199,7 @@
             "r_gTotalqGen": {
                 "0": "string",
                 "1": "string",
-                "2": "string"
+                "2": "float"
             },
             "r_solveStatus": {
                 "0": "string",
@@ -3137,6 +3225,11 @@
                 "0": "string",
                 "1": "string",
                 "2": "float"
+            },
+            "r_gnTotalRealizedCost": {
+                "0": "string",
+                "1": "string",
+                "2": "string"
             }
         },
         "table_default_column_type": {},

@@ -700,7 +700,7 @@
                     "position": 6
                 }
             ],
-            "enabled": false,
+            "enabled": true,
             "always_export_header": true,
             "group_fn": "no_group",
             "use_fixed_table_name": true

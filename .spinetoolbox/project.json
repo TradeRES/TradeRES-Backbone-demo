@@ -323,10 +323,6 @@
                     "db_url@BB_Spine_DB_direct": {
                         "scenario_filter": [
                             "H2-low-iberia",
-                            "VRE+flex+europe",
-                            "VRE+flex-europe",
-                            "VRE-flex+europe",
-                            "VRE-flex-europe",
                             "base-iberia",
                             "buildings-low-iberia"
                         ]
@@ -505,7 +501,10 @@
                 "to": [
                     "BB_results",
                     "right"
-                ]
+                ],
+                "options": {
+                    "write_index": 2
+                }
             },
             {
                 "name": "from BB_results to Results_to_Excel",
@@ -675,8 +674,8 @@
         "Export_to_BB": {
             "type": "Exporter",
             "description": "",
-            "x": -147.19498450221622,
-            "y": 107.46745951900917,
+            "x": -148.90062924171892,
+            "y": 107.46745951900918,
             "output_time_stamps": false,
             "cancel_on_error": false,
             "output_labels": [
@@ -817,8 +816,8 @@
         "BB_Spine_DB_direct": {
             "type": "Data Store",
             "description": "",
-            "x": 196.616160069511,
-            "y": 147.87635137304562,
+            "x": 198.6603428444657,
+            "y": 147.87635137304565,
             "url": {
                 "dialect": "sqlite",
                 "host": "",
@@ -826,7 +825,7 @@
                 "database": {
                     "type": "path",
                     "relative": true,
-                    "path": "BB_data_template.sqlite"
+                    "path": "BB_data.sqlite"
                 }
             }
         },

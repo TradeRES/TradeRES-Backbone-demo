@@ -8,13 +8,18 @@
             "type": "object_parameter_values",
             "mapping": [
                 {
+                    "map_type": "FixedValue",
+                    "position": "table_name",
+                    "value": "totalRealizedCost"
+                },
+                {
                     "map_type": "ObjectClass",
                     "position": "hidden",
                     "filter_re": "^model$"
                 },
                 {
                     "map_type": "ParameterDefinition",
-                    "position": "table_name",
+                    "position": "hidden",
                     "filter_re": "^totalRealizedCost$"
                 },
                 {
@@ -42,11 +47,16 @@
             "enabled": true,
             "always_export_header": true,
             "group_fn": "no_group",
-            "use_fixed_table_name": false
+            "use_fixed_table_name": true
         },
         "modelSettings": {
             "type": "object_parameter_values",
             "mapping": [
+                {
+                    "map_type": "FixedValue",
+                    "position": "table_name",
+                    "value": "mSettings"
+                },
                 {
                     "map_type": "ObjectClass",
                     "position": "hidden",
@@ -54,7 +64,7 @@
                 },
                 {
                     "map_type": "ParameterDefinition",
-                    "position": "table_name",
+                    "position": "hidden",
                     "filter_re": "^settings$"
                 },
                 {
@@ -90,7 +100,7 @@
             "enabled": true,
             "always_export_header": true,
             "group_fn": "no_group",
-            "use_fixed_table_name": false
+            "use_fixed_table_name": true
         },
         "genUnit": {
             "type": "relationship_parameter_values",
@@ -168,7 +178,7 @@
                     "position": 6
                 }
             ],
-            "enabled": false,
+            "enabled": true,
             "always_export_header": true,
             "group_fn": "no_group",
             "use_fixed_table_name": true
@@ -546,7 +556,7 @@
                     "position": 6
                 }
             ],
-            "enabled": false,
+            "enabled": true,
             "always_export_header": true,
             "group_fn": "no_group",
             "use_fixed_table_name": true
@@ -773,7 +783,7 @@
                     "position": 6
                 }
             ],
-            "enabled": true,
+            "enabled": false,
             "always_export_header": true,
             "group_fn": "no_group",
             "use_fixed_table_name": true
@@ -847,6 +857,11 @@
             "type": "object_parameter_values",
             "mapping": [
                 {
+                    "map_type": "FixedValue",
+                    "position": "table_name",
+                    "value": "mState"
+                },
+                {
                     "map_type": "ObjectClass",
                     "position": "hidden",
                     "filter_re": "^model$"
@@ -897,7 +912,7 @@
             "enabled": true,
             "always_export_header": true,
             "group_fn": "no_group",
-            "use_fixed_table_name": false
+            "use_fixed_table_name": true
         },
         "genGridUnittypeTotal_invest": {
             "type": "relationship_parameter_values",

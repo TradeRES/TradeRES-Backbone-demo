@@ -1028,6 +1028,11 @@
             "type": "relationship_parameter_values",
             "mapping": [
                 {
+                    "map_type": "FixedValue",
+                    "position": "table_name",
+                    "value": "capacity"
+                },
+                {
                     "map_type": "RelationshipClass",
                     "position": "hidden",
                     "filter_re": "^gnu$"
@@ -1046,7 +1051,7 @@
                 },
                 {
                     "map_type": "ParameterDefinition",
-                    "position": 6,
+                    "position": "hidden",
                     "filter_re": "^capacity$"
                 },
                 {
@@ -1086,7 +1091,7 @@
             "enabled": true,
             "always_export_header": true,
             "group_fn": "no_group",
-            "use_fixed_table_name": false
+            "use_fixed_table_name": true
         }
     }
 }

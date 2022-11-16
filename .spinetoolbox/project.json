@@ -324,7 +324,9 @@
                         "scenario_filter": [
                             "H2-low-iberia",
                             "base-iberia",
-                            "buildings-low-iberia"
+                            "buildings-low-iberia",
+                            "flex+free",
+                            "flex-free"
                         ]
                     }
                 }
@@ -519,25 +521,11 @@
                 "disabled_filters": {
                     "db_url@BB_results": {
                         "scenario_filter": [
-                            "++I150",
-                            "++I60",
-                            "++S150",
-                            "++S60",
-                            "+-I150",
-                            "+-I60",
-                            "+-S150",
-                            "+-S60",
-                            "-+I150",
-                            "-+I60",
-                            "-+S150",
-                            "-+S60",
-                            "--I150",
-                            "--I60",
-                            "--S150",
-                            "--S60",
-                            "BI150",
-                            "BI60",
-                            "BS60"
+                            "VRE+flex+europe",
+                            "VRE+flex-europe",
+                            "VRE-flex+europe",
+                            "VRE-flex-europe",
+                            "base-europe"
                         ]
                     }
                 }
@@ -644,8 +632,8 @@
         "View 1": {
             "type": "View",
             "description": "",
-            "x": 496.6691326301545,
-            "y": 10.472116812741717,
+            "x": 504.4266761862254,
+            "y": -22.4974433005596,
             "pinned_values": {}
         },
         "BB_sets": {
@@ -674,8 +662,8 @@
         "Export_to_BB": {
             "type": "Exporter",
             "description": "",
-            "x": -148.90062924171892,
-            "y": 107.46745951900918,
+            "x": -148.90062924171895,
+            "y": 109.47173829158555,
             "output_time_stamps": false,
             "cancel_on_error": false,
             "output_labels": [
@@ -689,8 +677,8 @@
         "BB_Spine_DB": {
             "type": "Data Store",
             "description": "",
-            "x": 262.00764709545354,
-            "y": -14.164265616991454,
+            "x": 262.9773400399624,
+            "y": -21.92180917306235,
             "url": {
                 "dialect": "sqlite",
                 "host": "",
@@ -705,8 +693,8 @@
         "TradeRES_common_DB": {
             "type": "Data Store",
             "description": "",
-            "x": -582.5369047720878,
-            "y": -357.888668967408,
+            "x": -638.6832319102223,
+            "y": -276.97190338597915,
             "url": {
                 "dialect": "mysql",
                 "host": "localhost",
@@ -793,8 +781,8 @@
         "TradeRES_common_sqlite": {
             "type": "Data Store",
             "description": "",
-            "x": -536.7428305954868,
-            "y": -185.77180452338365,
+            "x": -535.0914680326003,
+            "y": -134.57956507390816,
             "url": {
                 "dialect": "sqlite",
                 "host": "",
@@ -809,8 +797,8 @@
         "Copy_DB": {
             "type": "Merger",
             "description": "",
-            "x": -659.4878334198004,
-            "y": -205.03798069200298,
+            "x": -737.1018738754567,
+            "y": -137.33211561366448,
             "cancel_on_error": false
         },
         "BB_Spine_DB_direct": {
@@ -833,7 +821,7 @@
             "type": "Tool",
             "description": "",
             "x": -372.9445540797382,
-            "y": 229.90654128442696,
+            "y": 231.91082005700332,
             "specification": "Backbone_loop",
             "execute_in_work": true,
             "cmd_line_args": []
@@ -847,7 +835,7 @@
                 {
                     "type": "path",
                     "relative": false,
-                    "path": "C:/Users/prokjt/Teknologian Tutkimuskeskus VTT/TradeRES - WP2 common work/TradeRES T2.1/Time series data/EV Profiles/EV Profiles CHAPROEV.xlsx"
+                    "path": "C:/Users/prokjt/Teknologian Tutkimuskeskus VTT/TradeRES - WP2 common work/TradeRES T2.1/Time series data/EV Profiles/TradeRES_EV_data.xlsx"
                 }
             ],
             "db_references": []
@@ -862,7 +850,7 @@
             "on_conflict": "replace",
             "file_selection": [
                 [
-                    "C:\\Users\\prokjt\\Teknologian Tutkimuskeskus VTT\\TradeRES - WP2 common work\\TradeRES T2.1\\Time series data\\EV Profiles\\EV Profiles CHAPROEV.xlsx",
+                    "C:\\Users\\prokjt\\Teknologian Tutkimuskeskus VTT\\TradeRES - WP2 common work\\TradeRES T2.1\\Time series data\\EV Profiles\\TradeRES_EV_data.xlsx",
                     true
                 ]
             ]
@@ -876,7 +864,7 @@
                 {
                     "type": "path",
                     "relative": false,
-                    "path": "C:/Users/prokjt/Teknologian Tutkimuskeskus VTT/TradeRES - WP2 common work/TradeRES T2.1/H2_and_alternativePrep.xlsx"
+                    "path": "C:/Users/prokjt/Teknologian Tutkimuskeskus VTT/TradeRES - WP2 common work/TradeRES T2.1/TradeRES_H2_data.xlsx"
                 }
             ],
             "db_references": []
@@ -891,7 +879,7 @@
             "on_conflict": "merge",
             "file_selection": [
                 [
-                    "C:\\Users\\prokjt\\Teknologian Tutkimuskeskus VTT\\TradeRES - WP2 common work\\TradeRES T2.1\\H2_and_alternativePrep.xlsx",
+                    "C:\\Users\\prokjt\\Teknologian Tutkimuskeskus VTT\\TradeRES - WP2 common work\\TradeRES T2.1\\TradeRES_H2_data.xlsx",
                     true
                 ]
             ]
@@ -906,7 +894,7 @@
             "on_conflict": "merge",
             "file_selection": [
                 [
-                    "C:\\Users\\prokjt\\Teknologian Tutkimuskeskus VTT\\TradeRES - WP2 common work\\TradeRES T2.1\\InputData_traderes_s0_oct22_with_alternatives.xlsx",
+                    "C:\\Users\\prokjt\\Teknologian Tutkimuskeskus VTT\\TradeRES - WP2 common work\\TradeRES T2.1\\TradeRES_base_data.xlsx",
                     true
                 ]
             ]
@@ -920,7 +908,7 @@
                 {
                     "type": "path",
                     "relative": false,
-                    "path": "C:/Users/prokjt/Teknologian Tutkimuskeskus VTT/TradeRES - WP2 common work/TradeRES T2.1/InputData_traderes_s0_oct22_with_alternatives.xlsx"
+                    "path": "C:/Users/prokjt/Teknologian Tutkimuskeskus VTT/TradeRES - WP2 common work/TradeRES T2.1/TradeRES_base_data.xlsx"
                 }
             ],
             "db_references": []
@@ -936,8 +924,8 @@
                 "port": "",
                 "database": {
                     "type": "path",
-                    "relative": true,
-                    "path": "Building_input_data.sqlite"
+                    "relative": false,
+                    "path": "C:/Users/prokjt/Teknologian Tutkimuskeskus VTT/TradeRES - WP2 common work/TradeRES T2.1/TradeRES_building_data.sqlite"
                 }
             }
         },
@@ -951,7 +939,7 @@
         "Result_import": {
             "type": "Importer",
             "description": "",
-            "x": -517.3434283352594,
+            "x": -520.6545262342776,
             "y": 210.34842690554498,
             "specification": "import_BB_results",
             "cancel_on_error": false,
@@ -982,6 +970,10 @@
                     false
                 ],
                 [
+                    "output/results-invest.gdx",
+                    false
+                ],
+                [
                     "output/results.gdx",
                     true
                 ]
@@ -990,8 +982,8 @@
         "Results_to_Excel": {
             "type": "Exporter",
             "description": "",
-            "x": -526.1574693780495,
-            "y": 328.3140987512223,
+            "x": -526.1574693780494,
+            "y": 326.309819978646,
             "output_time_stamps": false,
             "cancel_on_error": true,
             "output_labels": [
@@ -1005,7 +997,7 @@
         "BB_results": {
             "type": "Data Store",
             "description": "",
-            "x": -652.3643780381431,
+            "x": -650.7088290886339,
             "y": 207.50588059601063,
             "url": {
                 "dialect": "sqlite",
@@ -1049,6 +1041,10 @@
                 ],
                 [
                     "output/lst-invest.lst",
+                    false
+                ],
+                [
+                    "output/results-invest.gdx",
                     false
                 ],
                 [

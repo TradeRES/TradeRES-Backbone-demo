@@ -224,22 +224,22 @@
                 },
                 {
                     "map_type": "RelationshipObject",
-                    "position": 0,
+                    "position": -1,
                     "header": "grid"
                 },
                 {
                     "map_type": "RelationshipObject",
-                    "position": 1,
+                    "position": -2,
                     "header": "node"
                 },
                 {
                     "map_type": "RelationshipObject",
-                    "position": 2,
+                    "position": -3,
                     "header": "unittype"
                 },
                 {
                     "map_type": "Alternative",
-                    "position": 3,
+                    "position": -4,
                     "header": "scen"
                 },
                 {
@@ -252,7 +252,7 @@
                 },
                 {
                     "map_type": "ParameterValueIndex",
-                    "position": -1
+                    "position": 0
                 },
                 {
                     "map_type": "ExpandedValue",
@@ -1023,6 +1023,70 @@
             "always_export_header": true,
             "group_fn": "no_group",
             "use_fixed_table_name": true
+        },
+        "capacity_existing": {
+            "type": "relationship_parameter_values",
+            "mapping": [
+                {
+                    "map_type": "RelationshipClass",
+                    "position": "hidden",
+                    "filter_re": "^gnu$"
+                },
+                {
+                    "map_type": "RelationshipClassObjectClass",
+                    "position": "hidden"
+                },
+                {
+                    "map_type": "RelationshipClassObjectClass",
+                    "position": "hidden"
+                },
+                {
+                    "map_type": "RelationshipClassObjectClass",
+                    "position": "hidden"
+                },
+                {
+                    "map_type": "ParameterDefinition",
+                    "position": 6,
+                    "filter_re": "^capacity$"
+                },
+                {
+                    "map_type": "ParameterValueList",
+                    "position": "hidden",
+                    "ignorable": true
+                },
+                {
+                    "map_type": "Relationship",
+                    "position": "hidden"
+                },
+                {
+                    "map_type": "RelationshipObject",
+                    "position": 0
+                },
+                {
+                    "map_type": "RelationshipObject",
+                    "position": 1
+                },
+                {
+                    "map_type": "RelationshipObject",
+                    "position": 2
+                },
+                {
+                    "map_type": "Alternative",
+                    "position": -1
+                },
+                {
+                    "map_type": "ParameterValueType",
+                    "position": "hidden"
+                },
+                {
+                    "map_type": "ParameterValue",
+                    "position": 4
+                }
+            ],
+            "enabled": true,
+            "always_export_header": true,
+            "group_fn": "no_group",
+            "use_fixed_table_name": false
         }
     }
 }

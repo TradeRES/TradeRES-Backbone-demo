@@ -2976,6 +2976,7 @@
             "r_genUnittype",
             "r_gnuTotalGen",
             "r_gnuTotalGen_unittype",
+            "r_gnConsumption",
             "r_invest",
             "r_qGen",
             "r_gTotalqGen",

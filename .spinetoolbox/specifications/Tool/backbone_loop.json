@@ -35,6 +35,7 @@
         "output/debug.gdx",
         "output/log-invest.log",
         "output/lst-invest.lst",
+        "output/results-invest.gdx",
         "output/results.gdx"
     ],
     "cmdline_args": [],

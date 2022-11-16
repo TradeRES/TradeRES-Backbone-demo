@@ -5697,19 +5697,68 @@
             ],
             "p_gnu_io": [
                 {
-                    "Mapping 1": {
+                    "Capacity": {
                         "mapping": [
                             {
-                                "map_type": "ObjectClass",
+                                "map_type": "RelationshipClass",
+                                "position": "hidden",
+                                "value": "gnu"
+                            },
+                            {
+                                "map_type": "RelationshipClassObjectClass",
+                                "position": "hidden",
+                                "value": "grid"
+                            },
+                            {
+                                "map_type": "RelationshipClassObjectClass",
+                                "position": "hidden",
+                                "value": "node"
+                            },
+                            {
+                                "map_type": "RelationshipClassObjectClass",
+                                "position": "hidden",
+                                "value": "unit"
+                            },
+                            {
+                                "map_type": "Relationship",
+                                "position": "hidden",
+                                "value": "relationship"
+                            },
+                            {
+                                "map_type": "RelationshipObject",
+                                "position": 0,
+                                "import_objects": true
+                            },
+                            {
+                                "map_type": "RelationshipObject",
+                                "position": 1,
+                                "import_objects": true
+                            },
+                            {
+                                "map_type": "RelationshipObject",
+                                "position": 2,
+                                "import_objects": true
+                            },
+                            {
+                                "map_type": "RelationshipMetadata",
                                 "position": "hidden"
                             },
                             {
-                                "map_type": "Object",
+                                "map_type": "ParameterDefinition",
+                                "position": 4,
+                                "filter_re": "^capacity$"
+                            },
+                            {
+                                "map_type": "Alternative",
                                 "position": "hidden"
                             },
                             {
-                                "map_type": "ObjectMetadata",
+                                "map_type": "ParameterValueMetadata",
                                 "position": "hidden"
+                            },
+                            {
+                                "map_type": "ParameterValue",
+                                "position": 5
                             }
                         ]
                     }
@@ -12657,6 +12706,7 @@
         },
         "selected_tables": [
             "mSettings",
+            "p_gnu_io",
             "r_genGridUnittypeTotal",
             "r_invest",
             "r_solveStatus"
@@ -13308,6 +13358,23 @@
                 "0": "string",
                 "1": "string",
                 "2": "float"
+            },
+            "mInterval": {
+                "0": "string",
+                "1": "string",
+                "2": "string",
+                "3": "string"
+            },
+            "t_skip_counter": {
+                "0": "string"
+            },
+            "p_gnu_io": {
+                "0": "string",
+                "1": "string",
+                "2": "string",
+                "3": "string",
+                "4": "string",
+                "5": "float"
             }
         },
         "table_default_column_type": {},

@@ -3,47 +3,7 @@
     "item_type": "Importer",
     "mapping": {
         "table_mappings": {
-            "Sheet1": [
-                {
-                    "Mapping 1": {
-                        "mapping": [
-                            {
-                                "map_type": "ObjectClass",
-                                "position": "hidden"
-                            },
-                            {
-                                "map_type": "Object",
-                                "position": "hidden"
-                            },
-                            {
-                                "map_type": "ObjectMetadata",
-                                "position": "hidden"
-                            }
-                        ]
-                    }
-                }
-            ],
-            "Sheet2": [
-                {
-                    "Mapping 1": {
-                        "mapping": [
-                            {
-                                "map_type": "ObjectClass",
-                                "position": "hidden"
-                            },
-                            {
-                                "map_type": "Object",
-                                "position": "hidden"
-                            },
-                            {
-                                "map_type": "ObjectMetadata",
-                                "position": "hidden"
-                            }
-                        ]
-                    }
-                }
-            ],
-            "H2": [
+            "ts_node": [
                 {
                     "Mapping 1": {
                         "mapping": [
@@ -125,7 +85,7 @@
                     }
                 }
             ],
-            "upperlimit": [
+            "p_gnu_io": [
                 {
                     "Mapping 1": {
                         "mapping": [
@@ -333,7 +293,7 @@
                     }
                 }
             ],
-            "electrolyser": [
+            "p_unit": [
                 {
                     "Mapping 1": {
                         "mapping": [
@@ -721,12 +681,52 @@
                         ]
                     }
                 }
+            ],
+            "dataPrep": [
+                {
+                    "Mapping 1": {
+                        "mapping": [
+                            {
+                                "map_type": "ObjectClass",
+                                "position": "hidden"
+                            },
+                            {
+                                "map_type": "Object",
+                                "position": "hidden"
+                            },
+                            {
+                                "map_type": "ObjectMetadata",
+                                "position": "hidden"
+                            }
+                        ]
+                    }
+                }
+            ],
+            "dataPrep2": [
+                {
+                    "Mapping 1": {
+                        "mapping": [
+                            {
+                                "map_type": "ObjectClass",
+                                "position": "hidden"
+                            },
+                            {
+                                "map_type": "Object",
+                                "position": "hidden"
+                            },
+                            {
+                                "map_type": "ObjectMetadata",
+                                "position": "hidden"
+                            }
+                        ]
+                    }
+                }
             ]
         },
         "selected_tables": [
-            "H2",
-            "upperlimit",
-            "electrolyser",
+            "ts_node",
+            "p_gnu_io",
+            "p_unit",
             "effLevel",
             "node",
             "gn",
@@ -735,47 +735,23 @@
             "gnss_bound"
         ],
         "table_options": {
-            "Sheet1": {},
-            "Sheet2": {},
-            "H2": {},
-            "upperlimit": {},
+            "ts_node": {},
+            "p_gnu_io": {},
             "unit_constraint": {},
             "unit_constraint_node": {},
-            "electrolyser": {},
+            "p_unit": {},
             "H2_calc": {},
             "effLevel": {},
             "node": {},
             "gn": {},
             "unit__unittype": {},
             "p_gnBoundaryPropertiesForStates": {},
-            "gnss_bound": {}
+            "gnss_bound": {},
+            "dataPrep": {},
+            "dataPrep2": {}
         },
         "table_types": {
-            "Sheet1": {
-                "0": "string",
-                "1": "string",
-                "2": "string",
-                "3": "string",
-                "4": "string",
-                "5": "string",
-                "6": "string",
-                "7": "string",
-                "8": "string",
-                "9": "string",
-                "10": "string",
-                "11": "string",
-                "12": "string",
-                "13": "string",
-                "14": "string",
-                "15": "string"
-            },
-            "Sheet2": {
-                "0": "string",
-                "1": "string",
-                "2": "string",
-                "3": "string"
-            },
-            "H2": {
+            "ts_node": {
                 "0": "string",
                 "1": "string",
                 "2": "string",
@@ -9541,7 +9517,7 @@
                 "8762": "float",
                 "8763": "float"
             },
-            "upperlimit": {
+            "p_gnu_io": {
                 "0": "string",
                 "1": "string",
                 "2": "string",
@@ -9566,7 +9542,7 @@
                 "3": "string",
                 "4": "float"
             },
-            "electrolyser": {
+            "p_unit": {
                 "0": "string",
                 "1": "string",
                 "2": "string",
@@ -9592,8 +9568,7 @@
                 "3": "float",
                 "4": "float",
                 "5": "float",
-                "6": "float",
-                "7": "float"
+                "6": "float"
             },
             "unit__unittype": {
                 "0": "string",
@@ -9628,12 +9603,36 @@
                 "2": "string",
                 "3": "string",
                 "4": "string"
+            },
+            "dataPrep": {
+                "0": "string",
+                "1": "string",
+                "2": "string",
+                "3": "string",
+                "4": "string",
+                "5": "string",
+                "6": "string",
+                "7": "string",
+                "8": "string",
+                "9": "string",
+                "10": "string",
+                "11": "string",
+                "12": "string",
+                "13": "string",
+                "14": "string",
+                "15": "string"
+            },
+            "dataPrep2": {
+                "0": "string",
+                "1": "string",
+                "2": "string",
+                "3": "string"
             }
         },
         "table_default_column_type": {
-            "H2": "float",
-            "upperlimit": "float",
-            "electrolyser": "float",
+            "ts_node": "float",
+            "p_gnu_io": "float",
+            "p_unit": "float",
             "node": "float",
             "gn": "float",
             "unit_constraint": "float"

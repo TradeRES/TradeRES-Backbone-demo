@@ -15,13 +15,27 @@ You should have received a copy of the GNU Lesser General Public License
 along with Backbone.  If not, see <http://www.gnu.org/licenses/>.
 $offtext
 
+parameter ts_influx_building_subtract(grid, node, f, t);
+
+$gdxin  '%input_dir%/%input_file_gdx%'
+$loaddc ts_influx_building_subtract
+$gdxin
+
+ts_influx(gn(grid, node), f, t) = ts_influx(grid, node, f, t) + ts_influx_building_subtract(grid, node, f, t);
+
 * =============================================================================
 * --- Load Model Parameters ---------------------------------------------------
 * =============================================================================
 
 // Include desired model definition files here
-$include '%input_dir%\scheduleInit.gms'
+$include '%input_dir%\%init_file%'
 
 * =============================================================================
 * --- Optional Data Manipulation ----------------------------------------------
 * =============================================================================
+
+
+
+// which nodes follow the superposed states scheme? Add the information here.
+// Probably should be included in the input data later.
+node_superpos(node) = no;

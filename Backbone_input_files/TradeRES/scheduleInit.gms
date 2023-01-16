@@ -26,12 +26,12 @@ if (mType('schedule'),
 
     // Define simulation start and end time indeces
     mSettings('schedule', 't_start') = 1;  // First time step to be solved, 1 corresponds to t000001 (t000000 will then be used for initial status of dynamic variables)
-    mSettings('schedule', 't_end') = 48; // Last time step to be included in the solve (may solve and output more time steps in case t_jump does not match)
-*    mSettings('schedule', 't_end') = 8760; // Last time step to be included in the solve (may solve and output more time steps in case t_jump does not match)
+    mSettings('schedule', 't_end') = 8760; // Last time step to be included in the solve (may solve and output more time steps in case t_jump does not match)
+
 
     // Define simulation horizon and moving horizon optimization "speed"
-    mSettings('schedule', 't_horizon') = 8*24;    // How many active time steps the solve contains (aggregation of time steps does not impact this, unless the aggregation does not match)
-    mSettings('schedule', 't_jump') = 12;          // How many time steps the model rolls forward between each solve
+    mSettings('schedule', 't_horizon') = 8760;    // How many active time steps the solve contains (aggregation of time steps does not impact this, unless the aggregation does not match)
+    mSettings('schedule', 't_jump') = 24;          // How many time steps the model rolls forward between each solve
 
     // Define length of data for proper circulation
     mSettings('schedule', 'dataLength') = 8760;
@@ -51,27 +51,40 @@ if (mType('schedule'),
 
     // Define time span of samples
     msStart('schedule', 's000') = 1;
-    msEnd('schedule', 's000') = msStart('schedule', 's000') + mSettings('schedule', 't_horizon');
+    msEnd('schedule', 's000') = msStart('schedule', 's000') + mSettings('schedule', 't_end') + mSettings('schedule', 't_horizon');
 
     // Define the probability (weight) of samples
-    p_msAnnuityWeight('schedule', 's000') = 1;
     p_msProbability('schedule', s) = 0;
     p_msProbability('schedule', 's000') = 1;
     p_msWeight('schedule', s) = 0;
-    p_msWeight('schedule', 's000') = 8760 / mSettings('schedule', 't_end');
+    p_msWeight('schedule', 's000') = 1;
+    p_msAnnuityWeight('schedule', s) = 0;
+    p_msAnnuityWeight('schedule', 's000') = 1;
+
+
 
 * --- Define Time Step Intervals ----------------------------------------------
 
     // Define the duration of a single time-step in hours
-    mSettings('schedule', 'stepLengthInHours') = 24;
+    mSettings('schedule', 'stepLengthInHours') = 1;
 
+* 1 day hour-by-hour
     // Define the time step intervals in time-steps
     mInterval('schedule', 'stepsPerInterval', 'c000') = 1;
-    mInterval('schedule', 'lastStepInIntervalBlock', 'c000') = 1*24;
+    mInterval('schedule', 'lastStepInIntervalBlock', 'c000') = 36*1;
     mInterval('schedule', 'stepsPerInterval', 'c001') = 3;
-    mInterval('schedule', 'lastStepInIntervalBlock', 'c001') = 2*24;
-    mInterval('schedule', 'stepsPerInterval', 'c002') = 6;
-    mInterval('schedule', 'lastStepInIntervalBlock', 'c002') = mSettings('schedule', 't_horizon');
+    mInterval('schedule', 'lastStepInIntervalBlock', 'c001') = 48;
+    mInterval('schedule', 'stepsPerInterval', 'c002') = 12;
+    mInterval('schedule', 'lastStepInIntervalBlock', 'c002') = 180;
+    mInterval('schedule', 'stepsPerInterval', 'c003') = 78;
+    mInterval('schedule', 'lastStepInIntervalBlock', 'c003') = 960;
+    mInterval('schedule', 'stepsPerInterval', 'c004') = 200;
+    mInterval('schedule', 'lastStepInIntervalBlock', 'c004') = mSettings('schedule', 't_horizon');
+
+
+
+
+
 
 * =============================================================================
 * --- Model Forecast Structure ------------------------------------------------
@@ -88,36 +101,54 @@ if (mType('schedule'),
     p_mfProbability('schedule', f) = 0;
     p_mfProbability(mf_realization('schedule', f)) = 1;
 
+    p_s_discountFactor('s000') = 1;
 
 * =============================================================================
 * --- Model Features ----------------------------------------------------------
 * =============================================================================
 
+
+* --- Activate specific model features ----------------------------------------
+
+    active('schedule', 'checkUnavailability') = no;
+    active('schedule', 'storageValue') = yes;
+
 * --- Define Reserve Properties -----------------------------------------------
 
     // Define whether reserves are used in the model
-    mSettingsReservesInUse('schedule', 'primary', 'up') = yes;
-    mSettingsReservesInUse('schedule', 'primary', 'down') = no;
-    mSettingsReservesInUse('schedule', 'secondary', 'up') = no;
-    mSettingsReservesInUse('schedule', 'secondary', 'down') = no;
-    mSettingsReservesInUse('schedule', 'tertiary', 'up') = yes;
-    mSettingsReservesInUse('schedule', 'tertiary', 'down') = no;
-    mSettingsReservesInUse('schedule', 'ffr2', 'up') = yes;
-    mSettingsReservesInUse('schedule', 'ffr2', 'down') = no;
-    mSettingsReservesInUse('schedule', 'ffr3', 'up') = no;
-    mSettingsReservesInUse('schedule', 'ffr3', 'down') = no;
+    mSettingsReservesInUse('schedule', restype, 'up') = yes;
+    mSettingsReservesInUse('schedule', restype, 'down') = no;
 
 * --- Define Unit Approximations ----------------------------------------------
 
     // Define the last time step for each unit aggregation and efficiency level (3a_periodicInit.gms ensures that there is a effLevel until t_horizon)
     mSettingsEff('schedule', 'level1') = 24;
-    mSettingsEff('schedule', 'level3') = 48;
-    mSettingsEff('schedule', 'level2') = Inf;
+    mSettingsEff('schedule', 'level2') = mInterval('schedule', 'lastStepInIntervalBlock', 'c002');
+    mSettingsEff('schedule', 'level3') = mInterval('schedule', 'lastStepInIntervalBlock', 'c004');
 
 * --- Control the solver ------------------------------------------------------
 
     // Control the use of advanced basis
     mSettings('schedule', 'loadPoint') = 0;  // 0 = no basis, 1 = latest solve, 2 = all solves, 3 = first solve
     mSettings('schedule', 'savePoint') = 0;  // 0 = no basis, 1 = latest solve, 2 = all solves, 3 = first solve
+
+
+
+
+* --- z-structure for superpositioned nodes ----------------------------------
+
+    // add the candidate periods to model
+    // no need to touch this part
+    // The set is mainly used in the 'invest' model
+    mz('schedule', z) = no;
+
+    // Mapping between typical periods (=samples) and the candidate periods (z).
+    // Assumption is that candidate periods start from z000 and form a continuous
+    // sequence.
+    // The set is mainly used in the 'invest' model
+    zs(z,s) = no;
+
+
+
 
 ); // END if(mType)

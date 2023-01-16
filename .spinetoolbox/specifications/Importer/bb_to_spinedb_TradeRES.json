@@ -290,7 +290,8 @@
                                     0,
                                     1,
                                     2
-                                ]
+                                ],
+                                "read_start_row": 1
                             },
                             {
                                 "map_type": "RelationshipClassObjectClass",
@@ -3325,7 +3326,9 @@
             "unitUnitEffLevel": {},
             "effLevelGroupUnit": {},
             "group": {},
-            "p_gn": {},
+            "p_gn": {
+                "row": 0
+            },
             "p_gnn": {},
             "p_gnu_io": {},
             "p_gnuBoundaryProperties": {},
@@ -3472,7 +3475,11 @@
                 "3": "float",
                 "4": "float",
                 "5": "float",
-                "6": "string"
+                "6": "string",
+                "7": "float",
+                "8": "float",
+                "9": "float",
+                "10": "float"
             },
             "p_gnn": {
                 "0": "string",

@@ -18,7 +18,7 @@ $offtext
 * =============================================================================
 * --- Model Definition - Invest -----------------------------------------------
 * =============================================================================
-
+sGroup(s, 'VRE_limit') = yes;
 if (mType('invest'),
     m('invest') = yes; // Definition, that the model exists by its name
 
@@ -26,11 +26,11 @@ if (mType('invest'),
 
     // Define simulation start and end time indeces
     mSettings('invest', 't_start') = 1;  // First time step to be solved, 1 corresponds to t000001 (t000000 will then be used for initial status of dynamic variables)
-    mSettings('invest', 't_end') = 31; // Last time step to be included in the solve (may solve and output more time steps in case t_jump does not match)
+    mSettings('invest', 't_end') = 8760; // Last time step to be included in the solve (may solve and output more time steps in case t_jump does not match)
 
     // Define simulation horizon and moving horizon optimization "speed"
-    mSettings('invest', 't_horizon') = 31;   // How many active time steps the solve contains (aggregation of time steps does not impact this, unless the aggregation does not match)
-    mSettings('invest', 't_jump') = 31;      // How many time steps the model rolls forward between each solve
+    mSettings('invest', 't_horizon') = 8760;   // How many active time steps the solve contains (aggregation of time steps does not impact this, unless the aggregation does not match)
+    mSettings('invest', 't_jump') = 8760;      // How many time steps the model rolls forward between each solve
 
 * =============================================================================
 * --- Model Time Structure ----------------------------------------------------
@@ -39,31 +39,101 @@ if (mType('invest'),
 * --- Define Samples ----------------------------------------------------------
 
     // Number of samples used by the model
-    mSettings('invest', 'samples') = 1;
+    mSettings('invest', 'samples') = 5;
 
     // Clear Initial and Central samples
     ms_initial('invest', s) = no;
     ms_initial('invest', 's000') = yes;
+    ms_initial('invest', 's001') = yes;
+    ms_initial('invest', 's002') = yes;
+    ms_initial('invest', 's003') = yes;
+    ms_initial('invest', 's004') = yes;
     ms_central('invest', s) = no;
 
     // Define time span of samples
-    msStart('invest', 's000') = 1;
+    // For selecting the samples, see, for example, https://doi.org/10.1016/j.energy.2020.118585.
+    // The duration of the samples can be, for example, 1 day or 1 week (24 h or 168 h).
+    // The samples can have different durations.
+    msStart('invest', 's000') = 1 + 7*24;
     msEnd('invest', 's000') = msStart('invest', 's000') + 168;
+    msStart('invest', 's001') = 1 + 14*7*24;
+    msEnd('invest', 's001') = msStart('invest', 's001') + 168;
+    msStart('invest', 's002') = 1 + 17*7*24;
+    msEnd('invest', 's002') = msStart('invest', 's002') + 168;
+    msStart('invest', 's003') = 1 + 21*7*24;
+    msEnd('invest', 's003') = msStart('invest', 's003') + 168;
+    msStart('invest', 's004') = 1 + 43*7*24;
+    msEnd('invest', 's004') = msStart('invest', 's004') + 168;
 
-    // Define the probability (weight) of samples
+    // Define the probability of samples
+    // Probabilities are 1 in deterministic model runs.
+    // It is also possible to include, for example, 3 samples from a cold year with a probability of 1/10
+    // and 3 samples from a normal year year with a probability of 9/10.
     p_msProbability('invest', s) = 0;
     p_msProbability('invest', 's000') = 1;
+    p_msProbability('invest', 's001') = 1;
+    p_msProbability('invest', 's002') = 1;
+    p_msProbability('invest', 's003') = 1;
+    p_msProbability('invest', 's004') = 1;
+    // Define the weight of samples
+    // Weights describe how many times the samples are repeated in order to get the (typically) annual results.
+    // For example, 3 samples with equal weights and with a duration of 1 week should be repeated 17.38 times in order
+    // to cover the 52.14 weeks of the year.
+    // Weights are used for scaling energy production and consumption results and for estimating node state evolution.
     p_msWeight('invest', s) = 0;
-    p_msWeight('invest', 's000') = 8760/504;
+    p_msWeight('invest', 's000') = 8760/168/5;
+    p_msWeight('invest', 's001') = 8760/168/5;
+    p_msWeight('invest', 's002') = 8760/168/5;
+    p_msWeight('invest', 's003') = 8760/168/5;
+    p_msWeight('invest', 's004') = 8760/168/5;
+    // Define the weight of samples in the calculation of fixed costs
+    // The sum of p_msAnnuityWeight should be 1 over the samples belonging to the same year.
+    // The p_msAnnuityWeight parameter is used for describing which samples belong to the same year so that the model
+    // is able to calculate investment costs and fixed operation and maintenance costs once per year.
+    p_msAnnuityWeight('invest', s) = 0;
+    p_msAnnuityWeight('invest', 's000') = 1/5;
+    p_msAnnuityWeight('invest', 's001') = 1/5;
+    p_msAnnuityWeight('invest', 's002') = 1/5;
+    p_msAnnuityWeight('invest', 's003') = 1/5;
+    p_msAnnuityWeight('invest', 's004') = 1/5;
 
 * --- Define Time Step Intervals ----------------------------------------------
 
     // Define the duration of a single time-step in hours
-    mSettings('invest', 'stepLengthInHours') = 24;
+    mSettings('invest', 'stepLengthInHours') = 1;
 
     // Define the time step intervals in time-steps
     mInterval('invest', 'stepsPerInterval', 'c000') = 1;
     mInterval('invest', 'lastStepInIntervalBlock', 'c000') = 8760;
+
+* --- z-structure for superpositioned nodes ----------------------------------
+
+    // number of candidate periods in model
+    // please provide this data
+    mSettings('invest', 'candidate_periods') = 10;
+
+    // add the candidate periods to model
+    // no need to touch this part
+    mz('invest', z) = no;
+    loop(z$(ord(z) <= mSettings('invest', 'candidate_periods') ),
+       mz('invest', z) = yes;
+    );
+
+    // Mapping between typical periods (=samples) and the candidate periods (z).
+    // Assumption is that candidate periods start from z000 and form a continuous
+    // sequence.
+    // please provide this data
+    zs(z,s) = no;
+    zs('z000','s000') = yes;
+    zs('z001','s000') = yes;
+    zs('z002','s001') = yes;
+    zs('z003','s001') = yes;
+    zs('z004','s002') = yes;
+    zs('z005','s003') = yes;
+    zs('z006','s004') = yes;
+    zs('z007','s002') = yes;
+    zs('z008','s002') = yes;
+    zs('z009','s004') = yes;
 
 * =============================================================================
 * --- Model Forecast Structure ------------------------------------------------
@@ -102,12 +172,8 @@ if (mType('invest'),
 * --- Define Reserve Properties -----------------------------------------------
 
     // Lenght of reserve horizon
-    mSettingsReservesInUse('invest', 'primary', 'up') = no;
-    mSettingsReservesInUse('invest', 'primary', 'down') = no;
-    mSettingsReservesInUse('invest', 'secondary', 'up') = no;
-    mSettingsReservesInUse('invest', 'secondary', 'down') = no;
-    mSettingsReservesInUse('invest', 'tertiary', 'up') = no;
-    mSettingsReservesInUse('invest', 'tertiary', 'down') = no;
+    mSettingsReservesInUse('invest', resType, up_down) = no;
+    //mSettingsReservesInUse('invest', 'primary', 'up') = no;
 
 * --- Define Unit Approximations ----------------------------------------------
 
@@ -115,7 +181,7 @@ if (mType('invest'),
     mSettingsEff('invest', 'level1') = inf;
 
     // Define the horizon when start-up and shutdown trajectories are considered
-    mSettings('invest', 't_trajectoryHorizon') = 8760;
+    mSettings('invest', 't_trajectoryHorizon') = 0;
 
 * --- Define output settings for results --------------------------------------
 

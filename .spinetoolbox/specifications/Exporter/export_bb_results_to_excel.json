@@ -374,7 +374,6 @@
                 {
                     "map_type": "RelationshipObject",
                     "position": -1,
-                    "filter_re": "^elec$",
                     "header": "grid"
                 },
                 {

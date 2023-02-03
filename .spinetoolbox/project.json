@@ -97,6 +97,11 @@
                     "type": "path",
                     "relative": true,
                     "path": ".spinetoolbox/specifications/Exporter/export_bb_results_to_excel.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Exporter/export_data_overview.json"
                 }
             ],
             "Data Transformer": [
@@ -313,16 +318,31 @@
                     "BB_sets",
                     "right"
                 ],
-                "disabled_filters": {
-                    "db_url@BB_Spine_DB_direct": {
-                        "scenario_filter": [
-                            "H2-low-iberia",
-                            "base-iberia",
-                            "buildings-low-iberia",
-                            "flex+free",
-                            "flex-free"
-                        ]
-                    }
+                "filter_settings": {
+                    "known_filters": {
+                        "db_url@BB_Spine_DB_direct": {
+                            "scenario_filter": {
+                                "H2-low-iberia": false,
+                                "VRE+flex+europe": true,
+                                "VRE+flex+fossil-bio-out": false,
+                                "VRE+flex+fossil-out": false,
+                                "VRE+flex+thermal-out": false,
+                                "VRE+flex+thermal-out-margin": false,
+                                "VRE+flex-europe": true,
+                                "VRE-flex+europe": true,
+                                "VRE-flex-europe": true,
+                                "base-europe": true,
+                                "base-iberia": false,
+                                "buildings-low-iberia": false,
+                                "flex+free": false,
+                                "flex-free": false
+                            },
+                            "tool_filter": {
+                                "Backbone": true
+                            }
+                        }
+                    },
+                    "auto_online": true
                 }
             },
             {
@@ -512,16 +532,20 @@
                     "Results_to_Excel",
                     "left"
                 ],
-                "disabled_filters": {
-                    "db_url@BB_results": {
-                        "scenario_filter": [
-                            "VRE+flex+europe",
-                            "VRE+flex-europe",
-                            "VRE-flex+europe",
-                            "VRE-flex-europe",
-                            "base-europe"
-                        ]
-                    }
+                "filter_settings": {
+                    "known_filters": {
+                        "db_url@BB_results": {
+                            "scenario_filter": {
+                                "VRE+flex+europe": true,
+                                "VRE+flex-europe": true,
+                                "VRE-flex+europe": true,
+                                "VRE-flex-europe": true,
+                                "base-europe": true
+                            },
+                            "tool_filter": {}
+                        }
+                    },
+                    "auto_online": true
                 }
             },
             {
@@ -545,6 +569,43 @@
                     "BB_results",
                     "right"
                 ]
+            },
+            {
+                "name": "from BB_Spine_DB_direct to Export_data_overview",
+                "from": [
+                    "BB_Spine_DB_direct",
+                    "left"
+                ],
+                "to": [
+                    "Export_data_overview",
+                    "right"
+                ],
+                "filter_settings": {
+                    "known_filters": {
+                        "db_url@BB_Spine_DB_direct": {
+                            "scenario_filter": {
+                                "H2-low-iberia": false,
+                                "VRE+flex+europe": true,
+                                "VRE+flex+fossil-bio-out": false,
+                                "VRE+flex+fossil-out": false,
+                                "VRE+flex+thermal-out": false,
+                                "VRE+flex+thermal-out-margin": false,
+                                "VRE+flex-europe": true,
+                                "VRE-flex+europe": true,
+                                "VRE-flex-europe": true,
+                                "base-europe": true,
+                                "base-iberia": false,
+                                "buildings-low-iberia": false,
+                                "flex+free": false,
+                                "flex-free": false
+                            },
+                            "tool_filter": {
+                                "Backbone": true
+                            }
+                        }
+                    },
+                    "auto_online": true
+                }
             }
         ],
         "jumps": []
@@ -829,7 +890,7 @@
                 {
                     "type": "path",
                     "relative": false,
-                    "path": "C:/Users/prokjt/Teknologian Tutkimuskeskus VTT/TradeRES - WP2 common work/TradeRES T2.1/Time series data/EV Profiles/TradeRES_EV_data.xlsx"
+                    "path": "C:/Users/nhniina/Teknologian Tutkimuskeskus VTT/TradeRES - WP2 common work/TradeRES T2.1/Time series data/EV Profiles/TradeRES_EV_data.xlsx"
                 }
             ],
             "db_references": []
@@ -844,7 +905,7 @@
             "on_conflict": "replace",
             "file_selection": [
                 [
-                    "C:\\Users\\prokjt\\Teknologian Tutkimuskeskus VTT\\TradeRES - WP2 common work\\TradeRES T2.1\\Time series data\\EV Profiles\\TradeRES_EV_data.xlsx",
+                    "C:\\Users\\nhniina\\Teknologian Tutkimuskeskus VTT\\TradeRES - WP2 common work\\TradeRES T2.1\\Time series data\\EV Profiles\\TradeRES_EV_data.xlsx",
                     true
                 ]
             ]
@@ -858,7 +919,7 @@
                 {
                     "type": "path",
                     "relative": false,
-                    "path": "C:/Users/prokjt/Teknologian Tutkimuskeskus VTT/TradeRES - WP2 common work/TradeRES T2.1/TradeRES_H2_data.xlsx"
+                    "path": "C:/Users/nhniina/Teknologian Tutkimuskeskus VTT/TradeRES - WP2 common work/TradeRES T2.1/TradeRES_H2_data.xlsx"
                 }
             ],
             "db_references": []
@@ -873,7 +934,7 @@
             "on_conflict": "merge",
             "file_selection": [
                 [
-                    "C:\\Users\\prokjt\\Teknologian Tutkimuskeskus VTT\\TradeRES - WP2 common work\\TradeRES T2.1\\TradeRES_H2_data.xlsx",
+                    "C:\\Users\\nhniina\\Teknologian Tutkimuskeskus VTT\\TradeRES - WP2 common work\\TradeRES T2.1\\TradeRES_H2_data.xlsx",
                     true
                 ]
             ]
@@ -888,7 +949,7 @@
             "on_conflict": "merge",
             "file_selection": [
                 [
-                    "C:\\Users\\prokjt\\Teknologian Tutkimuskeskus VTT\\TradeRES - WP2 common work\\TradeRES T2.1\\TradeRES_base_data.xlsx",
+                    "C:\\Users\\nhniina\\Teknologian Tutkimuskeskus VTT\\TradeRES - WP2 common work\\TradeRES T2.1\\TradeRES_base_data_230125.xlsx",
                     true
                 ]
             ]
@@ -902,7 +963,7 @@
                 {
                     "type": "path",
                     "relative": false,
-                    "path": "C:/Users/prokjt/Teknologian Tutkimuskeskus VTT/TradeRES - WP2 common work/TradeRES T2.1/TradeRES_base_data.xlsx"
+                    "path": "C:/Users/nhniina/Teknologian Tutkimuskeskus VTT/TradeRES - WP2 common work/TradeRES T2.1/TradeRES_base_data_230125.xlsx"
                 }
             ],
             "db_references": []
@@ -910,8 +971,8 @@
         "Buildings": {
             "type": "Data Store",
             "description": "",
-            "x": -40.661198766834524,
-            "y": 297.13952944994463,
+            "x": 27.22652661933793,
+            "y": 429.52059395298096,
             "url": {
                 "dialect": "sqlite",
                 "host": "",
@@ -919,15 +980,15 @@
                 "database": {
                     "type": "path",
                     "relative": false,
-                    "path": "C:/Users/prokjt/Teknologian Tutkimuskeskus VTT/TradeRES - WP2 common work/TradeRES T2.1/TradeRES_building_data.sqlite"
+                    "path": "C:/Users/nhniina/Teknologian Tutkimuskeskus VTT/TradeRES - WP2 common work/TradeRES T2.1/TradeRES_building_data.sqlite"
                 }
             }
         },
         "Merge_buildings": {
             "type": "Merger",
             "description": "",
-            "x": 82.8862897939319,
-            "y": 300.2673139704703,
+            "x": 132.1048906989069,
+            "y": 327.42240412493936,
             "cancel_on_error": false
         },
         "Result_import": {
@@ -1046,6 +1107,21 @@
                     false
                 ]
             ]
+        },
+        "Export_data_overview": {
+            "type": "Exporter",
+            "description": "",
+            "x": -11.880351942580177,
+            "y": 300.40318483381304,
+            "output_time_stamps": false,
+            "cancel_on_error": true,
+            "output_labels": [
+                {
+                    "in_label": "db_url@BB_Spine_DB_direct",
+                    "out_label": "exported_db_url@BB_Spine_DB_direct"
+                }
+            ],
+            "specification": "Export_data_overview"
         }
     }
 }

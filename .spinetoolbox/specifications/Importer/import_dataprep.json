@@ -566,15 +566,18 @@
                             },
                             {
                                 "map_type": "RelationshipObject",
-                                "position": 0
+                                "position": 0,
+                                "import_objects": true
                             },
                             {
                                 "map_type": "RelationshipObject",
-                                "position": 1
+                                "position": 1,
+                                "import_objects": true
                             },
                             {
                                 "map_type": "RelationshipObject",
-                                "position": 2
+                                "position": 2,
+                                "import_objects": true
                             },
                             {
                                 "map_type": "RelationshipMetadata",

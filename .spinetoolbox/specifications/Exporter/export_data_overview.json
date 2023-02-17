@@ -442,7 +442,7 @@
                 {
                     "map_type": "RelationshipClass",
                     "position": "hidden",
-                    "filter_re": "group_emission"
+                    "filter_re": "group__emission"
                 },
                 {
                     "map_type": "RelationshipClassObjectClass",

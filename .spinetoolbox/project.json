@@ -1,6 +1,6 @@
 {
     "project": {
-        "version": 9,
+        "version": 10,
         "description": "",
         "specifications": {
             "Importer": [
@@ -356,14 +356,14 @@
                         "db_url@BB_Spine_DB_direct": {
                             "scenario_filter": {
                                 "H2-low-iberia": false,
-                                "VRE+flex+europe5": false,
+                                "VRE+flex+europe5": true,
                                 "VRE+flex+fossil-bio-out": false,
                                 "VRE+flex+fossil-out": false,
                                 "VRE+flex+thermal-out": false,
                                 "VRE+flex+thermal-out-margin": false,
-                                "VRE+flex-europe5": false,
-                                "VRE-flex+europe5": false,
-                                "VRE-flex-europe5": false,
+                                "VRE+flex-europe5": true,
+                                "VRE-flex+europe5": true,
+                                "VRE-flex-europe5": true,
                                 "base-europe5": true,
                                 "base-iberia": false,
                                 "buildings-low-iberia": false,
@@ -982,7 +982,7 @@
             "on_conflict": "merge",
             "file_selection": [
                 [
-                    "C:\\Users\\nhniina\\Teknologian Tutkimuskeskus VTT\\TradeRES - WP2 common work\\TradeRES T2.1\\TradeRES_base_data_powersystem_nolimits.xlsx",
+                    "C:\\Users\\nhniina\\Teknologian Tutkimuskeskus VTT\\TradeRES - WP2 common work\\TradeRES T2.1\\TradeRES_base_data_powersystem.xlsx",
                     true
                 ]
             ]
@@ -996,7 +996,7 @@
                 {
                     "type": "path",
                     "relative": false,
-                    "path": "C:/Users/nhniina/Teknologian Tutkimuskeskus VTT/TradeRES - WP2 common work/TradeRES T2.1/TradeRES_base_data_powersystem_nolimits.xlsx"
+                    "path": "C:/Users/nhniina/Teknologian Tutkimuskeskus VTT/TradeRES - WP2 common work/TradeRES T2.1/TradeRES_base_data_powersystem.xlsx"
                 }
             ],
             "db_references": []

@@ -1536,6 +1536,68 @@
                         ]
                     }
                 }
+            ],
+            "availability_ts": [
+                {
+                    "Mapping 1": {
+                        "mapping": [
+                            {
+                                "map_type": "ObjectClass",
+                                "position": "hidden",
+                                "value": "unit"
+                            },
+                            {
+                                "map_type": "Object",
+                                "position": -2
+                            },
+                            {
+                                "map_type": "ObjectMetadata",
+                                "position": "hidden"
+                            },
+                            {
+                                "map_type": "ParameterDefinition",
+                                "position": "hidden",
+                                "value": "availability"
+                            },
+                            {
+                                "map_type": "Alternative",
+                                "position": -1
+                            },
+                            {
+                                "map_type": "ParameterValueMetadata",
+                                "position": "hidden"
+                            },
+                            {
+                                "map_type": "ParameterValueType",
+                                "position": "hidden",
+                                "value": "map"
+                            },
+                            {
+                                "map_type": "IndexName",
+                                "position": "hidden",
+                                "value": "forecast"
+                            },
+                            {
+                                "map_type": "ParameterValueIndex",
+                                "position": "hidden",
+                                "value": "f00"
+                            },
+                            {
+                                "map_type": "IndexName",
+                                "position": "hidden",
+                                "value": "timestep"
+                            },
+                            {
+                                "map_type": "ParameterValueIndex",
+                                "position": 0
+                            },
+                            {
+                                "map_type": "ExpandedValue",
+                                "position": "hidden"
+                            }
+                        ]
+                    }
+                }
             ]
         },
         "selected_tables": [
@@ -1548,7 +1610,8 @@
             "ev_gridNode",
             "capacity",
             "unit__unittype",
-            "gnss_bound"
+            "gnss_bound",
+            "availability_ts"
         ],
         "table_options": {
             "CHAPOREV configurations": {},
@@ -1611,7 +1674,10 @@
             "ev_gridNode": {},
             "capacity": {},
             "unit__unittype": {},
-            "gnss_bound": {}
+            "gnss_bound": {},
+            "availability_ts": {
+                "row": 7
+            }
         },
         "table_types": {
             "capacity_ts": {
@@ -1771,6 +1837,47 @@
                 "13": "string",
                 "14": "string",
                 "15": "string"
+            },
+            "availability_ts": {
+                "0": "string",
+                "1": "float",
+                "2": "float",
+                "3": "float",
+                "4": "float",
+                "5": "float",
+                "6": "float",
+                "7": "float",
+                "8": "float",
+                "9": "float",
+                "10": "float",
+                "11": "float",
+                "12": "float",
+                "13": "float",
+                "14": "float",
+                "15": "float",
+                "16": "float",
+                "17": "float",
+                "18": "float",
+                "19": "float",
+                "20": "float",
+                "21": "float",
+                "22": "float",
+                "23": "float",
+                "24": "float",
+                "25": "float",
+                "26": "float",
+                "27": "float",
+                "28": "float",
+                "29": "float",
+                "30": "float",
+                "31": "float",
+                "32": "float",
+                "33": "float",
+                "34": "float",
+                "35": "float",
+                "36": "float",
+                "37": "float",
+                "38": "float"
             }
         },
         "table_default_column_type": {},
@@ -1779,6 +1886,9 @@
                 "1": "string"
             },
             "consumption_ts": {
+                "1": "string"
+            },
+            "availability_ts": {
                 "1": "string"
             }
         },

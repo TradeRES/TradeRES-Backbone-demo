@@ -39,6 +39,5 @@
         "output/results.gdx"
     ],
     "cmdline_args": [],
-    "execute_in_work": true,
     "includes_main_path": "../../../Backbone"
 }

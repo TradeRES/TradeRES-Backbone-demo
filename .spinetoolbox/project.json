@@ -158,14 +158,18 @@
                         "db_url@BB_Spine_DB_direct": {
                             "scenario_filter": {
                                 "H2-low-iberia": false,
-                                "VRE+flex+europe5": true,
+                                "VRE+flex+100thermaleurope5": false,
+                                "VRE+flex+50thermaleurope5": false,
+                                "VRE+flex+europe5": false,
                                 "VRE+flex+fossil-bio-out": false,
                                 "VRE+flex+fossil-out": false,
                                 "VRE+flex+thermal-out": false,
                                 "VRE+flex+thermal-out-margin": false,
-                                "VRE+flex-europe5": true,
-                                "VRE-flex+europe5": true,
-                                "VRE-flex-europe5": true,
+                                "VRE+flex-100thermaleurope5": false,
+                                "VRE+flex-50thermaleurope5": false,
+                                "VRE+flex-europe5": false,
+                                "VRE-flex+europe5": false,
+                                "VRE-flex-europe5": false,
                                 "base-europe5": true,
                                 "base-iberia": false,
                                 "buildings-low-iberia": false,
@@ -420,11 +424,15 @@
                         "db_url@BB_Spine_DB_direct": {
                             "scenario_filter": {
                                 "H2-low-iberia": false,
+                                "VRE+flex+100thermaleurope5": true,
+                                "VRE+flex+50thermaleurope5": true,
                                 "VRE+flex+europe5": true,
                                 "VRE+flex+fossil-bio-out": false,
                                 "VRE+flex+fossil-out": false,
                                 "VRE+flex+thermal-out": false,
                                 "VRE+flex+thermal-out-margin": false,
+                                "VRE+flex-100thermaleurope5": true,
+                                "VRE+flex-50thermaleurope5": true,
                                 "VRE+flex-europe5": true,
                                 "VRE-flex+europe5": true,
                                 "VRE-flex-europe5": true,
@@ -517,7 +525,8 @@
             "y": 100.29987479733208,
             "specification": "Backbone",
             "execute_in_work": true,
-            "cmd_line_args": []
+            "cmd_line_args": [],
+            "kill_completed_processes": false
         },
         "BB_sets": {
             "type": "Data Transformer",
@@ -564,7 +573,8 @@
             "y": 231.91082005700332,
             "specification": "Backbone_loop",
             "execute_in_work": true,
-            "cmd_line_args": []
+            "cmd_line_args": [],
+            "kill_completed_processes": false
         },
         "EV_data": {
             "type": "Data Connection",

@@ -121,7 +121,7 @@
                     "value": "node_emission"
                 },
                 {
-                    "map_type": "RelationshipClassObjectHighlightingMapping",
+                    "map_type": "RelationshipClass",
                     "position": "hidden",
                     "filter_re": "^grid__node$",
                     "highlight_dimension": 0
@@ -145,7 +145,7 @@
                     "ignorable": true
                 },
                 {
-                    "map_type": "RelationshipObjectHighlightingMapping",
+                    "map_type": "Relationship",
                     "position": "hidden"
                 },
                 {
@@ -505,7 +505,7 @@
                     "value": "grid__node_demand"
                 },
                 {
-                    "map_type": "RelationshipClassObjectHighlightingMapping",
+                    "map_type": "RelationshipClass",
                     "position": "hidden",
                     "filter_re": "^grid__node$",
                     "highlight_dimension": 1
@@ -529,7 +529,7 @@
                     "ignorable": true
                 },
                 {
-                    "map_type": "RelationshipObjectHighlightingMapping",
+                    "map_type": "Relationship",
                     "position": "hidden"
                 },
                 {

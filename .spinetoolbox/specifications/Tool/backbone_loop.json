@@ -9,12 +9,14 @@
         "defOutput/debugSymbols.inc",
         "defOutput/resultSymbols.inc",
         "cplex.opt",
-        "Backbone.gms"
+        "Backbone.gms",
+        "defOutput/resultSymbols_2x.inc"
     ],
     "description": "",
     "inputfiles": [
         "input/TradeRES/1_options.gms",
         "input/TradeRES/4d_postProcess_invest.gms",
+        "input/TradeRES/additionalSetsAndParameters.inc",
         "input/TradeRES/changes-invest.inc",
         "input/TradeRES/changes-schedule.inc",
         "input/TradeRES/cplex_invest.opt",

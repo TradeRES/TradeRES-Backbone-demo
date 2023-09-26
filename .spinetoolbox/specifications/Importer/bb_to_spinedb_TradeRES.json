@@ -3327,6 +3327,78 @@
                         ]
                     }
                 }
+            ],
+            "ts_emissionPriceChange": [
+                {
+                    "Mapping 1": {
+                        "mapping": [
+                            {
+                                "map_type": "RelationshipClass",
+                                "position": "hidden",
+                                "value": "group__emission"
+                            },
+                            {
+                                "map_type": "RelationshipClassObjectClass",
+                                "position": "hidden",
+                                "value": "group"
+                            },
+                            {
+                                "map_type": "RelationshipClassObjectClass",
+                                "position": "hidden",
+                                "value": "emission"
+                            },
+                            {
+                                "map_type": "Relationship",
+                                "position": "hidden",
+                                "value": "relationship"
+                            },
+                            {
+                                "map_type": "RelationshipObject",
+                                "position": 1,
+                                "import_objects": true
+                            },
+                            {
+                                "map_type": "RelationshipObject",
+                                "position": 0,
+                                "import_objects": true
+                            },
+                            {
+                                "map_type": "RelationshipMetadata",
+                                "position": "hidden"
+                            },
+                            {
+                                "map_type": "ParameterDefinition",
+                                "position": "hidden",
+                                "value": "emissionPriceChange"
+                            },
+                            {
+                                "map_type": "Alternative",
+                                "position": 2
+                            },
+                            {
+                                "map_type": "ParameterValueMetadata",
+                                "position": "hidden"
+                            },
+                            {
+                                "map_type": "ParameterValueType",
+                                "position": "hidden",
+                                "value": "map"
+                            },
+                            {
+                                "map_type": "IndexName",
+                                "position": "hidden"
+                            },
+                            {
+                                "map_type": "ParameterValueIndex",
+                                "position": -1
+                            },
+                            {
+                                "map_type": "ExpandedValue",
+                                "position": 3
+                            }
+                        ]
+                    }
+                }
             ]
         },
         "selected_tables": [
@@ -3374,7 +3446,8 @@
             "gnuGroup",
             "gn2nGroup",
             "gnGroup",
-            "sGroup"
+            "sGroup",
+            "ts_emissionPriceChange"
         ],
         "table_options": {
             "grid": {},
@@ -3437,7 +3510,8 @@
             "sGroup": {},
             "maxUnitCountcalculation": {},
             "Sheet1": {},
-            "Sheet2": {}
+            "Sheet2": {},
+            "ts_emissionPriceChange": {}
         },
         "table_types": {
             "p_groupReserves": {
@@ -39053,7 +39127,14 @@
                 "2": "string",
                 "3": "string",
                 "4": "string",
-                "5": "string"
+                "5": "string",
+                "6": "string",
+                "7": "string",
+                "8": "string",
+                "9": "string",
+                "10": "string",
+                "11": "string",
+                "12": "string"
             },
             "gn2nGroup": {
                 "0": "string",
@@ -39090,6 +39171,15 @@
                 "5": "string",
                 "6": "string",
                 "7": "string"
+            },
+            "ts_emissionPriceChange": {
+                "0": "string",
+                "1": "string",
+                "2": "string",
+                "3": "float",
+                "4": "string",
+                "5": "string",
+                "6": "string"
             }
         },
         "table_default_column_type": {

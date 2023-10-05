@@ -1,4 +1,4 @@
 [submodule "Backbone"]
 	path = Backbone
 	url = https://gitlab.vtt.fi/backbone/backbone.git
-	branch = TradeRES_v3
+	branch = TradeRES

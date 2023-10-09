@@ -560,7 +560,7 @@
                 "database": {
                     "type": "path",
                     "relative": true,
-                    "path": "BB_data.sqlite"
+                    "path": "BB_Spine_DB_direct_temp.sqlite"
                 }
             }
         },
@@ -631,7 +631,11 @@
                 "dialect": "sqlite",
                 "host": "",
                 "port": "",
-                "database": ""
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": "."
+                }
             }
         },
         "Merge_buildings": {
@@ -711,7 +715,7 @@
                 "database": {
                     "type": "path",
                     "relative": true,
-                    "path": "BB_results.sqlite"
+                    "path": "BB_results_temp.sqlite"
                 }
             }
         },

@@ -67,17 +67,17 @@
                 {
                     "type": "path",
                     "relative": true,
-                    "path": "Backbone/spineToolbox.json"
-                },
-                {
-                    "type": "path",
-                    "relative": true,
                     "path": ".spinetoolbox/specifications/Tool/common_db_to_bb_db.json"
                 },
                 {
                     "type": "path",
                     "relative": true,
                     "path": ".spinetoolbox/specifications/Tool/backbone_loop.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Tool/data_checks.json"
                 }
             ],
             "Exporter": [
@@ -85,11 +85,6 @@
                     "type": "path",
                     "relative": true,
                     "path": ".spinetoolbox/specifications/Exporter/export_toward_bb.json"
-                },
-                {
-                    "type": "path",
-                    "relative": true,
-                    "path": "Backbone/tools/exporttobb.json"
                 },
                 {
                     "type": "path",
@@ -105,6 +100,11 @@
                     "type": "path",
                     "relative": true,
                     "path": ".spinetoolbox/specifications/Exporter/export_data_overview.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Exporter/data_checks_exporter.json"
                 }
             ],
             "Data Transformer": [
@@ -112,16 +112,6 @@
                     "type": "path",
                     "relative": true,
                     "path": ".spinetoolbox/specifications/Data Transformer/rename_for_bb_db.json"
-                },
-                {
-                    "type": "path",
-                    "relative": true,
-                    "path": "Backbone/tools/Convert_to_Backbone_set_names.json"
-                },
-                {
-                    "type": "path",
-                    "relative": true,
-                    "path": "Backbone/tools/Convert_to_Bacbbone_parameter_names.json"
                 },
                 {
                     "type": "path",
@@ -398,6 +388,39 @@
                     },
                     "auto_online": true
                 }
+            },
+            {
+                "name": "from BB_Spine_DB_direct to Data_checks_exporter",
+                "from": [
+                    "BB_Spine_DB_direct",
+                    "left"
+                ],
+                "to": [
+                    "Data_checks_exporter",
+                    "bottom"
+                ]
+            },
+            {
+                "name": "from BB_results to Data_checks_exporter",
+                "from": [
+                    "BB_results",
+                    "left"
+                ],
+                "to": [
+                    "Data_checks_exporter",
+                    "left"
+                ]
+            },
+            {
+                "name": "from Data_checks_exporter to Data_checks",
+                "from": [
+                    "Data_checks_exporter",
+                    "right"
+                ],
+                "to": [
+                    "Data_checks",
+                    "left"
+                ]
             }
         ],
         "jumps": []
@@ -477,7 +500,7 @@
             "description": "",
             "x": -351.69200936107643,
             "y": 100.29987479733208,
-            "specification": "Backbone",
+            "specification": "",
             "execute_in_work": true,
             "cmd_line_args": [],
             "kill_completed_processes": false,
@@ -488,7 +511,7 @@
             "description": "",
             "x": 15.606411414672493,
             "y": 135.57048953809849,
-            "specification": "ToBackboneSets"
+            "specification": ""
         },
         "Export_to_BB": {
             "type": "Exporter",
@@ -497,12 +520,7 @@
             "y": 109.47173829158555,
             "output_time_stamps": false,
             "cancel_on_error": false,
-            "output_labels": [
-                {
-                    "in_label": "db_url@BB_sets",
-                    "out_label": "inputData.gdx"
-                }
-            ],
+            "output_labels": [],
             "specification": "ExportToBB"
         },
         "BB_Spine_DB_direct": {
@@ -672,12 +690,7 @@
             "y": 326.309819978646,
             "output_time_stamps": false,
             "cancel_on_error": true,
-            "output_labels": [
-                {
-                    "in_label": "db_url@BB_results",
-                    "out_label": "bb_results"
-                }
-            ],
+            "output_labels": [],
             "specification": "export_BB_results_to_Excel"
         },
         "BB_results": {
@@ -746,13 +759,29 @@
             "y": 300.40318483381304,
             "output_time_stamps": false,
             "cancel_on_error": true,
-            "output_labels": [
-                {
-                    "in_label": "db_url@BB_Spine_DB_direct",
-                    "out_label": "exported_db_url@BB_Spine_DB_direct"
-                }
-            ],
+            "output_labels": [],
             "specification": "Export_data_overview"
+        },
+        "Data_checks": {
+            "type": "Tool",
+            "description": "",
+            "x": 41.22156547381739,
+            "y": -48.85518870970951,
+            "specification": "Data_checks",
+            "execute_in_work": true,
+            "cmd_line_args": [],
+            "kill_completed_processes": false,
+            "log_process_output": false
+        },
+        "Data_checks_exporter": {
+            "type": "Exporter",
+            "description": "",
+            "x": -80.39924184728322,
+            "y": -49.66548715626237,
+            "output_time_stamps": false,
+            "cancel_on_error": true,
+            "output_labels": [],
+            "specification": "data_checks_exporter"
         }
     }
 }

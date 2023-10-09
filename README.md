@@ -14,16 +14,22 @@ This is a Spine Toolbox 'project' that uses the Backbone energy system optimizat
 2.	Change the current working directory to the location where you want to have the TradeRES Backbone demo repository.
 3.	Type `git clone https://github.com/TradeRES/TradeRES-Backbone-demo.git` and press enter.
 
-`git clone https://github.com/TradeRES/TradeRES-Backbone-demo.git`
+    ```
+    git clone https://github.com/TradeRES/TradeRES-Backbone-demo.git
+    ```
 
 4.	Change the current working directory to the newly added TradeRES-Backbone-demo directory.
 5.	Type `git submodule init` and press enter.
 
-`git submodule init`
+    ```
+    git submodule init
+    ```
 
 6.	Type `git submodule update` and press enter.
 
-`git submodule update`
+    ```
+    git submodule update
+    ```
 
 ## Upgrading
 
@@ -32,7 +38,9 @@ Spine Toolbox and this project are constantly evolving. To get the latest versio
 1.	Upgrade Spine Toolbox (see [instructions](https://github.com/spine-tools/Spine-Toolbox#installation)):
 2.	Upgrade this project by changing your current working directory to the TradeRES-Backbone-demo directory and running `git pull`.
 
-`git pull`
+    ```
+    git pull
+    ```
 
 ## Configuring and running the workflow
 
@@ -40,10 +48,10 @@ Spine Toolbox and this project are constantly evolving. To get the latest versio
 2.	Make sure Spine Toolbox knows where the local GAMS executable is (File -> Settings -> Tools). You may also want to limit the number of concurrent processes (File -> Settings -> Engine -> Maximum number of concurrent processes -> User defined limit: 2, for example).
 3.	Then, open this project from Spine Toolbox (File -> Open project...). The workflow is run from right to left. The inputs are on the right-hand side and the data store for the outputs is on the left-hand side. 
 4.	Configure the input Data Store **BB_Spine_DB_direct**: Select its icon in the *Design View* and in the *Data Store Properties*, select Dialect: sqlite. Choose a folder and name for the database or use the default. Then, click *New Spine db*.
-5.	Import database and scenario templates to the input Data Store: Open the **BB_Spine_DB_direct** Data Store in the DB Editor by double-clicking its icon (or by selecting its icon and clicking *Open editor...*). In the DB Editor, import the **database_template.json** file stored in the *data* folder (Menu -> Import...). Import also the **scenario_template.json** file from the same *data* folder (Menu -> Import...). Commit changes (Menu -> Commit...) and close the DB Editor.
+5.	Import database and scenario templates to the input Data Store: Open the **BB_Spine_DB_direct** Data Store in the DB Editor by double-clicking its icon (or by selecting its icon and clicking *Open editor...*). In the DB Editor, import the **database_template.json** file stored in the *Data* folder (Menu -> Import...). Import also the **scenario_template.json** file from the same *Data* folder (Menu -> Import...). Commit changes (Menu -> Commit...) and close the DB Editor.
 6.	Import data into the input Data Store: In the *Design View*, select the **BB_Excel_to_SpineDB** Importer icon. In the top bar of Spine Toolbox, click the *Selection* button next to *Execute*. To make sure that the data has been imported, double-click the **BB_Spine_DB_direct** Data Store icon and check that the DB Editor can show objects and parameter values.
 7.	Optional step to create another scenario where fossil units have been disabled: 
-    1.	Select the **BB_input_Excel** Data Connection icon. In the *Data Connection Properties*, click the plus icon next to *File paths*. Go to the *data* folder, copy-paste *empty_data.xlsx* to the same folder and rename the new file to *alternative_data.xlsx*. Back in the *Data Connection Properties*, double-click the *alternative_data.xlsx* file path to open the Excel file. Go to the *p_unit* worksheet. Copy the data below and paste it to cell A1. Save and close the *alternative_data.xlsx* file.
+    1.	Select the **BB_input_Excel** Data Connection icon. In the *Data Connection Properties*, click the plus icon next to *File paths*. Go to the *Data* folder, copy-paste *empty_data.xlsx* to the same folder and rename the new file to *alternative_data.xlsx*. Back in the *Data Connection Properties*, double-click the *alternative_data.xlsx* file path to open the Excel file. Go to the *p_unit* worksheet. Copy the data below and paste it to cell A1. After pasting, make sure cell A1 contains text *unit* (delete an empty row from the beginning if needed). Save and close the *alternative_data.xlsx* file.
 
     |unit|alternative|eff00|availability|investMIP|maxUnitCount|is_active|eff01|op00|op01|minUnitCount|unitCount|
     |:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|

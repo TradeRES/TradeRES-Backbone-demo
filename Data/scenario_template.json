@@ -1,0 +1,35 @@
+{
+    "alternatives": [
+        [
+            "Base",
+            "Base alternative"
+        ],
+        [
+            "base",
+            null
+        ],
+        [
+            "base-germany",
+            null
+        ]
+    ],
+    "scenarios": [
+        [
+            "base",
+            false,
+            ""
+        ]
+    ],
+    "scenario_alternatives": [
+        [
+            "base",
+            "base",
+            "base-germany"
+        ],
+        [
+            "base",
+            "base-germany",
+            null
+        ]
+    ]
+}

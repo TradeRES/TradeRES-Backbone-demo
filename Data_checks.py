@@ -20,7 +20,7 @@ else:
 
 print('Loading input data...')
 
-input_sheets    = ['transmission_capacities', 'storage_capacities', 'unit_node_parameters', 'ts_cf', 'flow_unit']
+input_sheets    = ['transmission_capacities', 'storage_capacities', 'unit_node_parameters', 'ts_cf', 'flow_unit', 'fuel_prices']
 inputs          = pd.read_excel('BB_Spine_DB_direct_exported@Data_checks_exporter.xlsx', sheet_name=input_sheets)
 # these tests assume that the wind-cf-variation alternative is not used NOT ANYMORE
 #inputs['ts_cf']         = pd.read_excel('TradeRES_base_data_powersystem.xlsx', sheet_name='ts_cf')
@@ -39,10 +39,10 @@ all_tests_passed = True
 failed_tests = {}
 
 # values over 100 mean that a capacity limit is violated (but some slack, app. 0.01 - 0.1 percent, is necessary)
-gen_cap_percent_limit       = 100.01
-state_percent_limit         = 100.01
-trans_cap_percent_limit     = 100.01
-cf_percent_limit            = 100.1
+gen_cap_percent_limit       = 100.05
+state_percent_limit         = 100.05
+trans_cap_percent_limit     = 100.05
+cf_percent_limit            = 100.05
 
 # if the problematic_data dataframe (created as input for the following tests) is empty, the test will pass.
 # Otherwise it will be added to failed_tests.
@@ -58,6 +58,9 @@ def test(problematic_data:pd.DataFrame, sheet_name:str):
 
 ################## Preliminary data manipulation
 
+# remove epsilon-sized investments
+results['unit_invest'] = results['unit_invest'].query('invested_capacity > 0.001').reset_index()
+
 # creating dummy columns for grid and node to be edited later (the unit_invest sheet does not contain either)
 results['unit_invest']['grid'] = 'dummy_grid'
 results['unit_invest']['node'] = 'dummy_node'
@@ -67,11 +70,17 @@ results['unit_invest'] = results['unit_invest'][['grid', 'node', 'unit', 'invest
 # add grid and node names to invested units (required for checking storage capacities)
 for row in results['unit_invest'].itertuples():
     if 'H2' in row.unit in row.unit or 'electrolyser' in row.unit:
-        results['unit_invest'].iloc[row.Index,0] = 'H2'
-        results['unit_invest'].iloc[row.Index,1] = f'{row.unit[:2]} H2'
+        results['unit_invest'].iloc[row.Index,0] = 'H2'                 # grid name
+        results['unit_invest'].iloc[row.Index,1] = f'{row.unit[:2]} H2' # node name
     elif 'Batteries New' in row.unit:
         results['unit_invest'].iloc[row.Index,0] = 'battery'
         results['unit_invest'].iloc[row.Index,1] = f'{row.unit[:2]} battery new'
+    elif 'Hydro' in row.unit:
+        results['unit_invest'].iloc[row.Index,0] = 'hydro'
+        results['unit_invest'].iloc[row.Index,1] = f'{row.unit[:2]} hydro'
+    elif 'PHS' in row.unit:
+        results['unit_invest'].iloc[row.Index,0] = 'pumped'
+        results['unit_invest'].iloc[row.Index,1] = f'{row.unit[:2]} ps'
     else:
         results['unit_invest'].iloc[row.Index,0] = 'elec'
         results['unit_invest'].iloc[row.Index,1] = f'{row.unit[:2]} elec'
@@ -115,7 +124,8 @@ test(units_with_gen_no_cap, 'genUnit_no_capacity')
 ############# TEST: energy from country-specific nodes and units only flows within the same country.
 
 # fuel nodes are not country-specific so they are removed from the next test
-fuel_nodes = ['Gas', 'H2', 'Hard Coal', 'Lignite', 'Nuclear', 'Oil', 'biofuel', 'waste', 'Synthetic methane']
+fuel_nodes = inputs['fuel_prices']['fuel']
+
 # a filter for finding the node-unit pairs with differing countries
 differing_countries = results['genUnit']['node'].str[0:2] != results['genUnit']['unit'].str[0:2]
 units_with_cross_country_gens = results['genUnit'].query('node not in @fuel_nodes').loc[differing_countries]
@@ -137,8 +147,8 @@ gen_with_cap = gen_with_cap.assign(gen_tot_cap_percent=lambda x: x.gen/x.tot_cap
 
 # create dataframe with the hours during which capacity limits are violated (this should be empty)
 genUnit_cap_violations = gen_with_cap.query('gen_tot_cap_percent > @gen_cap_percent_limit')
-genUnit_cap_violations = genUnit_cap_violations[['grid', 'node', 'unit', 'scen', 'existing_capacity', 'invested_capacity',
-                                                 'tot_capacity', 'timestep', 'gen', 'gen_tot_cap_percent']]
+genUnit_cap_violations = genUnit_cap_violations[['grid', 'node', 'unit', 'existing_capacity', 'invested_capacity',
+                                                 'tot_capacity', 'timestep', 'gen', 'gen_tot_cap_percent', 'scen']]
 
 print('Testing that all genUnit values do not exceed their capacity upper limits.')
 test(genUnit_cap_violations, 'genUnit_cap_violations')
@@ -178,53 +188,33 @@ test(cf_violations, 'cf_violations')
 
 ############### TEST: node states stay within storage capacity limits
 
-# get upper limit capacity ratios for h2 and batteries
-h2_upper_limit_capacity_ratio = inputs['unit_node_parameters'].query(
-    'upperLimitCapacityRatio > 0 and grid=="H2"')['upperLimitCapacityRatio'].values[0]
-bat_upper_limit_capacity_ratio = inputs['unit_node_parameters'].query(
-    'upperLimitCapacityRatio > 0 and grid=="battery"')['upperLimitCapacityRatio'].values[0]
+results['unit_invest'] = results['unit_invest'].query('invested_capacity > 0.001')
+upper_limit_capacity_ratios = inputs['unit_node_parameters'][['unit', 'upperLimitCapacityRatio']].query('upperLimitCapacityRatio.notna()')
+storage_investments = results['unit_invest'].merge(upper_limit_capacity_ratios, how='right').query('invested_capacity.notna()')
+storage_investments['invested_storage_cap'] = storage_investments['invested_capacity'] * storage_investments['upperLimitCapacityRatio']
+storage_investments = storage_investments.drop(['invested_capacity', 'upperLimitCapacityRatio', 'unit'], axis=1)
 
-# filter results['unit_invest'] for battery and h2 storage investments
-bat_storage_investments = results['unit_invest'].query('grid=="battery"').drop_duplicates(subset='invested_capacity').drop('unit', axis=1)
-# add impact of upper limit capacity ratios to invested storages (and call the resulting column upwardLimit like in the input data)
-bat_storage_investments['upwardLimit'] = bat_storage_investments['invested_capacity'] * bat_upper_limit_capacity_ratio
-# drop the invested_capacity column (it is just the invested capacity without the upper limit capacity ratio impact)
-bat_storage_investments = bat_storage_investments.drop('invested_capacity', axis=1)
+existing_storage_capacities = inputs['storage_capacities'].query('upwardLimit > 0.001')
+existing_storage_capacities = existing_storage_capacities.rename(columns={'upwardLimit':'existing_storage_cap'})
+all_storage_capacities = existing_storage_capacities.merge(storage_investments, on=['grid', 'node'], how='outer').fillna(0)
+all_storage_capacities = all_storage_capacities.assign(tot_storage_cap = lambda x: x.existing_storage_cap + x.invested_storage_cap)
 
-# same for h2
-h2_storage_investments = results['unit_invest'].query('grid=="H2" and unit.str.contains("storage")').drop('unit', axis=1)
-h2_storage_investments['upwardLimit'] = h2_storage_investments['invested_capacity'] * h2_upper_limit_capacity_ratio
-h2_storage_investments = h2_storage_investments.drop('invested_capacity', axis=1)
-
-# combine invested h2 and battery capacities as well as existing capacities together
-existing_storage_capacities = inputs['storage_capacities']
-all_storage_capacities = pd.concat([bat_storage_investments, h2_storage_investments, existing_storage_capacities])
-
-# add upwardLimits to results['nodeState']
-states_plus_upward_limits = results['nodeState'].merge(all_storage_capacities, how='left', on=['grid', 'node']).fillna(0)
-
-# add column including maximum realized state values over the year
-timestep_cols = states_plus_upward_limits.columns.drop(['grid', 'node', 'scen', 'upwardLimit'])
-states_plus_upward_limits['state_realized_max'] = states_plus_upward_limits[timestep_cols].max(axis=1)
+# add storage capacity data to results['nodeState']
+states_plus_upward_limits = results['nodeState'].merge(all_storage_capacities, how='outer', on=['grid', 'node']).fillna(0)
 
 # melt the timesteps into one column
 states_plus_upward_limits = states_plus_upward_limits.melt(
-                            id_vars=['grid', 'node', 'scen', 'upwardLimit', 'state_realized_max'],
+                            id_vars=['grid', 'node', 'scen', 'existing_storage_cap', 'invested_storage_cap', 'tot_storage_cap'],
                             var_name='timestep',
                             value_name='state')
 
 # add column for state value as percentage of total storage capacity
-states_plus_upward_limits = states_plus_upward_limits.assign(state_percent=lambda x: x.state/x.upwardLimit*100)
+states_plus_upward_limits = states_plus_upward_limits.assign(state_percent=lambda x: x.state/x.tot_storage_cap*100)
 
 # create the dataframe for testing
-state_cap_violations = states_plus_upward_limits.query(f'upwardLimit > 0 and state_percent > {state_percent_limit}')
-nodeState_columns_to_excel = ['grid', 'node', 'scen', 'state_realized_max', 'upwardLimit']
+state_cap_violations = states_plus_upward_limits.query(f'tot_storage_cap > 0 and state_percent > {state_percent_limit}')
 
-# to avoid too large output size, we limit output to one row per grid-node pair
-# state_cap_violations = state_cap_violations[nodeState_columns_to_excel].drop_duplicates(subset=['grid', 'node'])
-
-# add the percentage of storage/state capacity used
-state_cap_violations['state_cap_percent'] = state_cap_violations['state_realized_max']/state_cap_violations['upwardLimit'] * 100
+state_cap_violations = state_cap_violations[['grid', 'node', 'scen', 'timestep', 'state', 'existing_storage_cap', 'invested_storage_cap', 'tot_storage_cap', 'state_percent']]
 
 print('Testing that state values for nodes do not exceed storage capacity limits.')
 test(state_cap_violations, 'nodeState_cap_violations')
@@ -282,6 +272,8 @@ capacities_all_to_excel = capacities_all.merge(gen_sums_and_maxes, how='left', o
 capacities_all_to_excel['scen'] = results['genUnit']['scen'].values[0]
 
 units_with_cap_no_gen = capacities_all_to_excel.query('gen_sum.abs() < 0.01 and invested_capacity > 0')
+units_with_cap_no_gen = units_with_cap_no_gen[['grid', 'node', 'unit', 'existing_capacity',
+                                               'invested_capacity', 'tot_capacity', 'gen_sum', 'scen']]
 if len(units_with_cap_no_gen) > 0:
     print('\nWARNING: there are units with invested capacity but no generation.\n')
     for row in units_with_cap_no_gen.itertuples():
@@ -289,13 +281,12 @@ if len(units_with_cap_no_gen) > 0:
     print(f'\nPlease check them in the gnu_investments_no_gen sheet of data_checks_{scen_name}.xlsx.\n')
 
 
-
 ################# Create output
 
 if all_tests_passed:
-    print('Tests done. All tests passed!')
+    print('Tests done. All tests passed!\n')
 else:
-    print(f'Tests done: {len(failed_tests)} test(s) failed! See the sheet(s) failed_{list(failed_tests.keys())} in data_checks_{scen_name}.xlsx.')
+    print(f'Tests done: {len(failed_tests)} test(s) failed! See the sheet(s) failed_{list(failed_tests.keys())} in data_checks_{scen_name}.xlsx.\n')
 
 print(f'Writing data_checks_{scen_name}.xlsx.')
 
@@ -308,5 +299,5 @@ with pd.ExcelWriter(f'data_checks_{scen_name}.xlsx') as writer:
     capacities_all_to_excel.to_excel(writer, sheet_name='gnu_cap_gen_overview', index=False)
     if len(units_with_cap_no_gen) > 0:
         print('Creating sheet gnu_investments_no_gen...')
-        units_with_cap_no_gen.to_excel(writer, sheet_name='gnu_investments_no_gen')
+        units_with_cap_no_gen.to_excel(writer, sheet_name='gnu_investments_no_gen', index=False)
     print('\nAll done.\n')

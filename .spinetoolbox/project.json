@@ -341,8 +341,7 @@
                     "known_filters": {
                         "db_url@BB_results": {
                             "scenario_filter": {
-                                "VRE+flex-europe5": true,
-                                "VRE-flex-europe5": true
+                                "base": true
                             },
                             "tool_filter": {}
                         }
@@ -754,7 +753,7 @@
                 ],
                 [
                     "output/results-invest.gdx",
-                    true
+                    false
                 ],
                 [
                     "output/results.gdx",

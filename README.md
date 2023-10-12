@@ -31,6 +31,8 @@ This is a Spine Toolbox 'project' that uses the Backbone energy system optimizat
     git submodule update
     ```
 
+Note: If you are not using git, you can just download the source code (https://github.com/TradeRES/TradeRES-Backbone-demo.git) and unzip it to the location where you want to have it. To get the Backbone tool, go to https://gitlab.vtt.fi/backbone/backbone/-/tree/TradeRES, download the source code and unzip it to your newly created TradeRES-Backbone-demo-master/Backbone folder. Move the contents of the TradeRES-Backbone-demo-master/Backbone/backbone-TradeRES folder to TradeRES-Backbone-demo-master/Backbone.
+
 ## Upgrading
 
 Spine Toolbox and this project are constantly evolving. To get the latest versions, do the following:

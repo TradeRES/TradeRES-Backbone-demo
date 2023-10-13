@@ -83,6 +83,11 @@
                     "type": "path",
                     "relative": true,
                     "path": "Backbone/spineToolbox.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Tool/copy_output_files.json"
                 }
             ],
             "Exporter": [
@@ -438,6 +443,17 @@
                 ],
                 "to": [
                     "Data_checks",
+                    "left"
+                ]
+            },
+            {
+                "name": "from Backbone_loop to Copy_files",
+                "from": [
+                    "Backbone_loop",
+                    "bottom"
+                ],
+                "to": [
+                    "Copy_files",
                     "left"
                 ]
             }
@@ -805,6 +821,26 @@
                 }
             ],
             "specification": "data_checks_exporter"
+        },
+        "Copy_files": {
+            "type": "Tool",
+            "description": "",
+            "x": -305.86900281642903,
+            "y": 373.24102986850596,
+            "specification": "copy_output_files",
+            "execute_in_work": true,
+            "cmd_line_args": [
+                {
+                    "type": "resource",
+                    "arg": "output/results.gdx"
+                },
+                {
+                    "type": "resource",
+                    "arg": "output/debug-invest.gdx"
+                }
+            ],
+            "kill_completed_processes": false,
+            "log_process_output": false
         }
     }
 }

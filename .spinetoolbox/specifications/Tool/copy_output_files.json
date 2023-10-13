@@ -1,0 +1,13 @@
+{
+    "name": "copy_output_files",
+    "tooltype": "python",
+    "includes": [
+        "copy_output_files.py"
+    ],
+    "description": "",
+    "inputfiles": [],
+    "inputfiles_opt": [],
+    "outputfiles": [],
+    "cmdline_args": [],
+    "includes_main_path": "../../.."
+}

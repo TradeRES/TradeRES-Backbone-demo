@@ -22,9 +22,7 @@ print('Loading input data...')
 
 input_sheets    = ['transmission_capacities', 'storage_capacities', 'unit_node_parameters', 'ts_cf', 'flow_unit', 'fuel_prices']
 inputs          = pd.read_excel('BB_Spine_DB_direct_exported@Data_checks_exporter.xlsx', sheet_name=input_sheets)
-# these tests assume that the wind-cf-variation alternative is not used NOT ANYMORE
-#inputs['ts_cf']         = pd.read_excel('TradeRES_base_data_powersystem.xlsx', sheet_name='ts_cf')
-#flow_unit_links = pd.read_excel('TradeRES_base_data_powersystem.xlsx', sheet_name='flowUnit')
+
 print(f'\nRunning tests for scenario {scen_name}.\n')
 
 # renaming columns for convenience
@@ -158,10 +156,6 @@ test(genUnit_cap_violations, 'genUnit_cap_violations')
 
 # move timesteps of inputs['ts_cf'] (from TradeRES_base_data_powersystem.xlsx) to one column FIX THIS
 inputs['ts_cf'] = inputs['ts_cf'].drop('f', axis=1)
-#.melt(
-#    id_vars=['flow', 'node', 'alternative', 'forecast index'],
-#    var_name='timestep',
-#    value_name='cf')
 
 # create 'country' columns to both inputs['ts_cf'] and inputs['flow_unit'] to help with merging capacity factors with corresponding units
 inputs['ts_cf'] = inputs['ts_cf'].assign(country=lambda x: x.node.str[0:2])
@@ -275,7 +269,7 @@ units_with_cap_no_gen = capacities_all_to_excel.query('gen_sum.abs() < 0.01 and 
 units_with_cap_no_gen = units_with_cap_no_gen[['grid', 'node', 'unit', 'existing_capacity',
                                                'invested_capacity', 'tot_capacity', 'gen_sum', 'scen']]
 
-if len(units_with_cap_no_gen.query('~unit.str.contains("H2 storage")')) > 0: # len(units_with_cap_no_gen) > 0 and 
+if len(units_with_cap_no_gen.query('~unit.str.contains("H2 storage")')) > 0:
     print('\nWARNING: there are units with invested capacity but no generation.\n')
     for row in units_with_cap_no_gen.itertuples():
         if 'H2 storage' not in row.unit:

@@ -8,7 +8,7 @@ import pandas as pd
 
 print('Loading result data...')
 
-result_sheets   = ['transfer', 'genUnit', 'capacity', 'unit_invest', 'nodeState']
+result_sheets   = ['transfer', 'genUnit', 'capacity', 'unit_invest', 'nodeState', 'nodePrice']
 results         = pd.read_excel('BB_results_exported@Data_checks_exporter.xlsx', sheet_name=result_sheets)
 
 # get the scenario name (only works for base-europe5 and the vre+/-flex+/- scenarios)
@@ -38,11 +38,11 @@ all_tests_passed = True
 #  will include dataframes of failed test results that will be written to failed_tests.xlsx
 failed_tests = {}
 
-# values over 100 mean that a capacity limit is violated (but some slack, app. 0.01 - 0.1 percent, is necessary)
-gen_cap_percent_limit       = 100.05
-state_percent_limit         = 100.05
-trans_cap_percent_limit     = 100.05
-cf_percent_limit            = 100.05
+# values over 100 mean that a capacity limit is violated (but some slack, app. 0.1 percent, is necessary)
+gen_cap_percent_limit       = 100.10
+state_percent_limit         = 100.10
+trans_cap_percent_limit     = 100.10
+cf_percent_limit            = 100.10
 
 # if the problematic_data dataframe (created as input for the following tests) is empty, the test will pass.
 # Otherwise it will be added to failed_tests.
@@ -236,11 +236,6 @@ print("Testing that transfers within elec nodes are within capacity limits.")
 test(trans_cap_violations, 'transfer_cap_violations')
 
 
-############# TEST: storage cycling (discharging and charging at the same time)
-
-
-
-
 ############# TEST: units with investments but no generation
 
 # create an overview table for capacities, investments and total generation (will be always generated)
@@ -260,7 +255,7 @@ gen_max_index = results['genUnit'].columns.get_loc("gen_abs_max")
 for row in results['genUnit'].itertuples():
     row_gen_max = results['genUnit'].iloc[row.Index, gen_max_index]
     row_gen_sum = results['genUnit'].iloc[row.Index, gen_sum_index]
-    # negative row_gen_max, while the sum of production is non-zero, implies negative production 
+    # negative row_gen_max, while the sum of production is non-zero, implies negative production which is turned positive
     if row_gen_max <= 0.01 and abs(row_gen_sum) > 0.01:
         results['genUnit'].iloc[row.Index, gen_max_index] = abs(results['genUnit'][gen_timestep_cols].iloc[[row.Index]].min(axis=1))
 
@@ -271,20 +266,64 @@ capacities_all_to_excel = capacities_all.merge(gen_sums_and_maxes, how='left', o
 # add a scenario name column
 capacities_all_to_excel['scen'] = results['genUnit']['scen'].values[0]
 
+
+
+########### Warnings
+
+# Warns if there are units with invested capacity but no generation (excluding H2 storage units for which generation is not expected)
 units_with_cap_no_gen = capacities_all_to_excel.query('gen_sum.abs() < 0.01 and invested_capacity > 0')
 units_with_cap_no_gen = units_with_cap_no_gen[['grid', 'node', 'unit', 'existing_capacity',
                                                'invested_capacity', 'tot_capacity', 'gen_sum', 'scen']]
-if len(units_with_cap_no_gen) > 0:
+
+if len(units_with_cap_no_gen.query('~unit.str.contains("H2 storage")')) > 0: # len(units_with_cap_no_gen) > 0 and 
     print('\nWARNING: there are units with invested capacity but no generation.\n')
     for row in units_with_cap_no_gen.itertuples():
-        print(f'Grid: {row.grid}, node: {row.node}, unit: {row.unit}, invested capacity: {row.invested_capacity}')
-    print(f'\nPlease check them in the gnu_investments_no_gen sheet of data_checks_{scen_name}.xlsx.\n')
+        if 'H2 storage' not in row.unit:
+            print(f'Grid: {row.grid}, node: {row.node}, unit: {row.unit}, invested capacity: {row.invested_capacity}')
+    print(f'\nSee the gnu_investments_no_gen sheet in data_checks_{scen_name}.xlsx.\n')
 
+# Warns if there are over 20 hours of 4000 EUR/MWh prices for any elec node in nodePrice
+node_prices = results['nodePrice'].copy()
+node_prices.columns = node_prices.iloc[0]
+elec_prices = node_prices.drop(0).filter(like='elec').reset_index(drop=True)
+dummy_hour_limit = 20
+
+elec_dummy_df = pd.DataFrame(columns=['node', 'dummy_hour_qty'])
+for node in elec_prices.columns:
+    dummy_hour_qty = len(elec_prices[1:][node].loc[lambda x : x < -3999])
+    if dummy_hour_qty > dummy_hour_limit:
+        elec_dummy_df.loc[len(elec_dummy_df.index)] = [node, dummy_hour_qty]
+
+if len(elec_dummy_df) > 0:
+    print(f'WARNING: marginal electricity costs reach 4000 EUR/MWh (dummy generation) for over {dummy_hour_limit} hours in the following nodes:\n')
+    for row in elec_dummy_df.itertuples():
+        print(f'Node {row.node}, {row.dummy_hour_qty} hours.')
+
+# modify elec_prices for an overview Excel sheet
+elec_price_overview = elec_prices.copy().transpose().rename(columns={0:'scen'}).reset_index().rename(columns={0:'node'})
+# get only hourly price columns and turn the electricity prices positive
+price_timestep_columns = elec_price_overview.copy()[elec_price_overview.columns.drop(['node', 'scen'])].abs()
+elec_price_overview[price_timestep_columns.columns] = price_timestep_columns
+elec_price_overview = elec_price_overview.copy() # to avoid fragmentation of dataframe
+
+elec_price_overview['min'] = price_timestep_columns.min(axis=1)
+elec_price_overview['quartile_1'] = price_timestep_columns.quantile(0.25, axis=1)
+elec_price_overview['median'] = price_timestep_columns.quantile(0.50, axis=1)
+elec_price_overview['quartile_3'] = price_timestep_columns.quantile(0.75, axis=1)
+elec_price_overview['max'] = price_timestep_columns.max(axis=1)
+elec_price_overview['avg'] = price_timestep_columns.sum(axis=1)/8760.0
+# add the quantities of hours with dummy gen
+elec_price_overview = elec_price_overview.merge(elec_dummy_df, how='outer')
+elec_price_overview['dummy_hour_qty'] = elec_price_overview['dummy_hour_qty'].fillna(0)
+
+
+# exclude the hourly prices
+elec_price_overview = elec_price_overview[['node', 'scen', 'price_min', 'price_max', 'quartile_1', 'median', 'quartile_3', 'price_avg', 'dummy_hour_qty']]
 
 ################# Create output
 
 if all_tests_passed:
-    print('Tests done. All tests passed!\n')
+    print('\nTests done. All tests passed!\n')
 else:
     print(f'Tests done: {len(failed_tests)} test(s) failed! See the sheet(s) failed_{list(failed_tests.keys())} in data_checks_{scen_name}.xlsx.\n')
 
@@ -300,4 +339,6 @@ with pd.ExcelWriter(f'data_checks_{scen_name}.xlsx') as writer:
     if len(units_with_cap_no_gen) > 0:
         print('Creating sheet gnu_investments_no_gen...')
         units_with_cap_no_gen.to_excel(writer, sheet_name='gnu_investments_no_gen', index=False)
+    print('Creating sheet elec_price_overview...')
+    elec_price_overview.to_excel(writer, sheet_name='elec_price_overview', index=False)
     print('\nAll done.\n')

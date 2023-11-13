@@ -311,8 +311,8 @@ elec_price_overview = elec_price_overview.merge(elec_dummy_df, how='outer')
 elec_price_overview['dummy_hour_qty'] = elec_price_overview['dummy_hour_qty'].fillna(0)
 
 
-# exclude the hourly prices
-elec_price_overview = elec_price_overview[['node', 'scen', 'price_min', 'price_max', 'quartile_1', 'median', 'quartile_3', 'price_avg', 'dummy_hour_qty']]
+# reorder and exclude the hourly prices
+elec_price_overview = elec_price_overview[['node', 'scen', 'min', 'max', 'quartile_1', 'median', 'quartile_3', 'avg', 'dummy_hour_qty']]
 
 ################# Create output
 
